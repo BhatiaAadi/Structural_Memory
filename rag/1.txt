@@ -1,0 +1,13 @@
+NEO4J_URI = "neo4j+s://8b949258.databases.neo4j.io" # Or "bolt://localhost:7687"
+NEO4J_USER = "neo4j"
+NEO4J_PASSWORD = "d0NbdbmArKSLJNcCF5rnBjT-cLpYb0NStSgheyZHzdU"
+GOOGLE_API_KEY = "AIzaSyCaC8uBkcLkCYakBxY2BTj3XEltOEoFFhU"
+
+
+python3 -c "
+import google.generativeai as genai
+genai.configure(api_key='AIzaSyCaC8uBkcLkCYakBxY2BTj3XEltOEoFFhU')
+for m in genai.list_models():
+    if 'generateContent' in m.supported_generation_methods:
+        print(m.name)
+"
