@@ -1,0 +1,596 @@
+{
+  "meta": {
+    "total_nodes": 22,
+    "total_edges": 40,
+    "resolved_anchors": 0,
+    "unresolved": [
+      "sg_complexity",
+      "sg_recursion",
+      "sg_arrays",
+      "sg_pointers",
+      "sg_linked_list",
+      "sg_stack_queue",
+      "sg_hash_table",
+      "sg_bst",
+      "sg_heap",
+      "sg_sorting",
+      "sg_divide_conquer",
+      "sg_graphs",
+      "sg_bfs_dfs",
+      "sg_greedy",
+      "sg_dp",
+      "sg_balanced_trees",
+      "sg_shortest_path",
+      "sg_mst",
+      "sg_amortized",
+      "sg_advanced_graphs",
+      "sg_string_algo",
+      "sg_np"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "sg_complexity",
+      "name": "Asymptotic Complexity",
+      "tier": 1,
+      "sg_requires": [],
+      "kg_search_aliases": [
+        "asymptotic",
+        "big-o",
+        "big o",
+        "theta",
+        "omega",
+        "time complexity"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_recursion",
+      "name": "Recursion & Recurrences",
+      "tier": 1,
+      "sg_requires": [
+        "sg_complexity"
+      ],
+      "kg_search_aliases": [
+        "recursion",
+        "recurrence",
+        "master theorem",
+        "recursive"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_arrays",
+      "name": "Arrays & Dynamic Arrays",
+      "tier": 1,
+      "sg_requires": [],
+      "kg_search_aliases": [
+        "array",
+        "dynamic array",
+        "amortized",
+        "contiguous"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_pointers",
+      "name": "Pointers & Memory",
+      "tier": 1,
+      "sg_requires": [],
+      "kg_search_aliases": [
+        "pointer",
+        "memory",
+        "allocation",
+        "reference"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_linked_list",
+      "name": "Linked Lists",
+      "tier": 2,
+      "sg_requires": [
+        "sg_pointers"
+      ],
+      "kg_search_aliases": [
+        "linked list",
+        "singly linked",
+        "doubly linked",
+        "node pointer"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_stack_queue",
+      "name": "Stacks & Queues",
+      "tier": 2,
+      "sg_requires": [
+        "sg_arrays",
+        "sg_linked_list"
+      ],
+      "kg_search_aliases": [
+        "stack",
+        "queue",
+        "deque",
+        "lifo",
+        "fifo"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_hash_table",
+      "name": "Hash Tables",
+      "tier": 2,
+      "sg_requires": [
+        "sg_arrays",
+        "sg_complexity"
+      ],
+      "kg_search_aliases": [
+        "hash table",
+        "hash map",
+        "hashing",
+        "hash function",
+        "collision"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_bst",
+      "name": "Binary Search Trees",
+      "tier": 2,
+      "sg_requires": [
+        "sg_recursion",
+        "sg_pointers"
+      ],
+      "kg_search_aliases": [
+        "binary search tree",
+        "bst",
+        "search tree",
+        "tree traversal"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_heap",
+      "name": "Heaps & Priority Queues",
+      "tier": 2,
+      "sg_requires": [
+        "sg_arrays",
+        "sg_complexity"
+      ],
+      "kg_search_aliases": [
+        "heap",
+        "priority queue",
+        "max-heap",
+        "min-heap",
+        "heapify"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_sorting",
+      "name": "Sorting Algorithms",
+      "tier": 3,
+      "sg_requires": [
+        "sg_arrays",
+        "sg_recursion",
+        "sg_complexity"
+      ],
+      "kg_search_aliases": [
+        "sorting",
+        "mergesort",
+        "merge sort",
+        "quicksort",
+        "heapsort",
+        "comparison sort"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_divide_conquer",
+      "name": "Divide & Conquer",
+      "tier": 3,
+      "sg_requires": [
+        "sg_recursion",
+        "sg_sorting"
+      ],
+      "kg_search_aliases": [
+        "divide and conquer",
+        "divide-and-conquer",
+        "d&c",
+        "subproblem"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_graphs",
+      "name": "Graph Representations",
+      "tier": 3,
+      "sg_requires": [
+        "sg_arrays",
+        "sg_linked_list"
+      ],
+      "kg_search_aliases": [
+        "graph",
+        "adjacency list",
+        "adjacency matrix",
+        "directed graph",
+        "weighted graph"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_bfs_dfs",
+      "name": "BFS & DFS",
+      "tier": 3,
+      "sg_requires": [
+        "sg_graphs",
+        "sg_stack_queue"
+      ],
+      "kg_search_aliases": [
+        "breadth first search",
+        "depth first search",
+        "bfs",
+        "dfs",
+        "graph traversal"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_greedy",
+      "name": "Greedy Algorithms",
+      "tier": 3,
+      "sg_requires": [
+        "sg_sorting",
+        "sg_complexity"
+      ],
+      "kg_search_aliases": [
+        "greedy",
+        "greedy algorithm",
+        "activity selection",
+        "greedy choice"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_dp",
+      "name": "Dynamic Programming",
+      "tier": 3,
+      "sg_requires": [
+        "sg_recursion",
+        "sg_divide_conquer"
+      ],
+      "kg_search_aliases": [
+        "dynamic programming",
+        "dp",
+        "memoization",
+        "tabulation",
+        "optimal substructure"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_balanced_trees",
+      "name": "Balanced Trees",
+      "tier": 4,
+      "sg_requires": [
+        "sg_bst",
+        "sg_complexity"
+      ],
+      "kg_search_aliases": [
+        "red-black tree",
+        "avl tree",
+        "balanced tree",
+        "tree rotation",
+        "red black"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_shortest_path",
+      "name": "Shortest Path Algorithms",
+      "tier": 4,
+      "sg_requires": [
+        "sg_graphs",
+        "sg_heap",
+        "sg_greedy"
+      ],
+      "kg_search_aliases": [
+        "dijkstra",
+        "bellman-ford",
+        "bellman ford",
+        "shortest path",
+        "single source"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_mst",
+      "name": "Minimum Spanning Trees",
+      "tier": 4,
+      "sg_requires": [
+        "sg_graphs",
+        "sg_greedy",
+        "sg_heap"
+      ],
+      "kg_search_aliases": [
+        "minimum spanning tree",
+        "mst",
+        "kruskal",
+        "prim",
+        "spanning tree"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_amortized",
+      "name": "Amortized Analysis",
+      "tier": 4,
+      "sg_requires": [
+        "sg_complexity",
+        "sg_arrays"
+      ],
+      "kg_search_aliases": [
+        "amortized",
+        "amortized analysis",
+        "accounting method",
+        "potential function"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_advanced_graphs",
+      "name": "Advanced Graph Algorithms",
+      "tier": 4,
+      "sg_requires": [
+        "sg_bfs_dfs",
+        "sg_dp"
+      ],
+      "kg_search_aliases": [
+        "strongly connected",
+        "scc",
+        "topological sort",
+        "topological",
+        "max flow"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_string_algo",
+      "name": "String Algorithms",
+      "tier": 4,
+      "sg_requires": [
+        "sg_arrays",
+        "sg_dp"
+      ],
+      "kg_search_aliases": [
+        "string matching",
+        "kmp",
+        "knuth morris pratt",
+        "rabin-karp",
+        "pattern matching"
+      ],
+      "kg_anchor": null
+    },
+    {
+      "id": "sg_np",
+      "name": "NP-Completeness",
+      "tier": 4,
+      "sg_requires": [
+        "sg_greedy",
+        "sg_dp",
+        "sg_advanced_graphs"
+      ],
+      "kg_search_aliases": [
+        "np-complete",
+        "np completeness",
+        "np complete",
+        "reduction",
+        "p vs np"
+      ],
+      "kg_anchor": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sg_complexity",
+      "to": "sg_recursion",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_pointers",
+      "to": "sg_linked_list",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_arrays",
+      "to": "sg_stack_queue",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_linked_list",
+      "to": "sg_stack_queue",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_arrays",
+      "to": "sg_hash_table",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_complexity",
+      "to": "sg_hash_table",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_recursion",
+      "to": "sg_bst",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_pointers",
+      "to": "sg_bst",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_arrays",
+      "to": "sg_heap",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_complexity",
+      "to": "sg_heap",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_arrays",
+      "to": "sg_sorting",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_recursion",
+      "to": "sg_sorting",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_complexity",
+      "to": "sg_sorting",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_recursion",
+      "to": "sg_divide_conquer",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_sorting",
+      "to": "sg_divide_conquer",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_arrays",
+      "to": "sg_graphs",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_linked_list",
+      "to": "sg_graphs",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_graphs",
+      "to": "sg_bfs_dfs",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_stack_queue",
+      "to": "sg_bfs_dfs",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_sorting",
+      "to": "sg_greedy",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_complexity",
+      "to": "sg_greedy",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_recursion",
+      "to": "sg_dp",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_divide_conquer",
+      "to": "sg_dp",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_bst",
+      "to": "sg_balanced_trees",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_complexity",
+      "to": "sg_balanced_trees",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_graphs",
+      "to": "sg_shortest_path",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_heap",
+      "to": "sg_shortest_path",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_greedy",
+      "to": "sg_shortest_path",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_graphs",
+      "to": "sg_mst",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_greedy",
+      "to": "sg_mst",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_heap",
+      "to": "sg_mst",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_complexity",
+      "to": "sg_amortized",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_arrays",
+      "to": "sg_amortized",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_bfs_dfs",
+      "to": "sg_advanced_graphs",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_dp",
+      "to": "sg_advanced_graphs",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_arrays",
+      "to": "sg_string_algo",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_dp",
+      "to": "sg_string_algo",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_greedy",
+      "to": "sg_np",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_dp",
+      "to": "sg_np",
+      "type": "SG_REQUIRES"
+    },
+    {
+      "from": "sg_advanced_graphs",
+      "to": "sg_np",
+      "type": "SG_REQUIRES"
+    }
+  ]
+}
