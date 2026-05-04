@@ -498,5 +498,10 @@ python tutor-context.py
 This creates user `diana`, sets up her mastery profile, and generates a personalized Socratic response to "explain dynamic programming".
 
 ---
+## Model Links
 
+- **SFT**: https://huggingface.co/Aryan3it/Socratic_tutor_sft/tree/main
 
+- **DPO(Adapters)**: https://huggingface.co/Aryan3it/socratic-tutor-qwen2.5-7b_dpo_lora
+
+- **DPO(Full Model)**: https://huggingface.co/Aryan3it/socratic-tutor-qwen2.5-7b
