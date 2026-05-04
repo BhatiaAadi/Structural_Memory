@@ -149,6 +149,9 @@ We evaluate Structural Memory with three independent modules:
   - User JSONs that store per-node `mastery_score` and persist across sessions
   - Utilities to create/update a user graph
 
+- `Data_pipeline/` — Dataset generation and preprocessing pipeline
+  - Contains `data-pipeline.ipynb` for processing and preparing learning data
+
 - `rough-docs/` — Working notes and evaluation writeups
 
 - `docs/` — PDFs and report artifacts
