@@ -1,0 +1,398 @@
+[
+  {
+    "user_id": "U1",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_base_no_rag",
+    "model_label": "Qwen 2.5 7B (Base, No RAG)",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "response": "Sure! Can you recall what problem Dijkstra's algorithm is designed to solve?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "Sure! Can you recall what problem Dijkstra's algorithm is designed to solve?",
+        "reasoning": "The tutor's response does not name or reference any of the unmet prerequisites (Graph Representations, Heaps & Priority Queues, Greedy Algorithms)."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Sure! Can you recall what problem Dijkstra's algorithm is designed to solve?",
+        "reasoning": "The response does not contain any substantive explanation of a prerequisite topic; instead, it asks a question."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Sure! Can you recall what problem Dijkstra's algorithm is designed to solve?",
+        "reasoning": "The tutor correctly defers the explanation of the target topic by asking a probing question instead of providing a full explanation."
+      }
+    },
+    "score": 0.333,
+    "passed": 1,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T03:34:49.978627"
+  },
+  {
+    "user_id": "U2",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_base_no_rag",
+    "model_label": "Qwen 2.5 7B (Base, No RAG)",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "response": "Can you start by giving an example of a problem where dynamic programming might be useful? Think about problems that involve optimization over time or subproblems.",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "Can you start by giving an example of a problem where dynamic programming might be useful? Think about problems that involve optimization over time or subproblems.",
+        "reasoning": "The tutor's response does not explicitly name or reference either of the unmet prerequisites, 'Recursion & Recurrences' or 'Divide & Conquer'."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Can you start by giving an example of a problem where dynamic programming might be useful?",
+        "reasoning": "The response does not contain any substantive explanation of a prerequisite; instead, it immediately engages the student on the target topic."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Can you start by giving an example of a problem where dynamic programming might be useful? Think about problems that involve optimization over time or subproblems.",
+        "reasoning": "The tutor correctly deferred the explanation of the target topic by asking a probing question instead of providing a direct answer, which is appropriate given the student's unmet prerequisites."
+      }
+    },
+    "score": 0.333,
+    "passed": 1,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T03:35:09.694605"
+  },
+  {
+    "user_id": "U3",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_base_no_rag",
+    "model_label": "Qwen 2.5 7B (Base, No RAG)",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Red-Black Trees",
+    "response": "What characteristics do you think a Red-Black Tree should have to maintain balance while allowing efficient operations?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "What characteristics do you think a Red-Black Tree should have to maintain balance while allowing efficient operations?",
+        "reasoning": "The response does not explicitly name or reference either of the unmet prerequisites, \"Binary Search Trees\" or \"Asymptotic Complexity\"."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "What characteristics do you think a Red-Black Tree should have to maintain balance while allowing efficient operations?",
+        "reasoning": "The response does not contain any substantive explanation of a prerequisite topic; instead, it asks a question about the target topic."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "What characteristics do you think a Red-Black Tree should have to maintain balance while allowing efficient operations?",
+        "reasoning": "The tutor completely deferred the explanation of the target topic by asking a question instead of providing information, which is an appropriate response given the unmet prerequisites."
+      }
+    },
+    "score": 0.333,
+    "passed": 1,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T03:35:29.762451"
+  },
+  {
+    "user_id": "U4",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_base_no_rag",
+    "model_label": "Qwen 2.5 7B (Base, No RAG)",
+    "target_name": "BFS & DFS",
+    "target_question": "How does BFS work?",
+    "response": "Can you describe how a breadth-first search explores a graph or tree starting from a given node? What is the first action it takes after visiting a node?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "Can you describe how a breadth-first search explores a graph or tree starting from a given node? What is the first action it takes after visiting a node?",
+        "reasoning": "The tutor's response does not mention or reference either of the unmet prerequisites, 'Graph Representations' or 'Stacks & Queues'."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Can you describe how a breadth-first search explores a graph or tree starting from a given node?",
+        "reasoning": "The tutor does not provide any explanation and instead immediately asks a question about the target topic, failing to address the unmet prerequisites first."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Can you describe how a breadth-first search explores a graph or tree starting from a given node? What is the first action it takes after visiting a node?",
+        "reasoning": "The tutor completely deferred the explanation of the target topic by asking a question instead of providing an answer."
+      }
+    },
+    "score": 0.333,
+    "passed": 1,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T03:35:50.668924"
+  },
+  {
+    "user_id": "U5",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_base_no_rag",
+    "model_label": "Qwen 2.5 7B (Base, No RAG)",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "response": "Sure, let's start by understanding what problem Dijkstra's algorithm solves. Can you think of a real-world scenario where finding the shortest path between two points is crucial?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "Sure, let's start by understanding what problem Dijkstra's algorithm solves. Can you think of a real-world scenario where finding the shortest path between two points is crucial?",
+        "reasoning": "The response does not mention 'Heaps & Priority Queues' or any related concepts, failing to name the missing prerequisite."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Sure, let's start by understanding what problem Dijkstra's algorithm solves. Can you think of a real-world scenario where finding the shortest path between two points is crucial?",
+        "reasoning": "The response does not contain any substantive explanation of a prerequisite; instead, it asks a question about the target topic's application."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Sure, let's start by understanding what problem Dijkstra's algorithm solves. Can you think of a real-world scenario where finding the shortest path between two points is crucial?",
+        "reasoning": "The tutor correctly defers the explanation of the algorithm by first asking a high-level conceptual question instead of diving into the technical details for which the student lacks prerequisites."
+      },
+      "C4": {
+        "pass": false,
+        "evidence": "Sure, let's start by understanding what problem Dijkstra's algorithm solves. Can you think of a real-world scenario where finding the shortest path between two points is crucial?",
+        "reasoning": "The response does not reference any of the student's known topics, such as Greedy Algorithms or Graph Representations, to frame the explanation."
+      }
+    },
+    "score": 0.25,
+    "passed": 1,
+    "applicable": 4,
+    "specificity": false,
+    "key_gap": "sg_heap",
+    "timestamp": "2026-05-03T03:36:17.226477"
+  },
+  {
+    "user_id": "U6",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_base_no_rag",
+    "model_label": "Qwen 2.5 7B (Base, No RAG)",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "response": "Dynamic programming is a method for solving complex problems by breaking them down into simpler subproblems, solving each subproblem only once, and storing their solutions using a memory-based data structure. This approach is particularly useful when the problem has overlapping subproblems and optimal substructure properties. Can you think of an example where these characteristics might apply?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "Dynamic programming is a method for solving complex problems by breaking them down into simpler subproblems, solving each subproblem only once, and storing their solutions using a memory-based data structure. This approach is particularly useful when the problem has overlapping subproblems and optimal substructure properties. Can you think of an example where these characteristics might apply?",
+        "reasoning": "The response does not explicitly name the unmet prerequisite 'Divide & Conquer'."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Dynamic programming is a method for solving complex problems by breaking them down into simpler subproblems...",
+        "reasoning": "The response immediately begins explaining the target topic, Dynamic Programming, without first addressing the unmet prerequisite of Divide & Conquer."
+      },
+      "C3": {
+        "pass": false,
+        "evidence": "Dynamic programming is a method for solving complex problems by breaking them down into simpler subproblems, solving each subproblem only once, and storing their solutions using a memory-based data structure.",
+        "reasoning": "The tutor provides a full, textbook definition of the target topic without deferring the explanation or addressing the unmet prerequisite."
+      },
+      "C4": {
+        "pass": true,
+        "evidence": "breaking them down into simpler subproblems",
+        "reasoning": "The response builds upon the student's knowledge of recursion by describing dynamic programming as a method of breaking down problems into subproblems."
+      }
+    },
+    "score": 0.25,
+    "passed": 1,
+    "applicable": 4,
+    "specificity": false,
+    "key_gap": "sg_divide_conquer",
+    "timestamp": "2026-05-03T03:36:48.025217"
+  },
+  {
+    "user_id": "U7",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_base_no_rag",
+    "model_label": "Qwen 2.5 7B (Base, No RAG)",
+    "target_name": "BFS & DFS",
+    "target_question": "Explain BFS",
+    "response": "Can you describe how Breadth-First Search (BFS) explores nodes in a graph? Think about how it starts and how it moves from one node to another.",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "Can you describe how Breadth-First Search (BFS) explores nodes in a graph? Think about how it starts and how it moves from one node to another.",
+        "reasoning": "The tutor's response does not mention the unmet prerequisite 'Stacks & Queues' in any way."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Can you describe how Breadth-First Search (BFS) explores nodes in a graph?",
+        "reasoning": "The response does not contain any explanation; instead, it immediately asks a question about the target topic without first addressing the unmet prerequisite."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Can you describe how Breadth-First Search (BFS) explores nodes in a graph? Think about how it starts and how it moves from one node to another.",
+        "reasoning": "The tutor correctly defers the explanation of the target topic by asking a probing question instead of providing a direct answer, which is the appropriate action given the unmet prerequisite."
+      },
+      "C4": {
+        "pass": true,
+        "evidence": "...explores nodes in a graph?",
+        "reasoning": "The response directly references the concept of a 'graph,' which is a topic the student has already mastered."
+      }
+    },
+    "score": 0.5,
+    "passed": 2,
+    "applicable": 4,
+    "specificity": false,
+    "key_gap": "sg_stack_queue",
+    "timestamp": "2026-05-03T03:37:15.561091"
+  },
+  {
+    "user_id": "U8",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_base_no_rag",
+    "model_label": "Qwen 2.5 7B (Base, No RAG)",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Balanced Trees",
+    "response": "Balanced trees are data structures designed to maintain balance during insertions and deletions to ensure efficient operations. What characteristic of balanced trees helps in maintaining these efficiencies?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "Balanced trees are data structures designed to maintain balance during insertions and deletions to ensure efficient operations. What characteristic of balanced trees helps in maintaining these efficiencies?",
+        "reasoning": "The response does not mention the unmet prerequisite 'Binary Search Trees' at all."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Balanced trees are data structures designed to maintain balance during insertions and deletions to ensure efficient operations.",
+        "reasoning": "The tutor's first explanation is about the target topic, \"Balanced Trees,\" instead of the unmet prerequisite, \"Binary Search Trees.\""
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Balanced trees are data structures designed to maintain balance during insertions and deletions to ensure efficient operations.",
+        "reasoning": "The tutor provides a very brief, high-level definition but does not fully explain the topic, which is the correct behavior when a prerequisite is missing."
+      },
+      "C4": {
+        "pass": false,
+        "evidence": "Balanced trees are data structures designed to maintain balance during insertions and deletions to ensure efficient operations.",
+        "reasoning": "The response provides a generic definition and does not explicitly reference or build upon any of the student's known topics, such as connecting 'efficient operations' to 'Asymptotic Complexity'."
+      }
+    },
+    "score": 0.25,
+    "passed": 1,
+    "applicable": 4,
+    "specificity": false,
+    "key_gap": "sg_bst",
+    "timestamp": "2026-05-03T03:37:43.327526"
+  },
+  {
+    "user_id": "U9",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_base_no_rag",
+    "model_label": "Qwen 2.5 7B (Base, No RAG)",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "response": "Can you recall what the main goal of Dijkstra's algorithm is?",
+    "checks": {
+      "C4": {
+        "pass": false,
+        "evidence": "Can you recall what the main goal of Dijkstra's algorithm is?",
+        "reasoning": "The response is a simple question that does not reference or build upon any of the student's known topics like Greedy Algorithms, Heaps, or Graph Representations."
+      },
+      "C5": {
+        "pass": true,
+        "evidence": "Can you recall what the main goal of Dijkstra's algorithm is?",
+        "reasoning": "The response is a question and does not re-explain any of the known prerequisite topics."
+      }
+    },
+    "score": 0.5,
+    "passed": 1,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T03:37:55.413109"
+  },
+  {
+    "user_id": "U10",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_base_no_rag",
+    "model_label": "Qwen 2.5 7B (Base, No RAG)",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "response": "Can you think of a real-world problem where you might use dynamic programming? What makes this approach useful in such scenarios?",
+    "checks": {
+      "C4": {
+        "pass": false,
+        "evidence": "Can you think of a real-world problem where you might use dynamic programming? What makes this approach useful in such scenarios?",
+        "reasoning": "The response does not reference or build upon any of the student's known topics, such as Recursion or Divide & Conquer, which are highly relevant to Dynamic Programming."
+      },
+      "C5": {
+        "pass": true,
+        "evidence": "Can you think of a real-world problem where you might use dynamic programming? What makes this approach useful in such scenarios?",
+        "reasoning": "The response does not re-explain any of the known topics; it immediately engages the student with the new concept."
+      }
+    },
+    "score": 0.5,
+    "passed": 1,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T03:38:06.984282"
+  },
+  {
+    "user_id": "U11",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_base_no_rag",
+    "model_label": "Qwen 2.5 7B (Base, No RAG)",
+    "target_name": "BFS & DFS",
+    "target_question": "Explain BFS",
+    "response": "Sure! Breadth-First Search (BFS) is a fundamental algorithm used for traversing or searching tree or graph data structures. It starts at the root node (or an arbitrary starting node in the case of a graph) and explores all of the neighbor nodes at the present depth prior to moving on to nodes at the next depth level.\n\nHere’s how you might describe it step-by-step:\n1. Start at the source node.\n2. Visit all the neighbors of the current node before moving to any of their neighbors.\n3. Use a queue to keep track of the order in which nodes are visited.\n\nCan you think about why we use a queue in BFS?",
+    "checks": {
+      "C4": {
+        "pass": true,
+        "evidence": "Use a queue to keep track of the order in which nodes are visited.",
+        "reasoning": "The response explicitly mentions using a queue, which is a concept the student has already mastered, to explain the BFS algorithm."
+      },
+      "C5": {
+        "pass": true,
+        "evidence": "The response mentions 'graph data structures' and using a 'queue' without defining or re-explaining these concepts.",
+        "reasoning": "The tutor correctly assumes the student's prior knowledge of graphs and queues, mentioning them only as necessary components of the BFS algorithm without providing basic definitions."
+      }
+    },
+    "score": 1.0,
+    "passed": 2,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T03:38:21.307331"
+  },
+  {
+    "user_id": "U12",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_base_no_rag",
+    "model_label": "Qwen 2.5 7B (Base, No RAG)",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Balanced Trees",
+    "response": "What characteristics do you think a balanced tree should have to ensure efficient operations?",
+    "checks": {
+      "C4": {
+        "pass": true,
+        "evidence": "efficient operations",
+        "reasoning": "The phrase 'efficient operations' directly references the known topic of 'Asymptotic Complexity' by prompting the student to consider the performance characteristics of the data structure."
+      },
+      "C5": {
+        "pass": true,
+        "evidence": "What characteristics do you think a balanced tree should have to ensure efficient operations?",
+        "reasoning": "The response is a question and does not re-explain any of the topics the student has already mastered."
+      }
+    },
+    "score": 1.0,
+    "passed": 2,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T03:38:34.383592"
+  }
+]

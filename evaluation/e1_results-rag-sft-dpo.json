@@ -1,0 +1,1190 @@
+[
+  {
+    "user_id": "U1",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "response": "Hi there! Let's start by making sure you have a good understanding of some basics first. One important part is knowing how we represent graphs. Can you tell me what a graph looks like? Think about it as a network of points connected by lines. These points are called nodes or vertices, and the lines connecting them are edges. How would you describe a simple graph?\n\nOnce you're comfortable with graph representation, let's move on to something else essential for our discussion today—priority queues. Imagine you have a bunch of tasks to do, but some are more urgent than others. You'd want to tackle the most urgent one first, right? That's what a priority queue does—it keeps items sorted so the most important (or least \"weighted\" in this case) item can be accessed quickly. \n\nNow, imagine you’re trying to find the fastest way to get from your house to different places around town. Each street has a certain speed limit (think of these as weights). To help us figure out the best route, we use algorithms like Dijkstra’s algorithm. This algorithm helps us find the shortest path from a starting point (like your house) to all other locations.\n\nDijkstra’s algorithm works similarly to how you might plan your route using a map app. It starts at your house and then considers each possible next step (street) and chooses the quickest one. But here’s a twist—once a location is visited, its distance from your house is fixed because you’ve already checked all possible routes to it!\n\nLet's break down the steps of Dijkstra’s algorithm:\n1. Start at the beginning (your house).\n2. Look at all the streets (edges) leading from your current location (vertex) and pick the shortest one.\n3. Mark this street as visited and update the distances to any new locations reached.\n4. Repeat until you've visited all places (vertices).\n\nCan you think of why marking a place as visited is important in Dijkstra’s algorithm?",
+    "checks": {
+      "C1": {
+        "pass": true,
+        "evidence": "One important part is knowing how we represent graphs. ... Once you're comfortable with graph representation, let's move on to something else essential for our discussion today—priority queues.",
+        "reasoning": "The tutor explicitly names two of the unmet prerequisites: 'graph representation' and 'priority queues'."
+      },
+      "C2": {
+        "pass": true,
+        "evidence": "Hi there! Let's start by making sure you have a good understanding of some basics first. One important part is knowing how we represent graphs. Can you tell me what a graph looks like?",
+        "reasoning": "The tutor's first substantive explanation is about the prerequisite topic 'Graph Representations', correctly addressing this knowledge gap before explaining the target topic."
+      },
+      "C3": {
+        "pass": false,
+        "evidence": "Let's break down the steps of Dijkstra’s algorithm:\n1. Start at the beginning (your house).\n2. Look at all the streets (edges) leading from your current location (vertex) and pick the shortest one.\n3. Mark this street as visited and update the distances to any new locations reached.\n4. Repeat until you've visited all places (vertices).",
+        "reasoning": "The tutor provides a complete, albeit simplified, step-by-step explanation of the target algorithm instead of deferring it until the prerequisite knowledge gaps are addressed."
+      }
+    },
+    "score": 0.667,
+    "passed": 2,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-02T23:59:34.521899"
+  },
+  {
+    "user_id": "U5",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "response": "Hello U5! Let's start by making sure we have all the tools we need to understand Dijkstra's algorithm. One important tool is something called \"Heaps or Priority Queues.\" Think of it like a special line for people who need to get to their destination quickly—like being first in line for the fastest roller coaster!\n\nImagine you're planning a trip where you want to find the quickest way to reach different cities starting from your home city. You know the distances between each pair of cities, but some roads might be faster than others depending on traffic or road conditions. How would you plan this trip?\n\nTo make things simpler, let’s use heaps or priority queues as our helper. These help us keep track of which city we should visit next based on how close they are to our starting point, just like how you’d choose the closest friend when you’re about to leave for a playdate!\n\nNow, let’s dive into Dijkstra’s algorithm using this idea. Imagine you’re trying to find the shortest path from your house to all the other houses in your neighborhood. Here’s how you can think about it step-by-step:\n\n1. **Start Point**: Pick your house as the starting point. This is your source.\n\n2. **Distance Tracking**: Keep track of the distance from your house to each other house. Initially, everything except your own house is far away (let’s say infinity).\n\n3. **Closest Neighbor First**: Find the nearest neighbor from your current position and mark its distance as discovered. Then update the distances to any other neighbors of this newly discovered house if there’s a shorter route through this house.\n\n4. **Repeat**: Repeat steps 2 and 3 until you’ve visited everyone in the neighborhood or found the shortest routes to all houses.\n\nLet’s see how this works with a small example. Suppose you have three houses: House A (your house), House B, and House C. The distances are as follows:\n- From A to B: 5 units\n- From A to C: 10 units\n- From B to C: 2 units\n\nUsing Dijkstra’s method, you start at A and then check the closest neighbor, which is B. Since going directly to B is cheaper (5 units) than to C (which would cost 10 + 7 = 17 units via A), you mark B as discovered and update C’s distance to 7 units (through B). Next, you move to C since it’s now closer. But since the direct distance from A to C was already less, you don’t change anything.\n\nWould you like to practice this with a few more examples?",
+    "checks": {
+      "C1": {
+        "pass": true,
+        "evidence": "One important tool is something called \"Heaps or Priority Queues.\"",
+        "reasoning": "The tutor explicitly names the unmet prerequisite \"Heaps or Priority Queues\" at the beginning of its response."
+      },
+      "C2": {
+        "pass": true,
+        "evidence": "Let's start by making sure we have all the tools we need to understand Dijkstra's algorithm. One important tool is something called 'Heaps or Priority Queues.' Think of it like a special line for people who need to get to their destination quickly—like being first in line for the fastest roller coaster!",
+        "reasoning": "The response's first substantive explanation is about the unmet prerequisite 'Heaps & Priority Queues', which it introduces before explaining the target topic."
+      },
+      "C3": {
+        "pass": false,
+        "evidence": "Now, let’s dive into Dijkstra’s algorithm using this idea. Imagine you’re trying to find the shortest path from your house to all the other houses in your neighborhood. Here’s how you can think about it step-by-step: ... Let’s see how this works with a small example.",
+        "reasoning": "The tutor provided a complete step-by-step explanation and a worked example for the target topic, failing to defer or make the explanation incomplete as required by the unmet prerequisite."
+      },
+      "C4": {
+        "pass": false,
+        "evidence": "The entire response explains Dijkstra's algorithm, which is a greedy algorithm, but never uses the term 'greedy' or otherwise explicitly connects the explanation to the student's known topic of 'Greedy Algorithms'.",
+        "reasoning": "The response fails to explicitly connect the mechanics of Dijkstra's algorithm to the concept of 'Greedy Algorithms,' a topic the student has mastered, missing a key opportunity to build on prior knowledge."
+      }
+    },
+    "score": 0.5,
+    "passed": 2,
+    "applicable": 4,
+    "specificity": true,
+    "key_gap": "sg_heap",
+    "timestamp": "2026-05-03T00:00:14.353574"
+  },
+  {
+    "user_id": "U9",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "response": "Sure! Let’s start by understanding what Dijkstra's algorithm does. Imagine you have a map of cities connected by roads, where each road has a certain distance. Your goal is to find the shortest route from your home city to every other city in the map. That’s exactly what Dijkstra's algorithm helps us do!\n\nNow, let’s break it down step-by-step using a simple analogy. Think of each city as a point or node, and the roads between cities as edges connecting these points. The distances on the roads are like weights assigned to these edges.\n\n### Step-by-Step Breakdown\n\n1. **Starting Point**: You start from your home city, which we can call City A. This is our starting point or \"source\" in the graph.\n\n2. **Distance Tracking**: We keep track of how far we think we need to travel from City A to reach each city. At first, we don’t know the exact distances, so initially, we assume everything is very far away except for our starting point, which is zero.\n\n3. **Exploring Neighbors**: From your starting point, you look at all the neighboring cities (cities directly connected by roads). You calculate the total distance to each neighbor if you were to go there through your current city. If this new path is shorter than any previously known path, you update the distance.\n\n4. **Marking Visited Cities**: Once you’ve explored a city, you mark it as visited so you don’t revisit it again. This saves time because once you’re done exploring a city, you won’t change its distance anymore.\n\n5. **Repeat Until All Cities Are Reached**: You continue this process—exploring neighbors, updating distances, and marking cities until you’ve looked at all the cities in the map.\n\n### Addressing Misconceptions\n\n- **Negative Weights**: In real life, negative numbers might represent things like tolls or fees that make some routes more expensive. However, Dijkstra’s algorithm doesn’t work well with negative weights because it assumes that the best path always gets better as you move closer to the destination. For handling negative weights, we would use different algorithms like Bellman-Ford.\n\n- **Complexity**: Sometimes people think Dijkstra’s algorithm is complicated. But remember, it’s just about keeping track of the shortest path to each city and updating those paths as you discover better ways to get there. It’s like solving a puzzle piece by piece!\n\nWould you like to try a small example together? I’ll walk you through it step-by-step.",
+    "checks": {
+      "C4": {
+        "pass": true,
+        "evidence": "Think of each city as a point or node, and the roads between cities as edges connecting these points. The distances on the roads are like weights assigned to these edges.",
+        "reasoning": "The response builds upon the student's knowledge of 'Graph Representations' by using its core terminology (node, edge, weights) as a foundation for the explanation."
+      },
+      "C5": {
+        "pass": true,
+        "evidence": "The response explains Dijkstra's algorithm using a high-level analogy of cities and roads, and a step-by-step breakdown of the process, without defining or re-explaining any of the known prerequisite topics like Graph Representations, Heaps, or Greedy Algorithms.",
+        "reasoning": "The tutor successfully avoids re-teaching any of the concepts the student already knows, providing a conceptual overview of the target topic itself."
+      }
+    },
+    "score": 1.0,
+    "passed": 2,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:00:37.531474"
+  },
+  {
+    "user_id": "U1",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "response": "That's a good question to explore! Before we dive into Dijkstra's algorithm specifically, let's think about how you might find the quickest way home if your parents told you it was the shortest path.\n\nImagine they gave you a map showing different routes from your house to grandma's house, but some roads had numbers on them indicating how long each road segment takes. How would you decide which route is actually the fastest?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "Imagine they gave you a map showing different routes from your house to grandma's house, but some roads had numbers on them indicating how long each road segment takes.",
+        "reasoning": "The tutor's response uses an analogy related to graphs but does not explicitly name any of the unmet prerequisites (Graph Representations, Heaps & Priority Queues, Greedy Algorithms)."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "The entire response is an analogy and a question to the student, without providing any substantive explanation of either a prerequisite or the target topic.",
+        "reasoning": "The response uses an analogy to set up the problem but does not provide a substantive explanation of any prerequisite concept before asking the student a question."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Before we dive into Dijkstra's algorithm specifically, let's think about how you might find the quickest way home...",
+        "reasoning": "The tutor explicitly defers the explanation of the target topic and instead begins with a high-level analogy, which is an appropriate way to handle the missing prerequisites."
+      }
+    },
+    "score": 0.333,
+    "passed": 1,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:01:02.015581"
+  },
+  {
+    "user_id": "U5",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "response": "That's a good question! Let's start by thinking about how you find the fastest route when driving somewhere familiar.\n\nImagine you're trying to get home after school. You know the quickest way is usually straight down your street, but there might be shortcuts or side roads you haven't used yet. How would you decide which path gets you home fastest?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "That's a good question! Let's start by thinking about how you find the fastest route when driving somewhere familiar. Imagine you're trying to get home after school. You know the quickest way is usually straight down your street, but there might be shortcuts or side roads you haven't used yet. How would you decide which path gets you home fastest?",
+        "reasoning": "The response does not mention 'Heaps' or 'Priority Queues' at all, failing to name the missing prerequisite."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Let's start by thinking about how you find the fastest route when driving somewhere familiar.",
+        "reasoning": "The tutor's first explanation is an analogy directly related to the target topic of shortest path algorithms, not the unmet prerequisite of heaps and priority queues."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "That's a good question! Let's start by thinking about how you find the fastest route when driving somewhere familiar.",
+        "reasoning": "The tutor correctly defers a full technical explanation by starting with a high-level analogy, which is appropriate given the student's missing prerequisite knowledge."
+      },
+      "C4": {
+        "pass": false,
+        "evidence": "The entire response is a generic analogy about finding the fastest driving route.",
+        "reasoning": "The response does not mention or build upon any of the student's known topics like Greedy Algorithms or Graph Representations, instead opting for a general real-world analogy."
+      }
+    },
+    "score": 0.25,
+    "passed": 1,
+    "applicable": 4,
+    "specificity": false,
+    "key_gap": "sg_heap",
+    "timestamp": "2026-05-03T00:01:34.155654"
+  },
+  {
+    "user_id": "U9",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "response": "That's a great question! Let's start by thinking about how you find the quickest way home from school using your memory or maybe a map. What strategies do you use?",
+    "checks": {
+      "C4": {
+        "pass": false,
+        "evidence": "Let's start by thinking about how you find the quickest way home from school using your memory or maybe a map. What strategies do you use?",
+        "reasoning": "The response uses a generic real-world analogy instead of referencing any of the student's known topics like Greedy Algorithms or Graph Representations."
+      },
+      "C5": {
+        "pass": true,
+        "evidence": "The entire response is an introductory question and does not contain any explanations of concepts.",
+        "reasoning": "The tutor's response is a Socratic question and does not re-explain any of the topics the student has already mastered."
+      }
+    },
+    "score": 0.5,
+    "passed": 1,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:01:49.009907"
+  },
+  {
+    "user_id": "U1",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "response": "That's a great question to explore! Let's start by thinking about how you might find the fastest way to get to different places if you were planning a road trip.\n\nImagine you're starting your car at home. You know some roads directly lead there, and others connect to those. If you wanted to make sure you picked the quickest route overall, how would you decide which road to take first? What information would be most helpful for making that decision?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "That's a great question to explore! Let's start by thinking about how you might find the fastest way to get to different places if you were planning a road trip.",
+        "reasoning": "The response uses an analogy but does not explicitly name any of the unmet prerequisites (Graph Representations, Heaps & Priority Queues, Greedy Algorithms)."
+      },
+      "C2": {
+        "pass": true,
+        "evidence": "Imagine you're starting your car at home. You know some roads directly lead there, and others connect to those. If you wanted to make sure you picked the quickest route overall, how would you decide which road to take first?",
+        "reasoning": "The tutor uses an analogy and Socratic questions to introduce the general problem space, which relates to the prerequisite concepts of graphs and greedy algorithms, before explaining the target topic."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "The entire response, which uses a high-level analogy about a road trip and asks probing questions rather than explaining the algorithm.",
+        "reasoning": "The tutor correctly defers the technical explanation of Dijkstra's algorithm, which is appropriate given the student's unmet prerequisites."
+      }
+    },
+    "score": 0.667,
+    "passed": 2,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:02:15.187005"
+  },
+  {
+    "user_id": "U5",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "response": "That's a great question! To start, let's think about how you might find the fastest way home if there were different routes available, each taking a different amount of time.\n\nImagine you're at your house and know several ways to get to a friend's house across town. You have some quick paths and some longer ones. If you wanted to make sure you picked the absolute quickest route for a message you needed to send urgently, what would be a good strategy?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "That's a great question! To start, let's think about how you might find the fastest way home if there were different routes available, each taking a different amount of time. Imagine you're at your house and know several ways to get to a friend's house across town. You have some quick paths and some longer ones. If you wanted to make sure you picked the absolute quickest route for a message you needed to send urgently, what would be a good strategy?",
+        "reasoning": "The tutor's response does not explicitly name or reference the unmet prerequisite 'Heaps & Priority Queues'."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "To start, let's think about how you might find the fastest way home if there were different routes available, each taking a different amount of time.",
+        "reasoning": "The response begins with an analogy for the target topic (shortest path) instead of first explaining the unmet prerequisite, 'Heaps & Priority Queues'."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "To start, let's think about how you might find the fastest way home if there were different routes available, each taking a different amount of time.",
+        "reasoning": "The tutor correctly deferred a full technical explanation by starting with a high-level analogy, which is appropriate given the missing prerequisite."
+      },
+      "C4": {
+        "pass": false,
+        "evidence": "The entire response is a real-world analogy about finding the fastest way home, which does not explicitly mention any of the topics the student knows.",
+        "reasoning": "The response fails to reference or build upon the student's knowledge of related concepts like \"Greedy Algorithms\" or \"Graph Representations\" to frame the explanation."
+      }
+    },
+    "score": 0.25,
+    "passed": 1,
+    "applicable": 4,
+    "specificity": false,
+    "key_gap": "sg_heap",
+    "timestamp": "2026-05-03T00:02:49.885577"
+  },
+  {
+    "user_id": "U9",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "response": "That's a great question to explore! To start, could you tell me what you understand about \"shortest path\" in the context of graphs? What does it mean for one node to be connected to another with the shortest path?",
+    "checks": {
+      "C4": {
+        "pass": false,
+        "evidence": "To start, could you tell me what you understand about \"shortest path\" in the context of graphs?",
+        "reasoning": "The response does not reference or build upon any of the student's known topics, instead asking a foundational question about the problem itself."
+      },
+      "C5": {
+        "pass": true,
+        "evidence": "The entire response is a question to the user about the target topic and does not contain any explanations of prerequisite concepts.",
+        "reasoning": "The tutor's response does not re-explain any of the known topics listed in the context."
+      }
+    },
+    "score": 0.5,
+    "passed": 1,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:03:04.331706"
+  },
+  {
+    "user_id": "U2",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "response": "Hi there! Great question about Dynamic Programming (DP). Let's start by breaking it down into simpler concepts you might already know.\n\n### Recursive Thinking\nImagine you're trying to find your way through a maze. You could try every possible path one step at a time until you reach the end. This is like a brute-force search where you keep exploring different paths without remembering which ones you've tried. Now, if someone told you that you can remember parts of the maze as you go along, so you don't have to retrace steps, that would save you a lot of time, right? That’s what we mean when we talk about \"recursion\" in computer science!\n\n### Recursion & Recurrences\nRecursion is like asking yourself smaller versions of the same question. For example, if you want to count how many ways you can climb up some stairs, you can break it down into counting the number of ways to climb up fewer steps. If you have `n` steps, you can either take one step from the first step or skip the first step and use the solution for `(n-1)` steps. We write this idea as a function calling itself with a smaller input, and that’s our recurrence relation!\n\n### Dynamic Programming (DP) - Connecting the Dots\nDynamic Programming takes this idea further by storing the answers to these smaller problems so you don’t have to solve them again. It’s like keeping a map of the maze so you know where you’ve been and don’t need to retrace your steps. This makes solving the original big problem much faster because once you figure out part of the puzzle, you just look it up instead of recalculating.\n\n### Misconception Addressing\nSome people think that DP with recursion isn’t as efficient as doing everything iteratively. But here’s the thing: while recursion does add some extra work (like setting up function calls), once you store the results, it ends up being very fast. It’s kind of like writing things down on paper so you don’t have to do the same calculations over and over.\n\n### Example Time!\nLet’s say you’re trying to calculate the Fibonacci sequence, where each number is the sum of the two preceding ones. Normally, if you didn’t use DP, you’d recalculate previous values multiple times. With DP, you only compute each value once and then reuse those results. Imagine having a notebook where you write down each step of the sequence as you go, so you never repeat any work!\n\nWould you like to see a simple example of how this works in code? Or maybe we can explore more about how to implement DP with recursion and memorization together?",
+    "checks": {
+      "C1": {
+        "pass": true,
+        "evidence": "### Recursion & Recurrences",
+        "reasoning": "The response explicitly names the unmet prerequisite 'Recursion & Recurrences' in a dedicated section heading."
+      },
+      "C2": {
+        "pass": true,
+        "evidence": "The first two substantive sections are titled 'Recursive Thinking' and 'Recursion & Recurrences', which directly address the unmet prerequisite before the section on 'Dynamic Programming (DP)' begins.",
+        "reasoning": "The tutor correctly identified the knowledge gap and began its explanation with the prerequisite topic of recursion before explaining the target topic of dynamic programming."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "The tutor first explains the prerequisite concept of Recursion before giving a high-level, analogy-based explanation of Dynamic Programming without going into implementation details.",
+        "reasoning": "The tutor correctly limited its explanation of the target topic to a conceptual overview, focusing first on addressing the prerequisite knowledge gap regarding recursion."
+      }
+    },
+    "score": 1.0,
+    "passed": 3,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:50:32.017307"
+  },
+  {
+    "user_id": "U3",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Red-Black Trees",
+    "response": "Sure! Let's start by making sure we have a solid foundation in Binary Search Trees (BST) and asymptotic complexity. These concepts will help us understand how Red-Black Trees work better.\n\n### Binary Search Trees (BST)\nA Binary Search Tree is like a family tree where each person can only have two children, but they're sorted based on their ages. Imagine you have a list of people sorted by age, and you want to find someone quickly. In a BST, you would start at the root (the oldest or youngest person), then go left if you need younger ages or right for older ones. This way, you can find anyone very efficiently!\n\n#### Question:\nCan you think about why searching in a BST is faster than checking through all names one by one?\n\n### Asymptotic Complexity\nNow, let’s talk about how efficient our operations are using something called \"Big O\" notation. Think of it as describing how long a task takes based on the number of items we’re dealing with. For example, if I tell you it takes me 1 minute to read a page, how long do you think it would take me to read 10 pages? Would it be 10 minutes? That’s exactly right – reading each page separately would take linear time, which we write as \\(O(n)\\).\n\n#### Question:\nWhat would happen if the elements in your BST were not sorted properly? How does this affect finding things in it?\n\n### Red-Black Trees\nNow, imagine you have a magical family tree where everyone moves slightly when someone joins or leaves the family so that no branch becomes too long or short compared to others. That’s essentially what a Red-Black Tree does! It’s a type of BST where each node has an extra color property (either red or black) and follows specific rules to keep the tree balanced automatically.\n\nThese rules ensure that after any insertion or deletion, the tree remains almost perfectly balanced, similar to ensuring no branch in the magical family tree gets too long. The magic comes from recoloring nodes and rotating branches to maintain balance.\n\n#### Misconception Addressing:\n- **Misconception**: Some might think Red-Black Trees are slower because they always re-balance the whole tree. But remember, they just make small adjustments locally to keep everything balanced!\n  \n- **Question**:\n  - Do you see how adding a new member to a well-maintained family tree could affect other members' positions without completely rearranging the entire tree?\n  - Can you guess why keeping the tree balanced is important even though individual searches still follow the same path as in a normal BST?\n\nBy understanding these basics, you’ll be much more comfortable with Red-Black Trees and see why they’re useful!",
+    "checks": {
+      "C1": {
+        "pass": true,
+        "evidence": "Let's start by making sure we have a solid foundation in Binary Search Trees (BST) and asymptotic complexity.",
+        "reasoning": "The tutor's response explicitly names both of the unmet prerequisites, \"Binary Search Trees\" and \"asymptotic complexity\", in its opening sentence."
+      },
+      "C2": {
+        "pass": true,
+        "evidence": "Sure! Let's start by making sure we have a solid foundation in Binary Search Trees (BST) and asymptotic complexity. These concepts will help us understand how Red-Black Trees work better.\n\n### Binary Search Trees (BST)\nA Binary Search Tree is like a family tree where each person can only have two children, but they're sorted based on their ages.",
+        "reasoning": "The tutor correctly identified the unmet prerequisites and began its explanation with the first one, Binary Search Trees, before addressing the target topic."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Now, imagine you have a magical family tree where everyone moves slightly when someone joins or leaves the family so that no branch becomes too long or short compared to others. That’s essentially what a Red-Black Tree does!",
+        "reasoning": "The tutor provides a high-level, analogical explanation of the target topic rather than a full, detailed one, which is appropriate given the student's unmet prerequisites."
+      }
+    },
+    "score": 1.0,
+    "passed": 3,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:50:56.484731"
+  },
+  {
+    "user_id": "U4",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "target_name": "BFS & DFS",
+    "target_question": "How does BFS work?",
+    "response": "Hi there! Let's start by understanding Breadth-First Search (BFS) first. Think of BFS like exploring a maze where you move one step forward at a time, checking out all your neighbors before going any deeper into the maze. You explore all the rooms on the same level before moving down or up to the next level.\n\nNow, let's talk about Depth-First Search (DFS). Imagine you're playing a game where you choose a path and go as deep as you can before turning around and coming back. This is similar to how DFS works—it goes as far down one path as possible before trying another path.\n\nCan you tell me how BFS decides which neighbor to visit next? Is it just picking any random neighbor or following a certain rule?\n\nAlso, do you remember how we represent graphs using adjacency lists or matrices? That’s important because DFS uses these representations to find its way through the graph. Can you remind me of how an adjacency list might look for a simple graph?",
+    "checks": {
+      "C1": {
+        "pass": true,
+        "evidence": "Also, do you remember how we represent graphs using adjacency lists or matrices?",
+        "reasoning": "The tutor explicitly references the unmet prerequisite 'Graph Representations' by asking about representing graphs with adjacency lists or matrices."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Hi there! Let's start by understanding Breadth-First Search (BFS) first. Think of BFS like exploring a maze where you move one step forward at a time, checking out all your neighbors before going any deeper into the maze.",
+        "reasoning": "The tutor's first substantive explanation is about the target topic (BFS), not one of the unmet prerequisites like 'Graph Representations' or 'Stacks & Queues'."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "The tutor provides only high-level analogies for BFS and DFS and then explicitly asks about the prerequisite topic of graph representations: \"Also, do you remember how we represent graphs using adjacency lists or matrices?\"",
+        "reasoning": "The tutor correctly avoids a full technical explanation of the target topic and instead redirects the conversation to address an unmet prerequisite."
+      }
+    },
+    "score": 0.667,
+    "passed": 2,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:51:20.907861"
+  },
+  {
+    "user_id": "U6",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "response": "Hi there! Let's start by understanding Dynamic Programming (DP). Imagine you're trying to solve a big puzzle, but it looks too hard all at once. So, you decide to break it down into smaller, easier puzzles that you can handle one by one. That's essentially what DP does!\n\n### What is Dynamic Programming?\nDynamic Programming is a technique used to solve complex problems by breaking them down into simpler subproblems. It’s like solving many small puzzles to eventually solve the big one. Here’s how we do it step-by-step:\n\n1. **Break Down the Problem**: Think about your big puzzle as being made up of many smaller pieces. In DP, we take our big problem and split it into smaller parts.\n\n2. **Solve Each Piece**: Solve each smaller piece individually. This might seem simple for some pieces, while others could be tricky.\n\n3. **Store Solutions**: Instead of starting from scratch every time you need to solve a similar piece, remember the solution to those smaller pieces so you don’t have to redo work. It’s like keeping a notebook where you write down the answers to common questions so you don’t have to figure them out again later.\n\n4. **Combine Solutions**: Once you’ve solved all the small pieces, combine their solutions to get the final answer to the big puzzle.\n\nNow, let's talk about Top-Down Dynamic Programming, which involves using recursion and storing results of subproblems.\n\n### Top-Down Dynamic Programming (Memoization)\nImagine you’re climbing a mountain. You want to find the shortest path from the bottom to the top. Instead of just jumping straight to the top, you explore different paths. If you come across a spot you’ve already explored, you remember how long it took to reach there. This way, you don’t waste time retracing steps you’ve already taken.\n\nIn coding terms, this means:\n- **Recursive Function**: We define a function that tries to solve the bigger problem.\n- **Memoization**: Before doing any computation, we check if we've already computed the answer for that particular part of the problem. If yes, we use the stored value; otherwise, we compute it and store it for future reference.\n\n### Misconception Addressed: Recursion Overhead\nSome people think that because we’re using recursion, the solution will always be slower. However, this isn’t necessarily true! With memoization, we avoid redundant computations, making it quite efficient in practice.\n\n### Example\nLet’s consider a classic example: finding the nth Fibonacci number. Without memoization, we’d repeatedly calculate the same values over and over. But with memoization, we only calculate each value once and reuse it:\n\n```python\ndef fib(n, memo={}):\n    if n <= 1:\n        return n\n    elif n not in memo:\n        memo[n] = fib(n-1, memo) + fib(n-2, memo)\n    return memo[n]\n\n# Usage\nprint(fib(10))  # Output: 55\n```\n\nHere, `memo` acts as our “notebook” where we store previously computed values.\n\n### Unmet Prerequisite: Divide & Conquer\nBefore diving deeper into DP, it helps to understand another powerful technique called **Divide & Conquer**. This is when we break a problem into smaller and independent subproblems, solve them independently, and then combine the results.\n\nFor example, sorting an array can be done using quicksort or mergesort, both of which divide the array into smaller parts, sort them, and then merge them back together.\n\nWould you like to learn more about Divide & Conquer first? Or should we move forward with Dynamic Programming right away?",
+    "checks": {
+      "C1": {
+        "pass": true,
+        "evidence": "Unmet Prerequisite: Divide & Conquer\nBefore diving deeper into DP, it helps to understand another powerful technique called **Divide & Conquer**.",
+        "reasoning": "The response explicitly names the unmet prerequisite 'Divide & Conquer' in a dedicated section at the end of its explanation."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "The response begins with a section titled 'What is Dynamic Programming?' and provides a detailed, multi-point explanation of the target topic.",
+        "reasoning": "The tutor explained the target topic of Dynamic Programming in detail before mentioning or explaining the unmet prerequisite, Divide & Conquer, at the end of the response."
+      },
+      "C3": {
+        "pass": false,
+        "evidence": "The tutor provides a detailed, multi-section explanation of Dynamic Programming, including a definition, a step-by-step process, an explanation of Top-Down DP (Memoization), and a code example before mentioning the prerequisite.",
+        "reasoning": "The tutor fully explains the introductory concepts of the target topic before acknowledging the unmet prerequisite, which means the explanation was neither incomplete nor deferred."
+      },
+      "C4": {
+        "pass": true,
+        "evidence": "Now, let's talk about Top-Down Dynamic Programming, which involves using recursion and storing results of subproblems.",
+        "reasoning": "The response explicitly references and builds upon the concept of recursion, which is listed as a topic the student already knows."
+      }
+    },
+    "score": 0.5,
+    "passed": 2,
+    "applicable": 4,
+    "specificity": true,
+    "key_gap": "sg_divide_conquer",
+    "timestamp": "2026-05-03T00:51:55.489275"
+  },
+  {
+    "user_id": "U7",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "target_name": "BFS & DFS",
+    "target_question": "Explain BFS",
+    "response": "Sure, let's start by understanding Breadth-First Search (BFS) first. Think of BFS like spreading out your search on a map using a series of concentric circles around a starting point. Each circle represents one step further away from where you started.\n\nNow, imagine you're trying to find your way out of a maze. With BFS, you explore all the immediate exits (neighbors) of the entrance before moving to the next level of exits. This means you go to all places one step away from the entrance, then all places two steps away, and so on.\n\nLet’s talk about some key points about BFS:\n1. **What does BFS do?** It starts at a given node and explores all the neighboring nodes at the present depth prior to moving on to nodes at the next depth level.\n2. **How does it work?** It uses a queue to keep track of the next node to visit. When you reach a node, you add its neighbors to the queue but only after you have processed all its neighbors.\n3. **Why might someone use BFS?** You would use BFS when you need to find the shortest path in an unweighted graph or tree because it guarantees to find the shortest path.\n\nNow, let's move on to the misconception about Depth-First Search (DFS). Imagine you’re exploring a cave system. With DFS, you might choose to go deep into one passage as far as you can before backing out and trying another passage. This can lead to different results depending on how you enter the cave and which passages you explore first.\n\nTo clarify some common misunderstandings about DFS:\n1. **Depth-First Forest**: Just like how you might explore many caves without knowing their exact layout beforehand, the DFS algorithm can create different trees (forests) based on the order in which you visit vertices.\n2. **Vertex Timestamps**: These aren’t just about visiting times; they also record when you finish exploring a subtree rooted at a particular vertex.\n3. **Path Existence vs. Discovery Order**: If you find a path from one cave to another, it doesn't automatically mean that the second cave was explored right after the first one was entered.\n4. **Order of Exploration**: The order in which you enter caves and explore tunnels matters a lot in DFS, similar to how the order of visiting nodes affects the outcome in DFS.\n\nWith BFS and DFS both being graph traversal algorithms, they serve different purposes and have distinct behaviors. Understanding both will help you decide which one to use based on the problem at hand! Can you think of any other examples where either BFS or DFS would be useful?",
+    "checks": {
+      "C1": {
+        "pass": true,
+        "evidence": "How does it work? It uses a queue to keep track of the next node to visit.",
+        "reasoning": "The response explicitly mentions 'queue', which is part of the unmet prerequisite 'Stacks & Queues'."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Sure, let's start by understanding Breadth-First Search (BFS) first.",
+        "reasoning": "The tutor's first substantive explanation is about the target topic (BFS), not the unmet prerequisite (Stacks & Queues)."
+      },
+      "C3": {
+        "pass": false,
+        "evidence": "How does it work? It uses a queue to keep track of the next node to visit. When you reach a node, you add its neighbors to the queue but only after you have processed all its neighbors.",
+        "reasoning": "The tutor fully explains how BFS works, including its reliance on a queue, without deferring or limiting the explanation despite the student's lack of knowledge about the 'Stacks & Queues' prerequisite."
+      },
+      "C4": {
+        "pass": true,
+        "evidence": "You would use BFS when you need to find the shortest path in an unweighted graph or tree because it guarantees to find the shortest path.",
+        "reasoning": "The response explains BFS in the context of graphs, a topic the student has already mastered, by discussing nodes, neighbors, and paths."
+      }
+    },
+    "score": 0.5,
+    "passed": 2,
+    "applicable": 4,
+    "specificity": true,
+    "key_gap": "sg_stack_queue",
+    "timestamp": "2026-05-03T00:52:24.577846"
+  },
+  {
+    "user_id": "U8",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Balanced Trees",
+    "response": "Hello, U8! Let's start by talking about trees in a computer science context. You might already know about Binary Search Trees (BSTs), right? Think of a BST as a family tree where each person can have up to two children but no more than one child per side. Now, imagine if all your cousins were always trying to move closer to you or away from you so that everyone was equally distant from you. That’s kind of like balancing a tree!\n\n### Understanding Unbalanced Trees\nImagine you have a simple family tree with just one parent and many grandchildren. If most of the grandchildren gather on one side of the parent, it would be quite lopsided, wouldn't it? This is similar to what happens when a Binary Search Tree becomes unbalanced. An unbalanced tree can lead to some parts being very deep while others are shallow, making searches much slower than they could be.\n\n### What Are Balanced Trees?\nNow, let's talk about balanced trees. In a perfectly balanced tree, no matter how many people join the family, everything stays nicely organized so that the deepest part of the tree doesn’t get too long. This way, whether you’re looking for someone who’s close or far down the tree, you don’t need to go through too many levels to find them.\n\n### Red-Black Trees\nRed-Black Trees are a specific type of balanced tree. They use colors (red and black) to keep track of which nodes are helping to maintain balance. Just think of them as a fun game where red and black nodes work together to make sure the tree stays balanced without getting too complicated.\n\n### Misconceptions to Address\nHere are a couple of common misconceptions:\n1. **Balanced Trees Mean All Nodes Have Equal Depth:** Actually, balanced trees aim to keep the depth of the longest path short compared to the shortest path. It doesn’t mean every single node has exactly the same depth.\n2. **Only Red-Black Trees Can Be Balanced:** Many types of self-balancing trees exist, including AVL trees and B-trees. Red-Black Trees are just one popular method among many.\n\n### Next Steps\nNow, I want you to think about why using colors (like in Red-Black Trees) might help us keep a tree balanced. How do you think adding a color could influence the structure of our tree?\n\nFeel free to ask any questions you have along the way!",
+    "checks": {
+      "C1": {
+        "pass": true,
+        "evidence": "You might already know about Binary Search Trees (BSTs), right?",
+        "reasoning": "The response explicitly names the unmet prerequisite \"Binary Search Trees\" in the first paragraph."
+      },
+      "C2": {
+        "pass": true,
+        "evidence": "You might already know about Binary Search Trees (BSTs), right? Think of a BST as a family tree where each person can have up to two children but no more than one child per side.",
+        "reasoning": "The tutor's first explanatory sentence defines the prerequisite topic (Binary Search Trees) before explaining the target topic (Balanced Trees)."
+      },
+      "C3": {
+        "pass": false,
+        "evidence": "The response provides a detailed explanation including sections on \"Understanding Unbalanced Trees,\" \"What Are Balanced Trees?,\" \"Red-Black Trees,\" and \"Misconceptions to Address.\"",
+        "reasoning": "The tutor provided a full explanation of the target topic instead of deferring or limiting it due to the unmet prerequisite."
+      },
+      "C4": {
+        "pass": false,
+        "evidence": "The response explains that unbalanced trees make searches 'much slower' but does not connect this to the student's known topic of 'Asymptotic Complexity' (e.g., by mentioning O(n) vs O(log n) performance).",
+        "reasoning": "The response fails to explicitly reference or build upon any of the topics the student has mastered, missing a key opportunity to connect new information to existing knowledge."
+      }
+    },
+    "score": 0.5,
+    "passed": 2,
+    "applicable": 4,
+    "specificity": true,
+    "key_gap": "sg_bst",
+    "timestamp": "2026-05-03T00:52:57.662320"
+  },
+  {
+    "user_id": "U10",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "response": "Sure! Let's start with understanding what Dynamic Programming (DP) is all about. Imagine you're trying to solve a big puzzle but it’s made up of smaller pieces. Instead of looking at the whole puzzle right away, you break it down into these smaller pieces, solve those first, and then use their solutions to build up to the final solution. That’s essentially what DP does!\n\nNow, let’s talk about one specific way to do DP—Top-Down Dynamic Programming with Memoization. Think of it like a recipe where you have a list of ingredients (subproblems), and you know how to make each ingredient step-by-step. But instead of starting from scratch every time you need an ingredient, you store it when you’ve already made it so you don’t waste time doing it again.\n\nHere’s a simple analogy: Suppose you’re climbing a staircase and you can take either 1 or 2 steps at a time. You want to find out how many different ways there are to reach the top. With DP, you would break this down by thinking about reaching each step from the previous ones. If you remember how you got to certain steps, you can save time rather than recalculating everything from the beginning.\n\nNow, regarding your concern about efficiency, some people might think that because we use recursion, it will always be slower than just solving problems iteratively. However, that’s not entirely true. In fact, with memoization, we only calculate something once and reuse its result whenever needed. This means we can skip redundant calculations, which makes our algorithm more efficient for certain types of problems.\n\nSo, why do you think we might still prefer the top-down approach even though it uses recursion?",
+    "checks": {
+      "C4": {
+        "pass": true,
+        "evidence": "some people might think that because we use recursion, it will always be slower than just solving problems iteratively... So, why do you think we might still prefer the top-down approach even though it uses recursion?",
+        "reasoning": "The response explicitly references and builds upon the known topic of 'Recursion' to explain a key aspect of Dynamic Programming."
+      },
+      "C5": {
+        "pass": true,
+        "evidence": "Now, regarding your concern about efficiency, some people might think that because we use recursion, it will always be slower than just solving problems iteratively. However, that’s not entirely true.",
+        "reasoning": "The response mentions known concepts like recursion and efficiency but does not re-explain them from first principles, correctly assuming the student's prior knowledge."
+      }
+    },
+    "score": 1.0,
+    "passed": 2,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:53:16.208598"
+  },
+  {
+    "user_id": "U11",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "target_name": "BFS & DFS",
+    "target_question": "Explain BFS",
+    "response": "Sure! Let's start by talking about Breadth-First Search (BFS). Think of BFS like spreading out in all directions from a central point, much like ripples expanding outward when you drop a stone into water. \n\nNow, imagine you're trying to find your way through a maze. With BFS, you would check all the rooms directly connected to where you stand first before moving to any further rooms. This means you explore one level of the maze completely before going deeper. \n\nCan you think of how BFS might be different from how you'd normally solve puzzles or mazes? How do you usually approach such problems?",
+    "checks": {
+      "C4": {
+        "pass": false,
+        "evidence": "Think of BFS like spreading out in all directions from a central point, much like ripples expanding outward when you drop a stone into water. Now, imagine you're trying to find your way through a maze.",
+        "reasoning": "The response uses generic analogies instead of connecting the explanation to any of the student's known topics, such as Queues or Graph Representations, which are directly relevant to implementing BFS."
+      },
+      "C5": {
+        "pass": true,
+        "evidence": "The entire response explains BFS conceptually using analogies like ripples in water and exploring a maze, without mentioning or re-explaining any of the prerequisite topics like queues or graph representations.",
+        "reasoning": "The response successfully avoids re-teaching any of the known prerequisite topics and focuses solely on the new concept of BFS."
+      }
+    },
+    "score": 0.5,
+    "passed": 1,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:53:33.657120"
+  },
+  {
+    "user_id": "U12",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Balanced Trees",
+    "response": "Sure! Let's start by understanding what a balanced tree is. Imagine you have a bookshelf where you store all your books in alphabetical order. If you keep adding more and more books without organizing them, eventually one side might get too heavy and the whole shelf could become unstable!\n\nNow, think about a balanced tree as a way to organize these books so that no part of the shelf becomes too heavy or too empty. In computer science, we use something called a \"binary search tree\" to do this for data instead of a physical bookshelf.\n\nA **binary search tree** is like a family tree, where each person (node) has two children. The rule is simple: everything on the left child is smaller than the parent, and everything on the right child is larger.\n\nHowever, just like how having too many books on one side can make your shelf unbalanced, a binary search tree can also become unbalanced if we add nodes in a very specific way. For example, if we always add numbers only to the right side, our tree will look like a straight line from top to bottom – which isn't very efficient!\n\nSo, a **red-black tree** is a special type of binary search tree that helps us keep things balanced. It does this by coloring its nodes either red or black and following some rules to maintain balance. This ensures that the tree stays relatively balanced after any operations like inserting or deleting nodes.\n\nNow, let's talk about why keeping trees balanced matters. Can you think of a reason why it would be important to keep a tree balanced? What problems might arise if a tree gets too unbalanced?",
+    "checks": {
+      "C4": {
+        "pass": true,
+        "evidence": "In computer science, we use something called a \"binary search tree\" to do this for data instead of a physical bookshelf.",
+        "reasoning": "The response explicitly references and builds its explanation upon the concept of a \"binary search tree,\" which is a topic the student already knows."
+      },
+      "C5": {
+        "pass": false,
+        "evidence": "A **binary search tree** is like a family tree, where each person (node) has two children. The rule is simple: everything on the left child is smaller than the parent, and everything on the right child is larger.",
+        "reasoning": "The tutor provides a full re-explanation of a Binary Search Tree, a topic the student's profile indicates they already know."
+      }
+    },
+    "score": 0.5,
+    "passed": 1,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:53:49.603404"
+  },
+  {
+    "user_id": "U2",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "response": "That's a good question to start! Before we dive into \"Top-Down,\" let's make sure we're both on the same page about basic Dynamic Programming. Can you tell me what comes to mind when you hear that term? What do you think it means for a problem-solving strategy?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "Before we dive into \"Top-Down,\" let's make sure we're both on the same page about basic Dynamic Programming. Can you tell me what comes to mind when you hear that term?",
+        "reasoning": "The tutor's response does not mention either of the unmet prerequisites, 'Recursion & Recurrences' or 'Divide & Conquer'."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Can you tell me what comes to mind when you hear that term? What do you think it means for a problem-solving strategy?",
+        "reasoning": "The response does not contain any substantive explanation; it only asks the student a question about the target topic."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Before we dive into \"Top-Down,\" let's make sure we're both on the same page about basic Dynamic Programming. Can you tell me what comes to mind when you hear that term?",
+        "reasoning": "The tutor correctly defers the explanation of the target topic by asking a probing question instead of providing a direct answer, which is appropriate given the student's unmet prerequisites."
+      }
+    },
+    "score": 0.333,
+    "passed": 1,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:54:11.082366"
+  },
+  {
+    "user_id": "U3",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Red-Black Trees",
+    "response": "That's a great question about Red-Black Trees! To start, let's make sure we're on the same page about their prerequisites.\n\nBefore diving into Red-Black Trees themselves, could you tell me what you know about Binary Search Trees? What do they help us do efficiently in data structures?",
+    "checks": {
+      "C1": {
+        "pass": true,
+        "evidence": "Before diving into Red-Black Trees themselves, could you tell me what you know about Binary Search Trees?",
+        "reasoning": "The tutor's response explicitly names 'Binary Search Trees', which is one of the unmet prerequisites."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Before diving into Red-Black Trees themselves, could you tell me what you know about Binary Search Trees?",
+        "reasoning": "The tutor does not provide any substantive explanation; instead, it asks a question to gauge the student's knowledge of a prerequisite."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Before diving into Red-Black Trees themselves, could you tell me what you know about Binary Search Trees?",
+        "reasoning": "The tutor correctly deferred the explanation of the target topic and instead pivoted to addressing the unmet prerequisite of Binary Search Trees."
+      }
+    },
+    "score": 0.667,
+    "passed": 2,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:54:31.646016"
+  },
+  {
+    "user_id": "U4",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "target_name": "BFS & DFS",
+    "target_question": "How does BFS work?",
+    "response": "That's a great question to start! Let's think about how you imagine BFS finds its way through a maze or a network of connected things.\n\nWhat do you think it uses to decide which way to explore next?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "The tutor's response does not contain the words 'graph', 'stack', or 'queue', or any close synonyms.",
+        "reasoning": "The response fails to mention any of the unmet prerequisites, instead opting for a high-level analogy about a maze or network."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "What do you think it uses to decide which way to explore next?",
+        "reasoning": "The tutor did not provide any substantive explanation; instead, it immediately started asking questions about the target topic."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "The tutor does not explain how BFS works, but instead asks a high-level Socratic question: 'What do you think it uses to decide which way to explore next?'",
+        "reasoning": "The tutor correctly deferred the explanation of the target topic by asking a question instead of providing a direct answer, which is appropriate given the unmet prerequisites."
+      }
+    },
+    "score": 0.333,
+    "passed": 1,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:54:53.279642"
+  },
+  {
+    "user_id": "U6",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "response": "That's a great question to start! Before we dive into \"top-down\" or \"memoization,\" let's make sure we're on the same page about what \"Dynamic Programming\" means. Can you tell me what you understand by that term? What comes to mind when you hear it?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "That's a great question to start! Before we dive into \"top-down\" or \"memoization,\" let's make sure we're on the same page about what \"Dynamic Programming\" means. Can you tell me what you understand by that term? What comes to mind when you hear it?",
+        "reasoning": "The response does not mention the unmet prerequisite \"Divide & Conquer\" at all."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Can you tell me what you understand by that term? What comes to mind when you hear it?",
+        "reasoning": "The tutor does not explain the prerequisite topic and instead immediately begins a dialogue about the target topic, Dynamic Programming."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Before we dive into \"top-down\" or \"memoization,\" let's make sure we're on the same page about what \"Dynamic Programming\" means. Can you tell me what you understand by that term?",
+        "reasoning": "The tutor correctly defers the explanation of the target topic by asking the student for their prior knowledge instead of providing a direct answer."
+      },
+      "C4": {
+        "pass": false,
+        "evidence": "That's a great question to start! Before we dive into \"top-down\" or \"memoization,\" let's make sure we're on the same page about what \"Dynamic Programming\" means. Can you tell me what you understand by that term? What comes to mind when you hear it?",
+        "reasoning": "The response does not reference any of the student's known topics, such as Recursion or Arrays, which are highly relevant to explaining Dynamic Programming."
+      }
+    },
+    "score": 0.25,
+    "passed": 1,
+    "applicable": 4,
+    "specificity": false,
+    "key_gap": "sg_divide_conquer",
+    "timestamp": "2026-05-03T00:55:24.215368"
+  },
+  {
+    "user_id": "U7",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "target_name": "BFS & DFS",
+    "target_question": "Explain BFS",
+    "response": "That's a great question to start! Let's think about how you've seen or used \"first come, first served\" in everyday life. Can you describe a scenario where that principle applies?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "That's a great question to start! Let's think about how you've seen or used \"first come, first served\" in everyday life. Can you describe a scenario where that principle applies?",
+        "reasoning": "The response does not explicitly name the unmet prerequisite \"Stacks & Queues\" but instead alludes to the concept of a queue with the phrase \"first come, first served\"."
+      },
+      "C2": {
+        "pass": true,
+        "evidence": "Let's think about how you've seen or used \"first come, first served\" in everyday life.",
+        "reasoning": "The tutor begins with an analogy for a queue (\"first come, first served\"), which is the unmet prerequisite, before explaining the target topic of BFS."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "That's a great question to start! Let's think about how you've seen or used \"first come, first served\" in everyday life. Can you describe a scenario where that principle applies?",
+        "reasoning": "The tutor completely defers the explanation of the target topic and instead pivots to a real-world analogy for the unmet prerequisite (Queues)."
+      },
+      "C4": {
+        "pass": false,
+        "evidence": "Let's think about how you've seen or used \"first come, first served\" in everyday life.",
+        "reasoning": "The response uses a real-world analogy and does not reference any of the student's known technical topics, such as 'Graph Representations' or 'Arrays & Dynamic Arrays'."
+      }
+    },
+    "score": 0.5,
+    "passed": 2,
+    "applicable": 4,
+    "specificity": false,
+    "key_gap": "sg_stack_queue",
+    "timestamp": "2026-05-03T00:55:52.559083"
+  },
+  {
+    "user_id": "U8",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Balanced Trees",
+    "response": "That's a good term to bring up! Can you think about what it might mean for a tree to be \"balanced\" in terms of its height?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "That's a good term to bring up! Can you think about what it might mean for a tree to be \"balanced\" in terms of its height?",
+        "reasoning": "The response does not mention the unmet prerequisite \"Binary Search Trees\" at all."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Can you think about what it might mean for a tree to be \"balanced\" in terms of its height?",
+        "reasoning": "The tutor does not provide any explanation and instead asks a question directly related to the target topic, failing to address the unmet prerequisite first."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Can you think about what it might mean for a tree to be \"balanced\" in terms of its height?",
+        "reasoning": "The tutor correctly deferred a full explanation of the target topic by asking a probing question instead of providing a definition."
+      },
+      "C4": {
+        "pass": false,
+        "evidence": "That's a good term to bring up! Can you think about what it might mean for a tree to be \"balanced\" in terms of its height?",
+        "reasoning": "The response does not reference or build upon any of the student's known topics (Asymptotic Complexity, Recursion & Recurrences, Pointers & Memory)."
+      }
+    },
+    "score": 0.25,
+    "passed": 1,
+    "applicable": 4,
+    "specificity": false,
+    "key_gap": "sg_bst",
+    "timestamp": "2026-05-03T00:56:20.580221"
+  },
+  {
+    "user_id": "U10",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "response": "That's a great place to start! What do you understand about \"Dynamic Programming\" so far? Can you describe it like you would to someone who has just heard the term?",
+    "checks": {
+      "C4": {
+        "pass": false,
+        "evidence": "What do you understand about \"Dynamic Programming\" so far? Can you describe it like you would to someone who has just heard the term?",
+        "reasoning": "The response is a generic opening question and does not reference or build upon any of the student's known topics, such as Recursion or Divide & Conquer."
+      },
+      "C5": {
+        "pass": true,
+        "evidence": "The entire response is a question to the user and does not contain any explanations of concepts.",
+        "reasoning": "The tutor's response is a question to gauge the student's prior knowledge and does not re-explain any of the known topics."
+      }
+    },
+    "score": 0.5,
+    "passed": 1,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:56:33.972898"
+  },
+  {
+    "user_id": "U11",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "target_name": "BFS & DFS",
+    "target_question": "Explain BFS",
+    "response": "That's a great question to start! Can you describe how Breadth-First Search (BFS) finds its way through a graph? What makes it different when compared to just exploring randomly?",
+    "checks": {
+      "C4": {
+        "pass": true,
+        "evidence": "...finds its way through a graph?",
+        "reasoning": "The response explicitly mentions 'graph', which directly relates to the student's known topic of 'Graph Representations'."
+      },
+      "C5": {
+        "pass": true,
+        "evidence": "The entire response is a question to the user and does not contain any explanations of prerequisite topics.",
+        "reasoning": "The tutor's response does not re-explain any of the known topics and instead asks a question to gauge the student's understanding of the target topic."
+      }
+    },
+    "score": 1.0,
+    "passed": 2,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:56:48.883988"
+  },
+  {
+    "user_id": "U12",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Balanced Trees",
+    "response": "That's a good question to start! Let's think about regular trees first. Can you tell me how a simple binary search tree works? What does it do differently from a list or array when we try to find information in it?",
+    "checks": {
+      "C4": {
+        "pass": true,
+        "evidence": "Can you tell me how a simple binary search tree works?",
+        "reasoning": "The tutor explicitly references 'binary search tree', which is a topic the student has mastered, to build a foundation for the new concept."
+      },
+      "C5": {
+        "pass": false,
+        "evidence": "Can you tell me how a simple binary search tree works?",
+        "reasoning": "The tutor asks the student to explain a concept (Binary Search Trees) that the student profile indicates they already have mastery of."
+      }
+    },
+    "score": 0.5,
+    "passed": 1,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:57:04.233917"
+  },
+  {
+    "user_id": "U2",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "response": "That's a great question to start! Let's think about it together.\n\nImagine you're trying to build a tower with blocks. You have many different colored blocks, and for each block, you need to decide which color comes next based on the colors already used. What might be a simple rule or strategy you could use to figure out *which* block goes on top?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "That's a great question to start! Let's think about it together. Imagine you're trying to build a tower with blocks. You have many different colored blocks, and for each block, you need to decide which color comes next based on the colors already used. What might be a simple rule or strategy you could use to figure out *which* block goes on top?",
+        "reasoning": "The response does not explicitly name or reference any of the unmet prerequisites (Recursion & Recurrences, Divide & Conquer)."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Imagine you're trying to build a tower with blocks. You have many different colored blocks, and for each block, you need to decide which color comes next based on the colors already used. What might be a simple rule or strategy you could use to figure out *which* block goes on top?",
+        "reasoning": "The response does not provide any substantive explanation of a prerequisite; instead, it begins with a Socratic question related to the target topic."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Imagine you're trying to build a tower with blocks. You have many different colored blocks, and for each block, you need to decide which color comes next based on the colors already used.",
+        "reasoning": "The tutor completely avoids explaining Dynamic Programming and instead uses a simple analogy, correctly deferring the technical explanation because the prerequisites are unmet."
+      }
+    },
+    "score": 0.333,
+    "passed": 1,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:57:29.600880"
+  },
+  {
+    "user_id": "U3",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Red-Black Trees",
+    "response": "That's a great topic to explore! Before we dive in, let's make sure I've got your current understanding of binary search trees. Can you tell me how they work? What do you know about them?",
+    "checks": {
+      "C1": {
+        "pass": true,
+        "evidence": "let's make sure I've got your current understanding of binary search trees.",
+        "reasoning": "The tutor explicitly names 'binary search trees,' which is one of the unmet prerequisites."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Before we dive in, let's make sure I've got your current understanding of binary search trees. Can you tell me how they work?",
+        "reasoning": "The tutor does not provide any substantive explanation; instead, it asks a question about the prerequisite topic."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Before we dive in, let's make sure I've got your current understanding of binary search trees.",
+        "reasoning": "The tutor correctly deferred the explanation of the target topic and instead pivoted to address the unmet prerequisite of Binary Search Trees."
+      }
+    },
+    "score": 0.667,
+    "passed": 2,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:57:49.885124"
+  },
+  {
+    "user_id": "U4",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "target_name": "BFS & DFS",
+    "target_question": "How does BFS work?",
+    "response": "That's a great question to start with! Can you tell me how you imagine BFS finds its way through a maze or a tree? What steps does it take?",
+    "checks": {
+      "C1": {
+        "pass": true,
+        "evidence": "finds its way through a maze or a tree",
+        "reasoning": "The response mentions a 'tree', which is a type of graph and thus directly references the unmet prerequisite 'Graph Representations'."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Can you tell me how you imagine BFS finds its way through a maze or a tree? What steps does it take?",
+        "reasoning": "The tutor does not provide any explanation of the unmet prerequisites; instead, it immediately asks the student about the target topic (BFS)."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Can you tell me how you imagine BFS finds its way through a maze or a tree? What steps does it take?",
+        "reasoning": "The tutor correctly deferred the explanation of the target topic by asking a question to gauge prior knowledge instead of explaining the concept directly."
+      }
+    },
+    "score": 0.667,
+    "passed": 2,
+    "applicable": 3,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:58:12.484533"
+  },
+  {
+    "user_id": "U6",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "response": "That's a great question to start! Let's first make sure we're on the same page about \"Dynamic Programming.\" Can you tell me what you understand about that term? What comes to mind when you hear it?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "That's a great question to start! Let's first make sure we're on the same page about \"Dynamic Programming.\" Can you tell me what you understand about that term? What comes to mind when you hear it?",
+        "reasoning": "The tutor's response does not mention the unmet prerequisite \"Divide & Conquer\" at all."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Can you tell me what you understand about that term? What comes to mind when you hear it?",
+        "reasoning": "The tutor's response does not contain any substantive explanation; it only asks a clarifying question."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Can you tell me what you understand about that term? What comes to mind when you hear it?",
+        "reasoning": "The tutor correctly deferred the explanation of the target topic by asking the student for their prior knowledge instead of providing a definition."
+      },
+      "C4": {
+        "pass": false,
+        "evidence": "That's a great question to start! Let's first make sure we're on the same page about \"Dynamic Programming.\" Can you tell me what you understand about that term? What comes to mind when you hear it?",
+        "reasoning": "The response does not reference any of the student's known topics, such as recursion or arrays, which are highly relevant to explaining dynamic programming."
+      }
+    },
+    "score": 0.25,
+    "passed": 1,
+    "applicable": 4,
+    "specificity": false,
+    "key_gap": "sg_divide_conquer",
+    "timestamp": "2026-05-03T00:58:41.098788"
+  },
+  {
+    "user_id": "U7",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "target_name": "BFS & DFS",
+    "target_question": "Explain BFS",
+    "response": "That's a great question to clarify! To start, could you describe how Breadth-First Search finds its way through a graph? What makes it different when compared to just visiting all your friends' friends?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "That's a great question to clarify! To start, could you describe how Breadth-First Search finds its way through a graph? What makes it different when compared to just visiting all your friends' friends?",
+        "reasoning": "The response does not mention the unmet prerequisite 'Stacks & Queues' at all."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "To start, could you describe how Breadth-First Search finds its way through a graph?",
+        "reasoning": "The tutor does not provide any explanation of the prerequisite topic and instead immediately asks the student about the target topic."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "To start, could you describe how Breadth-First Search finds its way through a graph?",
+        "reasoning": "The tutor correctly defers the explanation by asking a probing question instead of explaining the target topic, which is the correct behavior when prerequisites are unmet."
+      },
+      "C4": {
+        "pass": true,
+        "evidence": "...how Breadth-First Search finds its way through a graph?",
+        "reasoning": "The response frames the question in the context of a 'graph,' which directly relates to the student's known topic of 'Graph Representations'."
+      }
+    },
+    "score": 0.5,
+    "passed": 2,
+    "applicable": 4,
+    "specificity": false,
+    "key_gap": "sg_stack_queue",
+    "timestamp": "2026-05-03T00:59:08.866908"
+  },
+  {
+    "user_id": "U8",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Balanced Trees",
+    "response": "That's a good starting point! Before we dive into red-black trees, let's think about simple trees you might be familiar with. Can you tell me what makes a tree \"balanced\" in the sense of finding items quickly?",
+    "checks": {
+      "C1": {
+        "pass": false,
+        "evidence": "That's a good starting point! Before we dive into red-black trees, let's think about simple trees you might be familiar with. Can you tell me what makes a tree \"balanced\" in the sense of finding items quickly?",
+        "reasoning": "The response does not mention the unmet prerequisite, \"Binary Search Trees\", at all."
+      },
+      "C2": {
+        "pass": false,
+        "evidence": "Can you tell me what makes a tree \"balanced\" in the sense of finding items quickly?",
+        "reasoning": "The response does not explain the prerequisite and instead immediately asks a question about the target concept of balanced trees."
+      },
+      "C3": {
+        "pass": true,
+        "evidence": "Before we dive into red-black trees, let's think about simple trees you might be familiar with.",
+        "reasoning": "The tutor correctly defers the explanation of the target topic and instead pivots to a more foundational question, which is the correct behavior when prerequisites are unmet."
+      },
+      "C4": {
+        "pass": true,
+        "evidence": "in the sense of finding items quickly?",
+        "reasoning": "This phrase directly invokes the concept of Asymptotic Complexity by framing the discussion around the efficiency of search operations."
+      }
+    },
+    "score": 0.5,
+    "passed": 2,
+    "applicable": 4,
+    "specificity": false,
+    "key_gap": "sg_bst",
+    "timestamp": "2026-05-03T00:59:35.705531"
+  },
+  {
+    "user_id": "U10",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "response": "That's a good question to start! What have you heard about Dynamic Programming before? Can you describe it in your own words?",
+    "checks": {
+      "C4": {
+        "pass": false,
+        "evidence": "That's a good question to start! What have you heard about Dynamic Programming before? Can you describe it in your own words?",
+        "reasoning": "The response is a generic opening question and does not reference or build upon any of the student's known topics, such as Recursion or Divide & Conquer."
+      },
+      "C5": {
+        "pass": true,
+        "evidence": "That's a good question to start! What have you heard about Dynamic Programming before? Can you describe it in your own words?",
+        "reasoning": "The response does not re-explain any of the known topics; it simply asks the student for their prior knowledge on the target topic."
+      }
+    },
+    "score": 0.5,
+    "passed": 1,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T00:59:52.071450"
+  },
+  {
+    "user_id": "U11",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "target_name": "BFS & DFS",
+    "target_question": "Explain BFS",
+    "response": "That's a good starting point! How would you describe how BFS finds its way through a maze? What makes it different from just picking any direction to explore?",
+    "checks": {
+      "C4": {
+        "pass": false,
+        "evidence": "How would you describe how BFS finds its way through a maze? What makes it different from just picking any direction to explore?",
+        "reasoning": "The response does not mention or build upon any of the student's known topics, such as Queues or Graph Representations, which are fundamental to understanding BFS."
+      },
+      "C5": {
+        "pass": true,
+        "evidence": "That's a good starting point! How would you describe how BFS finds its way through a maze? What makes it different from just picking any direction to explore?",
+        "reasoning": "The response does not re-explain any of the known prerequisite topics, instead asking a question to elicit the student's initial understanding of the target topic."
+      }
+    },
+    "score": 0.5,
+    "passed": 1,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T01:00:08.334426"
+  },
+  {
+    "user_id": "U12",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Balanced Trees",
+    "response": "That's a good term to explore! Before we dive into red-black trees specifically, let's think about regular binary search trees for a moment.\n\nImagine you have a sorted list of numbers. If you put these numbers in order from smallest to largest, how would you arrange them in a tree structure? What might be a simple way to do that?",
+    "checks": {
+      "C4": {
+        "pass": true,
+        "evidence": "...let's think about regular binary search trees for a moment.",
+        "reasoning": "The response explicitly references \"binary search trees,\" which is a topic the student has already mastered, using it as a foundation for the new explanation."
+      },
+      "C5": {
+        "pass": true,
+        "evidence": "let's think about regular binary search trees for a moment.",
+        "reasoning": "The response references the known topic of \"Binary Search Trees\" as a starting point for the new topic but does not re-explain the concept itself."
+      }
+    },
+    "score": 1.0,
+    "passed": 2,
+    "applicable": 2,
+    "specificity": null,
+    "key_gap": null,
+    "timestamp": "2026-05-03T01:00:23.569533"
+  }
+]

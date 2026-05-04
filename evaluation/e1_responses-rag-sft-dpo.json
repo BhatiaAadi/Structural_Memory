@@ -1,0 +1,1214 @@
+[
+  {
+    "user_id": "U1",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "target_sg_node": "sg_shortest_path",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "user_level": "beginner",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Single-Source Shortest Paths\nDefinition : A class of shortest-path problems that involves finding the shortest paths from a single source vertex to all other vertices in a graph.\nCLRS       : 62  (not a set member), 1158 (part 33)\n\nKG Prerequisites:\n  ✗ Breadth-First Search\n  ✗ Shortest Path\n  ✗ Weighted, Directed Graph\n  ✗ Negative-Weight Cycle\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U1\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Graph Representations\n  ✗ Heaps & Priority Queues\n  ✗ Greedy Algorithms\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "Hello! Let's start by talking about some important concepts that will help us understand Dijkstra's algorithm better. Think of graphs as roads connecting different places. Just like how you might plan your route when driving from one place to another, we want to find the best way to travel from one point to many others using these roads.\n\n### Unmet Prerequisite: Graph Representations\nImagine you have a map with several cities connected by roads. How would you represent this map? One common way is to use something called an **adjacency list** or an **adjacency matrix**. An adjacency list shows which cities are directly connected to each city, while an adjacency matrix uses a grid where each cell tells you if there’s a road between two cities. Which do you think would be easier for Dijkstra's algorithm?\n\n### Unmet Prerequisite: Heaps & Priority Queues\nNow, let’s talk about heaps or priority queues. Imagine you’re organizing a race where everyone starts at the same time but finishes at different times because they run at different speeds. In this race, who would finish first? The fastest runner, right? Similarly, in Dijkstra’s algorithm, we need to always pick the closest unvisited city next. This is exactly what a heap does—it helps us quickly find the smallest number among a bunch of numbers.\n\n### Unmet Prerequisite: Greedy Algorithms\nLet’s dive into greedy algorithms now. Have you ever played the game \"Connect Four\"? You try to make four pieces in a row by placing them strategically. That’s similar to how a greedy algorithm works—each step tries to make the best choice without worrying too much about future steps. In Dijkstra’s algorithm, we always choose the path that looks best so far, hoping it will lead us to the shortest overall path.\n\n### Understanding Dijkstra's Algorithm\nNow, let's look at Dijkstra’s algorithm. It’s like planning the quickest trip from your home to various friends’ houses using the shortest possible routes. Here’s how it works:\n\n1. **Start Point**: Choose your starting point (like picking a friend’s house to visit).\n2. **Distance Calculation**: Keep track of the distance from your starting point to each house. Initially, all distances are set very high except for the starting point, which is zero.\n3. **Select Next House**: Always go to the nearest unvisited house (just like choosing the friend whose house is closest). Update the distances to their neighboring houses if you find a shorter route through this house.\n4. **Repeat Until Done**: Keep doing this until you’ve visited all the houses (or found the shortest path to all points).\n\nWould you say that sounds like a good strategy for making sure you get to all your friends' houses as quickly as possible?",
+    "expected_met_prereqs": [],
+    "expected_unmet_prereqs": [
+      "Graph Representations",
+      "Heaps & Priority Queues",
+      "Greedy Algorithms"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_graphs",
+      "sg_heap",
+      "sg_greedy"
+    ],
+    "known_topics": [],
+    "key_gap": null,
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "gen_time_s": 53.63,
+    "timestamp": "2026-05-02T18:55:25.922004"
+  },
+  {
+    "user_id": "U2",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "target_sg_node": "sg_dp",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "user_level": "beginner",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Top-Down Dynamic Programming (Memoization)\nDefinition : A method of solving a dynamic programming problem by using recursion and storing the result of each solved subproblem to avoid recomputation.\nCLRS       : 18  \u0000  15  D  3 ,   since   15   and   18   are   the   two   closest   numbers   in   Q .   Make   the   op- (part 11)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The asymptotic running time of a recursive, memoized top-down approach is less efficient than an iterative bottom-up approach due to the overhead of recursion.\n\n=== USER STATE ===\nUser    : U2\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Recursion & Recurrences\n  ✗ Divide & Conquer\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "Hi there! Great question about Dynamic Programming (DP). Let's start by breaking it down into simpler concepts you might already know.\n\n### Recursive Thinking\nImagine you're trying to find your way through a maze. You could try every possible path one step at a time until you reach the end. This is like a brute-force search where you keep exploring different paths without remembering which ones you've tried. Now, if someone told you that you can remember parts of the maze as you go along, so you don't have to retrace steps, that would save you a lot of time, right? That’s what we mean when we talk about \"recursion\" in computer science!\n\n### Recursion & Recurrences\nRecursion is like asking yourself smaller versions of the same question. For example, if you want to count how many ways you can climb up some stairs, you can break it down into counting the number of ways to climb up fewer steps. If you have `n` steps, you can either take one step from the first step or skip the first step and use the solution for `(n-1)` steps. We write this idea as a function calling itself with a smaller input, and that’s our recurrence relation!\n\n### Dynamic Programming (DP) - Connecting the Dots\nDynamic Programming takes this idea further by storing the answers to these smaller problems so you don’t have to solve them again. It’s like keeping a map of the maze so you know where you’ve been and don’t need to retrace your steps. This makes solving the original big problem much faster because once you figure out part of the puzzle, you just look it up instead of recalculating.\n\n### Misconception Addressing\nSome people think that DP with recursion isn’t as efficient as doing everything iteratively. But here’s the thing: while recursion does add some extra work (like setting up function calls), once you store the results, it ends up being very fast. It’s kind of like writing things down on paper so you don’t have to do the same calculations over and over.\n\n### Example Time!\nLet’s say you’re trying to calculate the Fibonacci sequence, where each number is the sum of the two preceding ones. Normally, if you didn’t use DP, you’d recalculate previous values multiple times. With DP, you only compute each value once and then reuse those results. Imagine having a notebook where you write down each step of the sequence as you go, so you never repeat any work!\n\nWould you like to see a simple example of how this works in code? Or maybe we can explore more about how to implement DP with recursion and memorization together?",
+    "expected_met_prereqs": [],
+    "expected_unmet_prereqs": [
+      "Recursion & Recurrences",
+      "Divide & Conquer"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_recursion",
+      "sg_divide_conquer"
+    ],
+    "known_topics": [],
+    "key_gap": null,
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "gen_time_s": 50.21,
+    "timestamp": "2026-05-02T18:56:16.128403"
+  },
+  {
+    "user_id": "U3",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "target_sg_node": "sg_balanced_trees",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Red-Black Trees",
+    "user_level": "beginner",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Red-Black Trees\nDefinition : A kind of self-balancing binary search tree that uses node coloring to ensure the tree remains approximately balanced during insertions and deletions.\nCLRS       : 1251\n\n\n\nPreface (part 2)\n\nKG Prerequisites:\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U3\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Binary Search Trees\n  ✗ Asymptotic Complexity\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "Sure! Let's start by making sure we have a solid foundation in Binary Search Trees (BST) and asymptotic complexity. These concepts will help us understand how Red-Black Trees work better.\n\n### Binary Search Trees (BST)\nA Binary Search Tree is like a family tree where each person can only have two children, but they're sorted based on their ages. Imagine you have a list of people sorted by age, and you want to find someone quickly. In a BST, you would start at the root (the oldest or youngest person), then go left if you need younger ages or right for older ones. This way, you can find anyone very efficiently!\n\n#### Question:\nCan you think about why searching in a BST is faster than checking through all names one by one?\n\n### Asymptotic Complexity\nNow, let’s talk about how efficient our operations are using something called \"Big O\" notation. Think of it as describing how long a task takes based on the number of items we’re dealing with. For example, if I tell you it takes me 1 minute to read a page, how long do you think it would take me to read 10 pages? Would it be 10 minutes? That’s exactly right – reading each page separately would take linear time, which we write as \\(O(n)\\).\n\n#### Question:\nWhat would happen if the elements in your BST were not sorted properly? How does this affect finding things in it?\n\n### Red-Black Trees\nNow, imagine you have a magical family tree where everyone moves slightly when someone joins or leaves the family so that no branch becomes too long or short compared to others. That’s essentially what a Red-Black Tree does! It’s a type of BST where each node has an extra color property (either red or black) and follows specific rules to keep the tree balanced automatically.\n\nThese rules ensure that after any insertion or deletion, the tree remains almost perfectly balanced, similar to ensuring no branch in the magical family tree gets too long. The magic comes from recoloring nodes and rotating branches to maintain balance.\n\n#### Misconception Addressing:\n- **Misconception**: Some might think Red-Black Trees are slower because they always re-balance the whole tree. But remember, they just make small adjustments locally to keep everything balanced!\n  \n- **Question**:\n  - Do you see how adding a new member to a well-maintained family tree could affect other members' positions without completely rearranging the entire tree?\n  - Can you guess why keeping the tree balanced is important even though individual searches still follow the same path as in a normal BST?\n\nBy understanding these basics, you’ll be much more comfortable with Red-Black Trees and see why they’re useful!",
+    "expected_met_prereqs": [],
+    "expected_unmet_prereqs": [
+      "Binary Search Trees",
+      "Asymptotic Complexity"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_bst",
+      "sg_complexity"
+    ],
+    "known_topics": [],
+    "key_gap": null,
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "gen_time_s": 52.05,
+    "timestamp": "2026-05-02T18:57:08.174471"
+  },
+  {
+    "user_id": "U4",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "target_sg_node": "sg_bfs_dfs",
+    "target_name": "BFS & DFS",
+    "target_question": "How does BFS work?",
+    "user_level": "beginner",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Depth-First Search (DFS)\nDefinition : A graph traversal algorithm that explores as far as possible along each branch before backtracking.\nCLRS       : 62  (not a set member), 1158 (part 8)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The specific depth-first forest and vertex timestamps can differ based on the order in which vertices are examined in the main loop and the order neighbors are visited in the adjacency lists.\n  ⚠ DFS is designed to iterate through all vertices and start new searches from multiple sources if needed, unlike the typical use of BFS for finding shortest paths from a single specified source.\n  ⚠ In a directed graph, if there is a path from u to v and u is discovered before v (u.d < v.d), it does not necessarily mean v is a descendant of u in the DFS forest.\n  ⚠ The existence of a path from u to v in a directed graph does not guarantee that v will be discovered before u is finished (i.e., v.d <= u.f is not always true).\n\n=== USER STATE ===\nUser    : U4\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Graph Representations\n  ✗ Stacks & Queues\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "Hi there! Let's start by understanding Breadth-First Search (BFS) first. Think of BFS like exploring a maze where you move one step forward at a time, checking out all your neighbors before going any deeper into the maze. You explore all the rooms on the same level before moving down or up to the next level.\n\nNow, let's talk about Depth-First Search (DFS). Imagine you're playing a game where you choose a path and go as deep as you can before turning around and coming back. This is similar to how DFS works—it goes as far down one path as possible before trying another path.\n\nCan you tell me how BFS decides which neighbor to visit next? Is it just picking any random neighbor or following a certain rule?\n\nAlso, do you remember how we represent graphs using adjacency lists or matrices? That’s important because DFS uses these representations to find its way through the graph. Can you remind me of how an adjacency list might look for a simple graph?",
+    "expected_met_prereqs": [],
+    "expected_unmet_prereqs": [
+      "Graph Representations",
+      "Stacks & Queues"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_graphs",
+      "sg_stack_queue"
+    ],
+    "known_topics": [],
+    "key_gap": null,
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "gen_time_s": 20.91,
+    "timestamp": "2026-05-02T18:57:29.086205"
+  },
+  {
+    "user_id": "U5",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "target_sg_node": "sg_shortest_path",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "user_level": "beginner",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Single-Source Shortest Paths\nDefinition : A class of shortest-path problems that involves finding the shortest paths from a single source vertex to all other vertices in a graph.\nCLRS       : 62  (not a set member), 1158 (part 33)\n\nKG Prerequisites:\n  ✗ Breadth-First Search\n  ✗ Shortest Path\n  ✗ Weighted, Directed Graph\n  ✗ Negative-Weight Cycle\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U5\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Heaps & Priority Queues\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "Hello, U5! Before we dive into Dijkstra's algorithm for solving the Single-Source Shortest Paths problem, let's first make sure you have the necessary tools under your belt. One important tool is understanding how to use heaps or priority queues effectively. Can you tell me what a heap is and why it might be useful for our purposes?\n\nThink of a heap as a special kind of tree where each node has a value, and the parent nodes always have values less than their child nodes (or greater if it’s a max-heap). This structure allows us to quickly find the smallest element without sorting the entire list. Now, imagine you're trying to find the fastest way to get through a city using different roads. If one road leads to a smaller number of streets ahead, it would be like having a shorter path to explore next. That's exactly what a heap does for us!\n\nSo, can you guess why we might want to use a heap when implementing Dijkstra's algorithm? We'll come back to Dijkstra once you feel comfortable with heaps and priority queues.",
+    "expected_met_prereqs": [
+      "Graph Representations",
+      "Greedy Algorithms"
+    ],
+    "expected_unmet_prereqs": [
+      "Heaps & Priority Queues"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_heap"
+    ],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Arrays & Dynamic Arrays",
+      "Graph Representations",
+      "Greedy Algorithms"
+    ],
+    "key_gap": "sg_heap",
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "gen_time_s": 21.93,
+    "timestamp": "2026-05-02T18:57:51.020577"
+  },
+  {
+    "user_id": "U6",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "target_sg_node": "sg_dp",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "user_level": "beginner",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Top-Down Dynamic Programming (Memoization)\nDefinition : A method of solving a dynamic programming problem by using recursion and storing the result of each solved subproblem to avoid recomputation.\nCLRS       : 18  \u0000  15  D  3 ,   since   15   and   18   are   the   two   closest   numbers   in   Q .   Make   the   op- (part 11)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The asymptotic running time of a recursive, memoized top-down approach is less efficient than an iterative bottom-up approach due to the overhead of recursion.\n\n=== USER STATE ===\nUser    : U6\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Divide & Conquer\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "Hi there! Let's start by understanding Dynamic Programming (DP). Imagine you're trying to solve a big puzzle, but it looks too hard all at once. So, you decide to break it down into smaller, easier puzzles that you can handle one by one. That's essentially what DP does!\n\n### What is Dynamic Programming?\nDynamic Programming is a technique used to solve complex problems by breaking them down into simpler subproblems. It’s like solving many small puzzles to eventually solve the big one. Here’s how we do it step-by-step:\n\n1. **Break Down the Problem**: Think about your big puzzle as being made up of many smaller pieces. In DP, we take our big problem and split it into smaller parts.\n\n2. **Solve Each Piece**: Solve each smaller piece individually. This might seem simple for some pieces, while others could be tricky.\n\n3. **Store Solutions**: Instead of starting from scratch every time you need to solve a similar piece, remember the solution to those smaller pieces so you don’t have to redo work. It’s like keeping a notebook where you write down the answers to common questions so you don’t have to figure them out again later.\n\n4. **Combine Solutions**: Once you’ve solved all the small pieces, combine their solutions to get the final answer to the big puzzle.\n\nNow, let's talk about Top-Down Dynamic Programming, which involves using recursion and storing results of subproblems.\n\n### Top-Down Dynamic Programming (Memoization)\nImagine you’re climbing a mountain. You want to find the shortest path from the bottom to the top. Instead of just jumping straight to the top, you explore different paths. If you come across a spot you’ve already explored, you remember how long it took to reach there. This way, you don’t waste time retracing steps you’ve already taken.\n\nIn coding terms, this means:\n- **Recursive Function**: We define a function that tries to solve the bigger problem.\n- **Memoization**: Before doing any computation, we check if we've already computed the answer for that particular part of the problem. If yes, we use the stored value; otherwise, we compute it and store it for future reference.\n\n### Misconception Addressed: Recursion Overhead\nSome people think that because we’re using recursion, the solution will always be slower. However, this isn’t necessarily true! With memoization, we avoid redundant computations, making it quite efficient in practice.\n\n### Example\nLet’s consider a classic example: finding the nth Fibonacci number. Without memoization, we’d repeatedly calculate the same values over and over. But with memoization, we only calculate each value once and reuse it:\n\n```python\ndef fib(n, memo={}):\n    if n <= 1:\n        return n\n    elif n not in memo:\n        memo[n] = fib(n-1, memo) + fib(n-2, memo)\n    return memo[n]\n\n# Usage\nprint(fib(10))  # Output: 55\n```\n\nHere, `memo` acts as our “notebook” where we store previously computed values.\n\n### Unmet Prerequisite: Divide & Conquer\nBefore diving deeper into DP, it helps to understand another powerful technique called **Divide & Conquer**. This is when we break a problem into smaller and independent subproblems, solve them independently, and then combine the results.\n\nFor example, sorting an array can be done using quicksort or mergesort, both of which divide the array into smaller parts, sort them, and then merge them back together.\n\nWould you like to learn more about Divide & Conquer first? Or should we move forward with Dynamic Programming right away?",
+    "expected_met_prereqs": [
+      "Recursion & Recurrences"
+    ],
+    "expected_unmet_prereqs": [
+      "Divide & Conquer"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_divide_conquer"
+    ],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Recursion & Recurrences",
+      "Arrays & Dynamic Arrays",
+      "Sorting Algorithms"
+    ],
+    "key_gap": "sg_divide_conquer",
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "gen_time_s": 69.94,
+    "timestamp": "2026-05-02T18:59:00.960260"
+  },
+  {
+    "user_id": "U7",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "target_sg_node": "sg_bfs_dfs",
+    "target_name": "BFS & DFS",
+    "target_question": "Explain BFS",
+    "user_level": "beginner",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Depth-First Search (DFS)\nDefinition : A graph traversal algorithm that explores as far as possible along each branch before backtracking.\nCLRS       : 62  (not a set member), 1158 (part 8)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The specific depth-first forest and vertex timestamps can differ based on the order in which vertices are examined in the main loop and the order neighbors are visited in the adjacency lists.\n  ⚠ DFS is designed to iterate through all vertices and start new searches from multiple sources if needed, unlike the typical use of BFS for finding shortest paths from a single specified source.\n  ⚠ In a directed graph, if there is a path from u to v and u is discovered before v (u.d < v.d), it does not necessarily mean v is a descendant of u in the DFS forest.\n  ⚠ The existence of a path from u to v in a directed graph does not guarantee that v will be discovered before u is finished (i.e., v.d <= u.f is not always true).\n\n=== USER STATE ===\nUser    : U7\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Stacks & Queues\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "Sure, let's start by understanding Breadth-First Search (BFS) first. Think of BFS like spreading out your search on a map using a series of concentric circles around a starting point. Each circle represents one step further away from where you started.\n\nNow, imagine you're trying to find your way out of a maze. With BFS, you explore all the immediate exits (neighbors) of the entrance before moving to the next level of exits. This means you go to all places one step away from the entrance, then all places two steps away, and so on.\n\nLet’s talk about some key points about BFS:\n1. **What does BFS do?** It starts at a given node and explores all the neighboring nodes at the present depth prior to moving on to nodes at the next depth level.\n2. **How does it work?** It uses a queue to keep track of the next node to visit. When you reach a node, you add its neighbors to the queue but only after you have processed all its neighbors.\n3. **Why might someone use BFS?** You would use BFS when you need to find the shortest path in an unweighted graph or tree because it guarantees to find the shortest path.\n\nNow, let's move on to the misconception about Depth-First Search (DFS). Imagine you’re exploring a cave system. With DFS, you might choose to go deep into one passage as far as you can before backing out and trying another passage. This can lead to different results depending on how you enter the cave and which passages you explore first.\n\nTo clarify some common misunderstandings about DFS:\n1. **Depth-First Forest**: Just like how you might explore many caves without knowing their exact layout beforehand, the DFS algorithm can create different trees (forests) based on the order in which you visit vertices.\n2. **Vertex Timestamps**: These aren’t just about visiting times; they also record when you finish exploring a subtree rooted at a particular vertex.\n3. **Path Existence vs. Discovery Order**: If you find a path from one cave to another, it doesn't automatically mean that the second cave was explored right after the first one was entered.\n4. **Order of Exploration**: The order in which you enter caves and explore tunnels matters a lot in DFS, similar to how the order of visiting nodes affects the outcome in DFS.\n\nWith BFS and DFS both being graph traversal algorithms, they serve different purposes and have distinct behaviors. Understanding both will help you decide which one to use based on the problem at hand! Can you think of any other examples where either BFS or DFS would be useful?",
+    "expected_met_prereqs": [
+      "Graph Representations"
+    ],
+    "expected_unmet_prereqs": [
+      "Stacks & Queues"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_stack_queue"
+    ],
+    "known_topics": [
+      "Arrays & Dynamic Arrays",
+      "Pointers & Memory",
+      "Linked Lists",
+      "Graph Representations"
+    ],
+    "key_gap": "sg_stack_queue",
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "gen_time_s": 50.29,
+    "timestamp": "2026-05-02T18:59:51.250471"
+  },
+  {
+    "user_id": "U8",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "target_sg_node": "sg_balanced_trees",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Balanced Trees",
+    "user_level": "beginner",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Red-Black Trees\nDefinition : A kind of self-balancing binary search tree that uses node coloring to ensure the tree remains approximately balanced during insertions and deletions.\nCLRS       : 1251\n\n\n\nPreface (part 2)\n\nKG Prerequisites:\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U8\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Binary Search Trees\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "Hello, U8! Let's start by talking about trees in a computer science context. You might already know about Binary Search Trees (BSTs), right? Think of a BST as a family tree where each person can have up to two children but no more than one child per side. Now, imagine if all your cousins were always trying to move closer to you or away from you so that everyone was equally distant from you. That’s kind of like balancing a tree!\n\n### Understanding Unbalanced Trees\nImagine you have a simple family tree with just one parent and many grandchildren. If most of the grandchildren gather on one side of the parent, it would be quite lopsided, wouldn't it? This is similar to what happens when a Binary Search Tree becomes unbalanced. An unbalanced tree can lead to some parts being very deep while others are shallow, making searches much slower than they could be.\n\n### What Are Balanced Trees?\nNow, let's talk about balanced trees. In a perfectly balanced tree, no matter how many people join the family, everything stays nicely organized so that the deepest part of the tree doesn’t get too long. This way, whether you’re looking for someone who’s close or far down the tree, you don’t need to go through too many levels to find them.\n\n### Red-Black Trees\nRed-Black Trees are a specific type of balanced tree. They use colors (red and black) to keep track of which nodes are helping to maintain balance. Just think of them as a fun game where red and black nodes work together to make sure the tree stays balanced without getting too complicated.\n\n### Misconceptions to Address\nHere are a couple of common misconceptions:\n1. **Balanced Trees Mean All Nodes Have Equal Depth:** Actually, balanced trees aim to keep the depth of the longest path short compared to the shortest path. It doesn’t mean every single node has exactly the same depth.\n2. **Only Red-Black Trees Can Be Balanced:** Many types of self-balancing trees exist, including AVL trees and B-trees. Red-Black Trees are just one popular method among many.\n\n### Next Steps\nNow, I want you to think about why using colors (like in Red-Black Trees) might help us keep a tree balanced. How do you think adding a color could influence the structure of our tree?\n\nFeel free to ask any questions you have along the way!",
+    "expected_met_prereqs": [
+      "Asymptotic Complexity"
+    ],
+    "expected_unmet_prereqs": [
+      "Binary Search Trees"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_bst"
+    ],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Recursion & Recurrences",
+      "Pointers & Memory"
+    ],
+    "key_gap": "sg_bst",
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "gen_time_s": 45.37,
+    "timestamp": "2026-05-02T19:00:36.617387"
+  },
+  {
+    "user_id": "U9",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "target_sg_node": "sg_shortest_path",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "user_level": "beginner",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Single-Source Shortest Paths\nDefinition : A class of shortest-path problems that involves finding the shortest paths from a single source vertex to all other vertices in a graph.\nCLRS       : 62  (not a set member), 1158 (part 33)\n\nKG Prerequisites:\n  ✗ Breadth-First Search\n  ✗ Shortest Path\n  ✗ Weighted, Directed Graph\n  ✗ Negative-Weight Cycle\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U9\nLevel   : beginner\nMastery : 0% on this topic\n\nAll SG prerequisites met ✓\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "Sure! Let’s start by thinking about how you might find the best way to get to different places using a map. Imagine you're planning a trip from your home to various destinations in town. You want to know which path is the shortest for each destination, right? That’s kind of like what we do when we use Dijkstra's algorithm!\n\n### Step-by-Step Breakdown:\n\n1. **Understanding the Map**: First, think of your starting point as \"home\" and all the possible routes from there as edges connecting different points (or destinations) on the map. Each route has a certain distance or time cost associated with it.\n\n2. **Starting Point**: In Dijkstra's algorithm, you have a special starting point called the \"source.\" This could be your house. From here, you need to figure out the shortest path to every other place in town.\n\n3. **Exploring Neighbors**: Now, imagine you’re standing at your house looking around. You can see several neighbors nearby, some closer than others. You choose the closest one first because it seems like the quickest option. In our case, this step would involve selecting the nearest destination that hasn't been visited yet based on the current known distances.\n\n4. **Updating Distances**: Once you've chosen a neighbor, check if going through this person gets you to another place even quicker than the current known path. If so, update the distance for that next place. It's like checking if taking a shortcut via a friend makes your overall journey shorter.\n\n5. **Repeat Process**: Keep repeating steps 3 and 4 until you’ve checked everyone in town. At each step, always pick the next closest neighbor whose path isn’t finalized yet.\n\n### Addressing Misconceptions:\n\n- **Negative Weights**: Remember, negative weights aren’t allowed in Dijkstra’s algorithm. Think of it like saying all roads must go uphill; once you choose a path, you can only move forward, never backward in terms of distance. \n\n- **Complexity**: Don’t worry too much about how long it takes to calculate everything. For small maps (graphs), Dijkstra works quite well, but for very large ones, other algorithms might be better suited.\n\nWould you like to practice with a simple example, say a small map with just a few destinations?",
+    "expected_met_prereqs": [
+      "Graph Representations",
+      "Heaps & Priority Queues",
+      "Greedy Algorithms"
+    ],
+    "expected_unmet_prereqs": [],
+    "expected_unmet_prereq_ids": [],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Arrays & Dynamic Arrays",
+      "Heaps & Priority Queues",
+      "Graph Representations",
+      "Greedy Algorithms"
+    ],
+    "key_gap": null,
+    "applicable_checks": [
+      "C4",
+      "C5"
+    ],
+    "gen_time_s": 43.49,
+    "timestamp": "2026-05-02T19:01:20.113213"
+  },
+  {
+    "user_id": "U10",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "target_sg_node": "sg_dp",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "user_level": "beginner",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Top-Down Dynamic Programming (Memoization)\nDefinition : A method of solving a dynamic programming problem by using recursion and storing the result of each solved subproblem to avoid recomputation.\nCLRS       : 18  \u0000  15  D  3 ,   since   15   and   18   are   the   two   closest   numbers   in   Q .   Make   the   op- (part 11)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The asymptotic running time of a recursive, memoized top-down approach is less efficient than an iterative bottom-up approach due to the overhead of recursion.\n\n=== USER STATE ===\nUser    : U10\nLevel   : beginner\nMastery : 0% on this topic\n\nAll SG prerequisites met ✓\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "Sure! Let's start with understanding what Dynamic Programming (DP) is all about. Imagine you're trying to solve a big puzzle but it’s made up of smaller pieces. Instead of looking at the whole puzzle right away, you break it down into these smaller pieces, solve those first, and then use their solutions to build up to the final solution. That’s essentially what DP does!\n\nNow, let’s talk about one specific way to do DP—Top-Down Dynamic Programming with Memoization. Think of it like a recipe where you have a list of ingredients (subproblems), and you know how to make each ingredient step-by-step. But instead of starting from scratch every time you need an ingredient, you store it when you’ve already made it so you don’t waste time doing it again.\n\nHere’s a simple analogy: Suppose you’re climbing a staircase and you can take either 1 or 2 steps at a time. You want to find out how many different ways there are to reach the top. With DP, you would break this down by thinking about reaching each step from the previous ones. If you remember how you got to certain steps, you can save time rather than recalculating everything from the beginning.\n\nNow, regarding your concern about efficiency, some people might think that because we use recursion, it will always be slower than just solving problems iteratively. However, that’s not entirely true. In fact, with memoization, we only calculate something once and reuse its result whenever needed. This means we can skip redundant calculations, which makes our algorithm more efficient for certain types of problems.\n\nSo, why do you think we might still prefer the top-down approach even though it uses recursion?",
+    "expected_met_prereqs": [
+      "Recursion & Recurrences",
+      "Divide & Conquer"
+    ],
+    "expected_unmet_prereqs": [],
+    "expected_unmet_prereq_ids": [],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Recursion & Recurrences",
+      "Sorting Algorithms",
+      "Divide & Conquer"
+    ],
+    "key_gap": null,
+    "applicable_checks": [
+      "C4",
+      "C5"
+    ],
+    "gen_time_s": 32.97,
+    "timestamp": "2026-05-02T19:01:53.081279"
+  },
+  {
+    "user_id": "U11",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "target_sg_node": "sg_bfs_dfs",
+    "target_name": "BFS & DFS",
+    "target_question": "Explain BFS",
+    "user_level": "beginner",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Depth-First Search (DFS)\nDefinition : A graph traversal algorithm that explores as far as possible along each branch before backtracking.\nCLRS       : 62  (not a set member), 1158 (part 8)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The specific depth-first forest and vertex timestamps can differ based on the order in which vertices are examined in the main loop and the order neighbors are visited in the adjacency lists.\n  ⚠ DFS is designed to iterate through all vertices and start new searches from multiple sources if needed, unlike the typical use of BFS for finding shortest paths from a single specified source.\n  ⚠ In a directed graph, if there is a path from u to v and u is discovered before v (u.d < v.d), it does not necessarily mean v is a descendant of u in the DFS forest.\n  ⚠ The existence of a path from u to v in a directed graph does not guarantee that v will be discovered before u is finished (i.e., v.d <= u.f is not always true).\n\n=== USER STATE ===\nUser    : U11\nLevel   : beginner\nMastery : 0% on this topic\n\nAll SG prerequisites met ✓\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "Sure! Let's start by talking about Breadth-First Search (BFS). Think of BFS like spreading out in all directions from a central point, much like ripples expanding outward when you drop a stone into water. \n\nNow, imagine you're trying to find your way through a maze. With BFS, you would check all the rooms directly connected to where you stand first before moving to any further rooms. This means you explore one level of the maze completely before going deeper. \n\nCan you think of how BFS might be different from how you'd normally solve puzzles or mazes? How do you usually approach such problems?",
+    "expected_met_prereqs": [
+      "Graph Representations",
+      "Stacks & Queues"
+    ],
+    "expected_unmet_prereqs": [],
+    "expected_unmet_prereq_ids": [],
+    "known_topics": [
+      "Arrays & Dynamic Arrays",
+      "Linked Lists",
+      "Stacks & Queues",
+      "Graph Representations"
+    ],
+    "key_gap": null,
+    "applicable_checks": [
+      "C4",
+      "C5"
+    ],
+    "gen_time_s": 14.03,
+    "timestamp": "2026-05-02T19:02:07.110252"
+  },
+  {
+    "user_id": "U12",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "target_sg_node": "sg_balanced_trees",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Balanced Trees",
+    "user_level": "beginner",
+    "model_name": "qwen_base",
+    "model_label": "Qwen 2.5 7B (Base)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Red-Black Trees\nDefinition : A kind of self-balancing binary search tree that uses node coloring to ensure the tree remains approximately balanced during insertions and deletions.\nCLRS       : 1251\n\n\n\nPreface (part 2)\n\nKG Prerequisites:\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U12\nLevel   : beginner\nMastery : 0% on this topic\n\nAll SG prerequisites met ✓\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "Sure! Let's start by understanding what a balanced tree is. Imagine you have a bookshelf where you store all your books in alphabetical order. If you keep adding more and more books without organizing them, eventually one side might get too heavy and the whole shelf could become unstable!\n\nNow, think about a balanced tree as a way to organize these books so that no part of the shelf becomes too heavy or too empty. In computer science, we use something called a \"binary search tree\" to do this for data instead of a physical bookshelf.\n\nA **binary search tree** is like a family tree, where each person (node) has two children. The rule is simple: everything on the left child is smaller than the parent, and everything on the right child is larger.\n\nHowever, just like how having too many books on one side can make your shelf unbalanced, a binary search tree can also become unbalanced if we add nodes in a very specific way. For example, if we always add numbers only to the right side, our tree will look like a straight line from top to bottom – which isn't very efficient!\n\nSo, a **red-black tree** is a special type of binary search tree that helps us keep things balanced. It does this by coloring its nodes either red or black and following some rules to maintain balance. This ensures that the tree stays relatively balanced after any operations like inserting or deleting nodes.\n\nNow, let's talk about why keeping trees balanced matters. Can you think of a reason why it would be important to keep a tree balanced? What problems might arise if a tree gets too unbalanced?",
+    "expected_met_prereqs": [
+      "Binary Search Trees",
+      "Asymptotic Complexity"
+    ],
+    "expected_unmet_prereqs": [],
+    "expected_unmet_prereq_ids": [],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Recursion & Recurrences",
+      "Pointers & Memory",
+      "Binary Search Trees"
+    ],
+    "key_gap": null,
+    "applicable_checks": [
+      "C4",
+      "C5"
+    ],
+    "gen_time_s": 30.69,
+    "timestamp": "2026-05-02T19:02:37.797746"
+  },
+  {
+    "user_id": "U1",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "target_sg_node": "sg_shortest_path",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "user_level": "beginner",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Single-Source Shortest Paths\nDefinition : A class of shortest-path problems that involves finding the shortest paths from a single source vertex to all other vertices in a graph.\nCLRS       : 62  (not a set member), 1158 (part 33)\n\nKG Prerequisites:\n  ✗ Breadth-First Search\n  ✗ Shortest Path\n  ✗ Weighted, Directed Graph\n  ✗ Negative-Weight Cycle\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U1\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Graph Representations\n  ✗ Heaps & Priority Queues\n  ✗ Greedy Algorithms\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a good question to explore! Before we dive into Dijkstra's specifically, let's make sure we're both on the same page about its fundamental purpose. What do you think \"shortest path\" means when we talk about getting from one place to another?",
+    "expected_met_prereqs": [],
+    "expected_unmet_prereqs": [
+      "Graph Representations",
+      "Heaps & Priority Queues",
+      "Greedy Algorithms"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_graphs",
+      "sg_heap",
+      "sg_greedy"
+    ],
+    "known_topics": [],
+    "key_gap": null,
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "gen_time_s": 9.85,
+    "timestamp": "2026-05-02T19:03:01.729625"
+  },
+  {
+    "user_id": "U2",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "target_sg_node": "sg_dp",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "user_level": "beginner",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Top-Down Dynamic Programming (Memoization)\nDefinition : A method of solving a dynamic programming problem by using recursion and storing the result of each solved subproblem to avoid recomputation.\nCLRS       : 18  \u0000  15  D  3 ,   since   15   and   18   are   the   two   closest   numbers   in   Q .   Make   the   op- (part 11)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The asymptotic running time of a recursive, memoized top-down approach is less efficient than an iterative bottom-up approach due to the overhead of recursion.\n\n=== USER STATE ===\nUser    : U2\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Recursion & Recurrences\n  ✗ Divide & Conquer\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a good question to start! Before we dive into \"Top-Down,\" let's make sure we're both on the same page about basic Dynamic Programming. Can you tell me what comes to mind when you hear that term? What do you think it means for a problem-solving strategy?",
+    "expected_met_prereqs": [],
+    "expected_unmet_prereqs": [
+      "Recursion & Recurrences",
+      "Divide & Conquer"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_recursion",
+      "sg_divide_conquer"
+    ],
+    "known_topics": [],
+    "key_gap": null,
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "gen_time_s": 10.34,
+    "timestamp": "2026-05-02T19:03:12.070142"
+  },
+  {
+    "user_id": "U3",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "target_sg_node": "sg_balanced_trees",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Red-Black Trees",
+    "user_level": "beginner",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Red-Black Trees\nDefinition : A kind of self-balancing binary search tree that uses node coloring to ensure the tree remains approximately balanced during insertions and deletions.\nCLRS       : 1251\n\n\n\nPreface (part 2)\n\nKG Prerequisites:\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U3\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Binary Search Trees\n  ✗ Asymptotic Complexity\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great question about Red-Black Trees! To start, let's make sure we're on the same page about their prerequisites.\n\nBefore diving into Red-Black Trees themselves, could you tell me what you know about Binary Search Trees? What do they help us do efficiently in data structures?",
+    "expected_met_prereqs": [],
+    "expected_unmet_prereqs": [
+      "Binary Search Trees",
+      "Asymptotic Complexity"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_bst",
+      "sg_complexity"
+    ],
+    "known_topics": [],
+    "key_gap": null,
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "gen_time_s": 10.16,
+    "timestamp": "2026-05-02T19:03:22.235359"
+  },
+  {
+    "user_id": "U4",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "target_sg_node": "sg_bfs_dfs",
+    "target_name": "BFS & DFS",
+    "target_question": "How does BFS work?",
+    "user_level": "beginner",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Depth-First Search (DFS)\nDefinition : A graph traversal algorithm that explores as far as possible along each branch before backtracking.\nCLRS       : 62  (not a set member), 1158 (part 8)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The specific depth-first forest and vertex timestamps can differ based on the order in which vertices are examined in the main loop and the order neighbors are visited in the adjacency lists.\n  ⚠ DFS is designed to iterate through all vertices and start new searches from multiple sources if needed, unlike the typical use of BFS for finding shortest paths from a single specified source.\n  ⚠ In a directed graph, if there is a path from u to v and u is discovered before v (u.d < v.d), it does not necessarily mean v is a descendant of u in the DFS forest.\n  ⚠ The existence of a path from u to v in a directed graph does not guarantee that v will be discovered before u is finished (i.e., v.d <= u.f is not always true).\n\n=== USER STATE ===\nUser    : U4\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Graph Representations\n  ✗ Stacks & Queues\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great question to start! Let's think about how you imagine BFS finds its way through a maze or a network of connected things.\n\nWhat do you think it uses to decide which way to explore next?",
+    "expected_met_prereqs": [],
+    "expected_unmet_prereqs": [
+      "Graph Representations",
+      "Stacks & Queues"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_graphs",
+      "sg_stack_queue"
+    ],
+    "known_topics": [],
+    "key_gap": null,
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "gen_time_s": 9.35,
+    "timestamp": "2026-05-02T19:03:31.591938"
+  },
+  {
+    "user_id": "U5",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "target_sg_node": "sg_shortest_path",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "user_level": "beginner",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Single-Source Shortest Paths\nDefinition : A class of shortest-path problems that involves finding the shortest paths from a single source vertex to all other vertices in a graph.\nCLRS       : 62  (not a set member), 1158 (part 33)\n\nKG Prerequisites:\n  ✗ Breadth-First Search\n  ✗ Shortest Path\n  ✗ Weighted, Directed Graph\n  ✗ Negative-Weight Cycle\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U5\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Heaps & Priority Queues\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a good goal! To understand Dijkstra's algorithm, let's first make sure we're both clear on its prerequisites. What do you know about heaps or priority queues? Can you describe how they work?",
+    "expected_met_prereqs": [
+      "Graph Representations",
+      "Greedy Algorithms"
+    ],
+    "expected_unmet_prereqs": [
+      "Heaps & Priority Queues"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_heap"
+    ],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Arrays & Dynamic Arrays",
+      "Graph Representations",
+      "Greedy Algorithms"
+    ],
+    "key_gap": "sg_heap",
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "gen_time_s": 8.13,
+    "timestamp": "2026-05-02T19:03:39.728278"
+  },
+  {
+    "user_id": "U6",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "target_sg_node": "sg_dp",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "user_level": "beginner",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Top-Down Dynamic Programming (Memoization)\nDefinition : A method of solving a dynamic programming problem by using recursion and storing the result of each solved subproblem to avoid recomputation.\nCLRS       : 18  \u0000  15  D  3 ,   since   15   and   18   are   the   two   closest   numbers   in   Q .   Make   the   op- (part 11)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The asymptotic running time of a recursive, memoized top-down approach is less efficient than an iterative bottom-up approach due to the overhead of recursion.\n\n=== USER STATE ===\nUser    : U6\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Divide & Conquer\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great question to start! Before we dive into \"top-down\" or \"memoization,\" let's make sure we're on the same page about what \"Dynamic Programming\" means. Can you tell me what you understand by that term? What comes to mind when you hear it?",
+    "expected_met_prereqs": [
+      "Recursion & Recurrences"
+    ],
+    "expected_unmet_prereqs": [
+      "Divide & Conquer"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_divide_conquer"
+    ],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Recursion & Recurrences",
+      "Arrays & Dynamic Arrays",
+      "Sorting Algorithms"
+    ],
+    "key_gap": "sg_divide_conquer",
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "gen_time_s": 10.09,
+    "timestamp": "2026-05-02T19:03:49.819735"
+  },
+  {
+    "user_id": "U7",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "target_sg_node": "sg_bfs_dfs",
+    "target_name": "BFS & DFS",
+    "target_question": "Explain BFS",
+    "user_level": "beginner",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Depth-First Search (DFS)\nDefinition : A graph traversal algorithm that explores as far as possible along each branch before backtracking.\nCLRS       : 62  (not a set member), 1158 (part 8)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The specific depth-first forest and vertex timestamps can differ based on the order in which vertices are examined in the main loop and the order neighbors are visited in the adjacency lists.\n  ⚠ DFS is designed to iterate through all vertices and start new searches from multiple sources if needed, unlike the typical use of BFS for finding shortest paths from a single specified source.\n  ⚠ In a directed graph, if there is a path from u to v and u is discovered before v (u.d < v.d), it does not necessarily mean v is a descendant of u in the DFS forest.\n  ⚠ The existence of a path from u to v in a directed graph does not guarantee that v will be discovered before u is finished (i.e., v.d <= u.f is not always true).\n\n=== USER STATE ===\nUser    : U7\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Stacks & Queues\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great question to start! Let's think about how you've seen or used \"first come, first served\" in everyday life. Can you describe a scenario where that principle applies?",
+    "expected_met_prereqs": [
+      "Graph Representations"
+    ],
+    "expected_unmet_prereqs": [
+      "Stacks & Queues"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_stack_queue"
+    ],
+    "known_topics": [
+      "Arrays & Dynamic Arrays",
+      "Pointers & Memory",
+      "Linked Lists",
+      "Graph Representations"
+    ],
+    "key_gap": "sg_stack_queue",
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "gen_time_s": 7.97,
+    "timestamp": "2026-05-02T19:03:57.789488"
+  },
+  {
+    "user_id": "U8",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "target_sg_node": "sg_balanced_trees",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Balanced Trees",
+    "user_level": "beginner",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Red-Black Trees\nDefinition : A kind of self-balancing binary search tree that uses node coloring to ensure the tree remains approximately balanced during insertions and deletions.\nCLRS       : 1251\n\n\n\nPreface (part 2)\n\nKG Prerequisites:\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U8\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Binary Search Trees\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a good term to bring up! Can you think about what it might mean for a tree to be \"balanced\" in terms of its height?",
+    "expected_met_prereqs": [
+      "Asymptotic Complexity"
+    ],
+    "expected_unmet_prereqs": [
+      "Binary Search Trees"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_bst"
+    ],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Recursion & Recurrences",
+      "Pointers & Memory"
+    ],
+    "key_gap": "sg_bst",
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "gen_time_s": 5.98,
+    "timestamp": "2026-05-02T19:04:03.767536"
+  },
+  {
+    "user_id": "U9",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "target_sg_node": "sg_shortest_path",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "user_level": "beginner",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Single-Source Shortest Paths\nDefinition : A class of shortest-path problems that involves finding the shortest paths from a single source vertex to all other vertices in a graph.\nCLRS       : 62  (not a set member), 1158 (part 33)\n\nKG Prerequisites:\n  ✗ Breadth-First Search\n  ✗ Shortest Path\n  ✗ Weighted, Directed Graph\n  ✗ Negative-Weight Cycle\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U9\nLevel   : beginner\nMastery : 0% on this topic\n\nAll SG prerequisites met ✓\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great question! To start, can you tell me what comes to mind when I say \"shortest path\" between two places? What do you think it means?",
+    "expected_met_prereqs": [
+      "Graph Representations",
+      "Heaps & Priority Queues",
+      "Greedy Algorithms"
+    ],
+    "expected_unmet_prereqs": [],
+    "expected_unmet_prereq_ids": [],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Arrays & Dynamic Arrays",
+      "Heaps & Priority Queues",
+      "Graph Representations",
+      "Greedy Algorithms"
+    ],
+    "key_gap": null,
+    "applicable_checks": [
+      "C4",
+      "C5"
+    ],
+    "gen_time_s": 6.67,
+    "timestamp": "2026-05-02T19:04:10.439322"
+  },
+  {
+    "user_id": "U10",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "target_sg_node": "sg_dp",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "user_level": "beginner",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Top-Down Dynamic Programming (Memoization)\nDefinition : A method of solving a dynamic programming problem by using recursion and storing the result of each solved subproblem to avoid recomputation.\nCLRS       : 18  \u0000  15  D  3 ,   since   15   and   18   are   the   two   closest   numbers   in   Q .   Make   the   op- (part 11)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The asymptotic running time of a recursive, memoized top-down approach is less efficient than an iterative bottom-up approach due to the overhead of recursion.\n\n=== USER STATE ===\nUser    : U10\nLevel   : beginner\nMastery : 0% on this topic\n\nAll SG prerequisites met ✓\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great place to start! What do you understand about \"Dynamic Programming\" so far? Can you describe it like you would to someone who has just heard the term?",
+    "expected_met_prereqs": [
+      "Recursion & Recurrences",
+      "Divide & Conquer"
+    ],
+    "expected_unmet_prereqs": [],
+    "expected_unmet_prereq_ids": [],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Recursion & Recurrences",
+      "Sorting Algorithms",
+      "Divide & Conquer"
+    ],
+    "key_gap": null,
+    "applicable_checks": [
+      "C4",
+      "C5"
+    ],
+    "gen_time_s": 7.09,
+    "timestamp": "2026-05-02T19:04:17.529686"
+  },
+  {
+    "user_id": "U11",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "target_sg_node": "sg_bfs_dfs",
+    "target_name": "BFS & DFS",
+    "target_question": "Explain BFS",
+    "user_level": "beginner",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Depth-First Search (DFS)\nDefinition : A graph traversal algorithm that explores as far as possible along each branch before backtracking.\nCLRS       : 62  (not a set member), 1158 (part 8)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The specific depth-first forest and vertex timestamps can differ based on the order in which vertices are examined in the main loop and the order neighbors are visited in the adjacency lists.\n  ⚠ DFS is designed to iterate through all vertices and start new searches from multiple sources if needed, unlike the typical use of BFS for finding shortest paths from a single specified source.\n  ⚠ In a directed graph, if there is a path from u to v and u is discovered before v (u.d < v.d), it does not necessarily mean v is a descendant of u in the DFS forest.\n  ⚠ The existence of a path from u to v in a directed graph does not guarantee that v will be discovered before u is finished (i.e., v.d <= u.f is not always true).\n\n=== USER STATE ===\nUser    : U11\nLevel   : beginner\nMastery : 0% on this topic\n\nAll SG prerequisites met ✓\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great question to start! Can you describe how Breadth-First Search (BFS) finds its way through a graph? What makes it different when compared to just exploring randomly?",
+    "expected_met_prereqs": [
+      "Graph Representations",
+      "Stacks & Queues"
+    ],
+    "expected_unmet_prereqs": [],
+    "expected_unmet_prereq_ids": [],
+    "known_topics": [
+      "Arrays & Dynamic Arrays",
+      "Linked Lists",
+      "Stacks & Queues",
+      "Graph Representations"
+    ],
+    "key_gap": null,
+    "applicable_checks": [
+      "C4",
+      "C5"
+    ],
+    "gen_time_s": 8.07,
+    "timestamp": "2026-05-02T19:04:25.604451"
+  },
+  {
+    "user_id": "U12",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "target_sg_node": "sg_balanced_trees",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Balanced Trees",
+    "user_level": "beginner",
+    "model_name": "qwen_sft",
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Red-Black Trees\nDefinition : A kind of self-balancing binary search tree that uses node coloring to ensure the tree remains approximately balanced during insertions and deletions.\nCLRS       : 1251\n\n\n\nPreface (part 2)\n\nKG Prerequisites:\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U12\nLevel   : beginner\nMastery : 0% on this topic\n\nAll SG prerequisites met ✓\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a good question to start! Let's think about regular trees first. Can you tell me how a simple binary search tree works? What does it do differently from a list or array when we try to find information in it?",
+    "expected_met_prereqs": [
+      "Binary Search Trees",
+      "Asymptotic Complexity"
+    ],
+    "expected_unmet_prereqs": [],
+    "expected_unmet_prereq_ids": [],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Recursion & Recurrences",
+      "Pointers & Memory",
+      "Binary Search Trees"
+    ],
+    "key_gap": null,
+    "applicable_checks": [
+      "C4",
+      "C5"
+    ],
+    "gen_time_s": 8.25,
+    "timestamp": "2026-05-02T19:04:33.853924"
+  },
+  {
+    "user_id": "U1",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "target_sg_node": "sg_shortest_path",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "user_level": "beginner",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Single-Source Shortest Paths\nDefinition : A class of shortest-path problems that involves finding the shortest paths from a single source vertex to all other vertices in a graph.\nCLRS       : 62  (not a set member), 1158 (part 33)\n\nKG Prerequisites:\n  ✗ Breadth-First Search\n  ✗ Shortest Path\n  ✗ Weighted, Directed Graph\n  ✗ Negative-Weight Cycle\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U1\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Graph Representations\n  ✗ Heaps & Priority Queues\n  ✗ Greedy Algorithms\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great question! To start, can you tell me how you currently think about \"shortest path\" in a simple way? What comes to mind when you hear those words together?",
+    "expected_met_prereqs": [],
+    "expected_unmet_prereqs": [
+      "Graph Representations",
+      "Heaps & Priority Queues",
+      "Greedy Algorithms"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_graphs",
+      "sg_heap",
+      "sg_greedy"
+    ],
+    "known_topics": [],
+    "key_gap": null,
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "gen_time_s": 7.84,
+    "timestamp": "2026-05-02T19:04:53.451825"
+  },
+  {
+    "user_id": "U2",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "target_sg_node": "sg_dp",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "user_level": "beginner",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Top-Down Dynamic Programming (Memoization)\nDefinition : A method of solving a dynamic programming problem by using recursion and storing the result of each solved subproblem to avoid recomputation.\nCLRS       : 18  \u0000  15  D  3 ,   since   15   and   18   are   the   two   closest   numbers   in   Q .   Make   the   op- (part 11)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The asymptotic running time of a recursive, memoized top-down approach is less efficient than an iterative bottom-up approach due to the overhead of recursion.\n\n=== USER STATE ===\nUser    : U2\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Recursion & Recurrences\n  ✗ Divide & Conquer\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great question to start! Let's think about it together.\n\nImagine you're trying to build a tower with blocks. You have many different colored blocks, and for each block, you need to decide which color comes next based on the colors already used. What might be a simple rule or strategy you could use to figure out *which* block goes on top?",
+    "expected_met_prereqs": [],
+    "expected_unmet_prereqs": [
+      "Recursion & Recurrences",
+      "Divide & Conquer"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_recursion",
+      "sg_divide_conquer"
+    ],
+    "known_topics": [],
+    "key_gap": null,
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "gen_time_s": 13.05,
+    "timestamp": "2026-05-02T19:05:06.502093"
+  },
+  {
+    "user_id": "U3",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "target_sg_node": "sg_balanced_trees",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Red-Black Trees",
+    "user_level": "beginner",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Red-Black Trees\nDefinition : A kind of self-balancing binary search tree that uses node coloring to ensure the tree remains approximately balanced during insertions and deletions.\nCLRS       : 1251\n\n\n\nPreface (part 2)\n\nKG Prerequisites:\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U3\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Binary Search Trees\n  ✗ Asymptotic Complexity\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great topic to explore! Before we dive in, let's make sure I've got your current understanding of binary search trees. Can you tell me how they work? What do you know about them?",
+    "expected_met_prereqs": [],
+    "expected_unmet_prereqs": [
+      "Binary Search Trees",
+      "Asymptotic Complexity"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_bst",
+      "sg_complexity"
+    ],
+    "known_topics": [],
+    "key_gap": null,
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "gen_time_s": 8.23,
+    "timestamp": "2026-05-02T19:05:14.729412"
+  },
+  {
+    "user_id": "U4",
+    "archetype": "A",
+    "archetype_label": "Beginner with gaps",
+    "target_sg_node": "sg_bfs_dfs",
+    "target_name": "BFS & DFS",
+    "target_question": "How does BFS work?",
+    "user_level": "beginner",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Depth-First Search (DFS)\nDefinition : A graph traversal algorithm that explores as far as possible along each branch before backtracking.\nCLRS       : 62  (not a set member), 1158 (part 8)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The specific depth-first forest and vertex timestamps can differ based on the order in which vertices are examined in the main loop and the order neighbors are visited in the adjacency lists.\n  ⚠ DFS is designed to iterate through all vertices and start new searches from multiple sources if needed, unlike the typical use of BFS for finding shortest paths from a single specified source.\n  ⚠ In a directed graph, if there is a path from u to v and u is discovered before v (u.d < v.d), it does not necessarily mean v is a descendant of u in the DFS forest.\n  ⚠ The existence of a path from u to v in a directed graph does not guarantee that v will be discovered before u is finished (i.e., v.d <= u.f is not always true).\n\n=== USER STATE ===\nUser    : U4\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Graph Representations\n  ✗ Stacks & Queues\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great question to start with! Can you tell me how you imagine BFS finds its way through a maze or a tree? What steps does it take?",
+    "expected_met_prereqs": [],
+    "expected_unmet_prereqs": [
+      "Graph Representations",
+      "Stacks & Queues"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_graphs",
+      "sg_stack_queue"
+    ],
+    "known_topics": [],
+    "key_gap": null,
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "gen_time_s": 8.15,
+    "timestamp": "2026-05-02T19:05:22.884416"
+  },
+  {
+    "user_id": "U5",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "target_sg_node": "sg_shortest_path",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "user_level": "beginner",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Single-Source Shortest Paths\nDefinition : A class of shortest-path problems that involves finding the shortest paths from a single source vertex to all other vertices in a graph.\nCLRS       : 62  (not a set member), 1158 (part 33)\n\nKG Prerequisites:\n  ✗ Breadth-First Search\n  ✗ Shortest Path\n  ✗ Weighted, Directed Graph\n  ✗ Negative-Weight Cycle\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U5\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Heaps & Priority Queues\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great question to explore! To start, can you tell me what you understand about \"shortest path\" in the context of graphs? What does it mean for one node to be connected to another through the shortest path?",
+    "expected_met_prereqs": [
+      "Graph Representations",
+      "Greedy Algorithms"
+    ],
+    "expected_unmet_prereqs": [
+      "Heaps & Priority Queues"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_heap"
+    ],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Arrays & Dynamic Arrays",
+      "Graph Representations",
+      "Greedy Algorithms"
+    ],
+    "key_gap": "sg_heap",
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "gen_time_s": 8.96,
+    "timestamp": "2026-05-02T19:05:31.851357"
+  },
+  {
+    "user_id": "U6",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "target_sg_node": "sg_dp",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "user_level": "beginner",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Top-Down Dynamic Programming (Memoization)\nDefinition : A method of solving a dynamic programming problem by using recursion and storing the result of each solved subproblem to avoid recomputation.\nCLRS       : 18  \u0000  15  D  3 ,   since   15   and   18   are   the   two   closest   numbers   in   Q .   Make   the   op- (part 11)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The asymptotic running time of a recursive, memoized top-down approach is less efficient than an iterative bottom-up approach due to the overhead of recursion.\n\n=== USER STATE ===\nUser    : U6\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Divide & Conquer\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great question to start! Let's first make sure we're on the same page about \"Dynamic Programming.\" Can you tell me what you understand about that term? What comes to mind when you hear it?",
+    "expected_met_prereqs": [
+      "Recursion & Recurrences"
+    ],
+    "expected_unmet_prereqs": [
+      "Divide & Conquer"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_divide_conquer"
+    ],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Recursion & Recurrences",
+      "Arrays & Dynamic Arrays",
+      "Sorting Algorithms"
+    ],
+    "key_gap": "sg_divide_conquer",
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "gen_time_s": 8.4,
+    "timestamp": "2026-05-02T19:05:40.255396"
+  },
+  {
+    "user_id": "U7",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "target_sg_node": "sg_bfs_dfs",
+    "target_name": "BFS & DFS",
+    "target_question": "Explain BFS",
+    "user_level": "beginner",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Depth-First Search (DFS)\nDefinition : A graph traversal algorithm that explores as far as possible along each branch before backtracking.\nCLRS       : 62  (not a set member), 1158 (part 8)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The specific depth-first forest and vertex timestamps can differ based on the order in which vertices are examined in the main loop and the order neighbors are visited in the adjacency lists.\n  ⚠ DFS is designed to iterate through all vertices and start new searches from multiple sources if needed, unlike the typical use of BFS for finding shortest paths from a single specified source.\n  ⚠ In a directed graph, if there is a path from u to v and u is discovered before v (u.d < v.d), it does not necessarily mean v is a descendant of u in the DFS forest.\n  ⚠ The existence of a path from u to v in a directed graph does not guarantee that v will be discovered before u is finished (i.e., v.d <= u.f is not always true).\n\n=== USER STATE ===\nUser    : U7\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Stacks & Queues\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great question to clarify! To start, could you describe how Breadth-First Search finds its way through a graph? What makes it different when compared to just visiting all your friends' friends?",
+    "expected_met_prereqs": [
+      "Graph Representations"
+    ],
+    "expected_unmet_prereqs": [
+      "Stacks & Queues"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_stack_queue"
+    ],
+    "known_topics": [
+      "Arrays & Dynamic Arrays",
+      "Pointers & Memory",
+      "Linked Lists",
+      "Graph Representations"
+    ],
+    "key_gap": "sg_stack_queue",
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "gen_time_s": 8.64,
+    "timestamp": "2026-05-02T19:05:48.901064"
+  },
+  {
+    "user_id": "U8",
+    "archetype": "B",
+    "archetype_label": "Partial knowledge with specific gaps",
+    "target_sg_node": "sg_balanced_trees",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Balanced Trees",
+    "user_level": "beginner",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Red-Black Trees\nDefinition : A kind of self-balancing binary search tree that uses node coloring to ensure the tree remains approximately balanced during insertions and deletions.\nCLRS       : 1251\n\n\n\nPreface (part 2)\n\nKG Prerequisites:\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U8\nLevel   : beginner\nMastery : 0% on this topic\n\nUnmet SG prerequisites — explain these FIRST:\n  ✗ Binary Search Trees\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a good starting point! Before we dive into red-black trees, let's think about simple trees you might be familiar with. Can you tell me what makes a tree \"balanced\" in the sense of finding items quickly?",
+    "expected_met_prereqs": [
+      "Asymptotic Complexity"
+    ],
+    "expected_unmet_prereqs": [
+      "Binary Search Trees"
+    ],
+    "expected_unmet_prereq_ids": [
+      "sg_bst"
+    ],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Recursion & Recurrences",
+      "Pointers & Memory"
+    ],
+    "key_gap": "sg_bst",
+    "applicable_checks": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "gen_time_s": 8.25,
+    "timestamp": "2026-05-02T19:05:57.152657"
+  },
+  {
+    "user_id": "U9",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "target_sg_node": "sg_shortest_path",
+    "target_name": "Shortest Path Algorithms",
+    "target_question": "Explain Dijkstra's algorithm",
+    "user_level": "beginner",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Single-Source Shortest Paths\nDefinition : A class of shortest-path problems that involves finding the shortest paths from a single source vertex to all other vertices in a graph.\nCLRS       : 62  (not a set member), 1158 (part 33)\n\nKG Prerequisites:\n  ✗ Breadth-First Search\n  ✗ Shortest Path\n  ✗ Weighted, Directed Graph\n  ✗ Negative-Weight Cycle\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U9\nLevel   : beginner\nMastery : 0% on this topic\n\nAll SG prerequisites met ✓\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a great question to explore! To start, can you tell me what you understand about \"shortest path\" in the context of computer science or graphs? What do we mean when we say a path is the \"shortest\"?",
+    "expected_met_prereqs": [
+      "Graph Representations",
+      "Heaps & Priority Queues",
+      "Greedy Algorithms"
+    ],
+    "expected_unmet_prereqs": [],
+    "expected_unmet_prereq_ids": [],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Arrays & Dynamic Arrays",
+      "Heaps & Priority Queues",
+      "Graph Representations",
+      "Greedy Algorithms"
+    ],
+    "key_gap": null,
+    "applicable_checks": [
+      "C4",
+      "C5"
+    ],
+    "gen_time_s": 8.6,
+    "timestamp": "2026-05-02T19:06:05.754291"
+  },
+  {
+    "user_id": "U10",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "target_sg_node": "sg_dp",
+    "target_name": "Dynamic Programming",
+    "target_question": "Explain Dynamic Programming",
+    "user_level": "beginner",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Top-Down Dynamic Programming (Memoization)\nDefinition : A method of solving a dynamic programming problem by using recursion and storing the result of each solved subproblem to avoid recomputation.\nCLRS       : 18  \u0000  15  D  3 ,   since   15   and   18   are   the   two   closest   numbers   in   Q .   Make   the   op- (part 11)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The asymptotic running time of a recursive, memoized top-down approach is less efficient than an iterative bottom-up approach due to the overhead of recursion.\n\n=== USER STATE ===\nUser    : U10\nLevel   : beginner\nMastery : 0% on this topic\n\nAll SG prerequisites met ✓\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a good question to start! What have you heard about Dynamic Programming before? Can you describe it in your own words?",
+    "expected_met_prereqs": [
+      "Recursion & Recurrences",
+      "Divide & Conquer"
+    ],
+    "expected_unmet_prereqs": [],
+    "expected_unmet_prereq_ids": [],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Recursion & Recurrences",
+      "Sorting Algorithms",
+      "Divide & Conquer"
+    ],
+    "key_gap": null,
+    "applicable_checks": [
+      "C4",
+      "C5"
+    ],
+    "gen_time_s": 5.98,
+    "timestamp": "2026-05-02T19:06:11.737714"
+  },
+  {
+    "user_id": "U11",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "target_sg_node": "sg_bfs_dfs",
+    "target_name": "BFS & DFS",
+    "target_question": "Explain BFS",
+    "user_level": "beginner",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Depth-First Search (DFS)\nDefinition : A graph traversal algorithm that explores as far as possible along each branch before backtracking.\nCLRS       : 62  (not a set member), 1158 (part 8)\n\nKG Prerequisites:\n\nMisconceptions to address:\n  ⚠ The specific depth-first forest and vertex timestamps can differ based on the order in which vertices are examined in the main loop and the order neighbors are visited in the adjacency lists.\n  ⚠ DFS is designed to iterate through all vertices and start new searches from multiple sources if needed, unlike the typical use of BFS for finding shortest paths from a single specified source.\n  ⚠ In a directed graph, if there is a path from u to v and u is discovered before v (u.d < v.d), it does not necessarily mean v is a descendant of u in the DFS forest.\n  ⚠ The existence of a path from u to v in a directed graph does not guarantee that v will be discovered before u is finished (i.e., v.d <= u.f is not always true).\n\n=== USER STATE ===\nUser    : U11\nLevel   : beginner\nMastery : 0% on this topic\n\nAll SG prerequisites met ✓\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a good starting point! How would you describe how BFS finds its way through a maze? What makes it different from just picking any direction to explore?",
+    "expected_met_prereqs": [
+      "Graph Representations",
+      "Stacks & Queues"
+    ],
+    "expected_unmet_prereqs": [],
+    "expected_unmet_prereq_ids": [],
+    "known_topics": [
+      "Arrays & Dynamic Arrays",
+      "Linked Lists",
+      "Stacks & Queues",
+      "Graph Representations"
+    ],
+    "key_gap": null,
+    "applicable_checks": [
+      "C4",
+      "C5"
+    ],
+    "gen_time_s": 7.28,
+    "timestamp": "2026-05-02T19:06:19.018464"
+  },
+  {
+    "user_id": "U12",
+    "archetype": "C",
+    "archetype_label": "Full prerequisites met",
+    "target_sg_node": "sg_balanced_trees",
+    "target_name": "Balanced Trees",
+    "target_question": "Explain Balanced Trees",
+    "user_level": "beginner",
+    "model_name": "qwen_dpo",
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "context_injected": "=== KNOWLEDGE GRAPH CONTEXT ===\nTopic      : Red-Black Trees\nDefinition : A kind of self-balancing binary search tree that uses node coloring to ensure the tree remains approximately balanced during insertions and deletions.\nCLRS       : 1251\n\n\n\nPreface (part 2)\n\nKG Prerequisites:\n\nMisconceptions to address:\n\n=== USER STATE ===\nUser    : U12\nLevel   : beginner\nMastery : 0% on this topic\n\nAll SG prerequisites met ✓\n\n=== INSTRUCTIONS ===\nSpeak at beginner level.\nIf unmet prerequisites exist, explain them before the main topic.\nUse analogy bridges to connect the new concept to what the user knows.\nProactively address the misconceptions listed above.\nDo not give direct solutions — guide with questions and scaffolded hints.",
+    "response": "That's a good term to explore! Before we dive into red-black trees specifically, let's think about regular binary search trees for a moment.\n\nImagine you have a sorted list of numbers. If you put these numbers in order from smallest to largest, how would you arrange them in a tree structure? What might be a simple way to do that?",
+    "expected_met_prereqs": [
+      "Binary Search Trees",
+      "Asymptotic Complexity"
+    ],
+    "expected_unmet_prereqs": [],
+    "expected_unmet_prereq_ids": [],
+    "known_topics": [
+      "Asymptotic Complexity",
+      "Recursion & Recurrences",
+      "Pointers & Memory",
+      "Binary Search Trees"
+    ],
+    "key_gap": null,
+    "applicable_checks": [
+      "C4",
+      "C5"
+    ],
+    "gen_time_s": 11.55,
+    "timestamp": "2026-05-02T19:06:30.576344"
+  }
+]

@@ -1,0 +1,89 @@
+{
+  "qwen_base": {
+    "label": "Baseline Qwen 7B",
+    "metrics": {
+      "overall": {
+        "total_conversations": 100,
+        "mean_t_star": 3.93,
+        "leak_rate_l3": 0.8,
+        "early_leak_rate": 0.45,
+        "level_distribution": {
+          "L0": 0.1182,
+          "L1": 0.1093,
+          "L2": 0.1817,
+          "L3": 0.5909
+        }
+      },
+      "per_category": {
+        "I": {
+          "count": 30,
+          "mean_t_star": 1.87,
+          "leak_rate_l3": 1.0,
+          "early_leak_rate": 0.7667,
+          "escalation_profile": {
+            "T1": 1.4,
+            "T2": 2.3,
+            "T3": 2.5,
+            "T4": 2.733,
+            "T5": 2.433,
+            "T6": 2.133,
+            "T7": 1.867,
+            "T8": 2.067,
+            "T9": 2.167,
+            "T10": 1.6
+          }
+        },
+        "II": {
+          "count": 40,
+          "mean_t_star": 2.02,
+          "leak_rate_l3": 1.0,
+          "early_leak_rate": 0.45,
+          "escalation_profile": {
+            "T1": 1.525,
+            "T2": 1.897,
+            "T3": 2.225,
+            "T4": 2.475,
+            "T5": 2.65,
+            "T6": 2.625,
+            "T7": 2.675,
+            "T8": 2.55,
+            "T9": 2.75,
+            "T10": 2.75
+          }
+        },
+        "III": {
+          "count": 30,
+          "mean_t_star": 8.53,
+          "leak_rate_l3": 0.3333,
+          "early_leak_rate": 0.1333,
+          "escalation_profile": {
+            "T1": 0.625,
+            "T2": 1.125,
+            "T3": 1.875,
+            "T4": 2.111,
+            "T5": 2.444,
+            "T6": 2.1,
+            "T7": 1.444,
+            "T8": 2.0,
+            "T9": 2.333,
+            "T10": 2.875
+          }
+        }
+      },
+      "escalation_profile": {
+        "T1": 1.3846153846153846,
+        "T2": 1.974025974025974,
+        "T3": 2.2948717948717947,
+        "T4": 2.5316455696202533,
+        "T5": 2.5443037974683542,
+        "T6": 2.375,
+        "T7": 2.2278481012658227,
+        "T8": 2.3,
+        "T9": 2.481012658227848,
+        "T10": 2.3205128205128207
+      },
+      "category_i_resistance": 0.0,
+      "category_iii_completion_rate": 0.0333
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "qwen_base": {
+    "model_label": "Qwen 2.5 7B (Base)",
+    "total_responses": 12,
+    "overall_score": 0.695,
+    "gate_recall": 1.0,
+    "gate_precision": 0.889,
+    "specificity": 1.0,
+    "teaching_rate": 0.75,
+    "archetype_scores": {
+      "A": {
+        "mean_score": 0.834,
+        "count": 4,
+        "per_check": {
+          "C1": 1.0,
+          "C2": 0.75,
+          "C3": 0.75
+        }
+      },
+      "B": {
+        "mean_score": 0.5,
+        "count": 4,
+        "per_check": {
+          "C1": 1.0,
+          "C2": 0.5,
+          "C3": 0.0,
+          "C4": 0.5
+        }
+      },
+      "C": {
+        "mean_score": 0.75,
+        "count": 4,
+        "per_check": {
+          "C4": 0.75,
+          "C5": 0.75
+        }
+      }
+    }
+  },
+  "qwen_dpo": {
+    "model_label": "Qwen 2.5 7B (SFT + DPO)",
+    "total_responses": 12,
+    "overall_score": 0.528,
+    "gate_recall": 0.25,
+    "gate_precision": 1.0,
+    "specificity": 0.0,
+    "teaching_rate": 1.0,
+    "archetype_scores": {
+      "A": {
+        "mean_score": 0.584,
+        "count": 4,
+        "per_check": {
+          "C1": 0.5,
+          "C2": 0.25,
+          "C3": 1.0
+        }
+      },
+      "B": {
+        "mean_score": 0.375,
+        "count": 4,
+        "per_check": {
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 1.0,
+          "C4": 0.5
+        }
+      },
+      "C": {
+        "mean_score": 0.625,
+        "count": 4,
+        "per_check": {
+          "C4": 0.25,
+          "C5": 1.0
+        }
+      }
+    }
+  },
+  "qwen_sft": {
+    "model_label": "Qwen 2.5 7B (SFT)",
+    "total_responses": 12,
+    "overall_score": 0.451,
+    "gate_recall": 0.125,
+    "gate_precision": 0.5,
+    "specificity": 0.0,
+    "teaching_rate": 0.75,
+    "archetype_scores": {
+      "A": {
+        "mean_score": 0.417,
+        "count": 4,
+        "per_check": {
+          "C1": 0.25,
+          "C2": 0.0,
+          "C3": 1.0
+        }
+      },
+      "B": {
+        "mean_score": 0.312,
+        "count": 4,
+        "per_check": {
+          "C1": 0.0,
+          "C2": 0.25,
+          "C3": 1.0,
+          "C4": 0.0
+        }
+      },
+      "C": {
+        "mean_score": 0.625,
+        "count": 4,
+        "per_check": {
+          "C4": 0.5,
+          "C5": 0.75
+        }
+      }
+    }
+  }
+}

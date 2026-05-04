@@ -1,0 +1,593 @@
+{
+  "overall": {
+    "total_conversations": 40,
+    "mean_coverage": 0.7112,
+    "mean_depth": 1.7639,
+    "mean_sequencing": 0.86
+  },
+  "per_conversation": [
+    {
+      "scenario_id": "e3_001",
+      "profile_name": "complete_beginner",
+      "coverage": 0.65,
+      "depth": 1.8596,
+      "sequencing": 1.0
+    },
+    {
+      "scenario_id": "e3_002",
+      "profile_name": "partial_knowledge",
+      "coverage": 0.55,
+      "depth": 1.8043,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_003",
+      "profile_name": "conceptually_confused",
+      "coverage": 0.65,
+      "depth": 1.75,
+      "sequencing": 1.0
+    },
+    {
+      "scenario_id": "e3_004",
+      "profile_name": "overconfident",
+      "coverage": 0.9,
+      "depth": 1.803,
+      "sequencing": 0.6
+    },
+    {
+      "scenario_id": "e3_005",
+      "profile_name": "strong_with_gap",
+      "coverage": 0.6,
+      "depth": 1.8723,
+      "sequencing": 1.0
+    },
+    {
+      "scenario_id": "e3_006",
+      "profile_name": "complete_beginner",
+      "coverage": 0.7,
+      "depth": 1.7358,
+      "sequencing": 0.8
+    },
+    {
+      "scenario_id": "e3_007",
+      "profile_name": "partial_knowledge",
+      "coverage": 0.7,
+      "depth": 1.7593,
+      "sequencing": 1.0
+    },
+    {
+      "scenario_id": "e3_008",
+      "profile_name": "conceptually_confused",
+      "coverage": 0.75,
+      "depth": 1.7538,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_009",
+      "profile_name": "overconfident",
+      "coverage": 0.7,
+      "depth": 1.7826,
+      "sequencing": 0.8
+    },
+    {
+      "scenario_id": "e3_010",
+      "profile_name": "strong_with_gap",
+      "coverage": 0.55,
+      "depth": 1.7347,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_011",
+      "profile_name": "complete_beginner",
+      "coverage": 0.75,
+      "depth": 1.7818,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_012",
+      "profile_name": "partial_knowledge",
+      "coverage": 0.75,
+      "depth": 1.6842,
+      "sequencing": 1.0
+    },
+    {
+      "scenario_id": "e3_013",
+      "profile_name": "conceptually_confused",
+      "coverage": 0.75,
+      "depth": 1.5902,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_014",
+      "profile_name": "overconfident",
+      "coverage": 0.8,
+      "depth": 1.7397,
+      "sequencing": 1.0
+    },
+    {
+      "scenario_id": "e3_015",
+      "profile_name": "strong_with_gap",
+      "coverage": 0.65,
+      "depth": 1.7674,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_016",
+      "profile_name": "complete_beginner",
+      "coverage": 0.7,
+      "depth": 1.7451,
+      "sequencing": 1.0
+    },
+    {
+      "scenario_id": "e3_017",
+      "profile_name": "partial_knowledge",
+      "coverage": 0.9,
+      "depth": 1.7037,
+      "sequencing": 0.7
+    },
+    {
+      "scenario_id": "e3_018",
+      "profile_name": "conceptually_confused",
+      "coverage": 0.8,
+      "depth": 1.6935,
+      "sequencing": 0.5
+    },
+    {
+      "scenario_id": "e3_019",
+      "profile_name": "overconfident",
+      "coverage": 0.8,
+      "depth": 1.7792,
+      "sequencing": 1.0
+    },
+    {
+      "scenario_id": "e3_020",
+      "profile_name": "strong_with_gap",
+      "coverage": 0.65,
+      "depth": 1.7619,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_021",
+      "profile_name": "complete_beginner",
+      "coverage": 0.85,
+      "depth": 1.6818,
+      "sequencing": 0.8
+    },
+    {
+      "scenario_id": "e3_022",
+      "profile_name": "partial_knowledge",
+      "coverage": 0.6,
+      "depth": 1.8542,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_023",
+      "profile_name": "conceptually_confused",
+      "coverage": 0.7,
+      "depth": 1.7368,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_024",
+      "profile_name": "overconfident",
+      "coverage": 0.75,
+      "depth": 1.7541,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_025",
+      "profile_name": "strong_with_gap",
+      "coverage": 0.7,
+      "depth": 1.7593,
+      "sequencing": 0.7
+    },
+    {
+      "scenario_id": "e3_026",
+      "profile_name": "complete_beginner",
+      "coverage": 0.8,
+      "depth": 1.7627,
+      "sequencing": 0.8
+    },
+    {
+      "scenario_id": "e3_027",
+      "profile_name": "partial_knowledge",
+      "coverage": 0.8,
+      "depth": 1.807,
+      "sequencing": 0.7
+    },
+    {
+      "scenario_id": "e3_028",
+      "profile_name": "conceptually_confused",
+      "coverage": 0.7,
+      "depth": 1.7656,
+      "sequencing": 0.8
+    },
+    {
+      "scenario_id": "e3_029",
+      "profile_name": "overconfident",
+      "coverage": 0.85,
+      "depth": 1.8214,
+      "sequencing": 1.0
+    },
+    {
+      "scenario_id": "e3_030",
+      "profile_name": "strong_with_gap",
+      "coverage": 0.7,
+      "depth": 1.7963,
+      "sequencing": 0.8
+    },
+    {
+      "scenario_id": "e3_031",
+      "profile_name": "complete_beginner",
+      "coverage": 0.7,
+      "depth": 1.6774,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_032",
+      "profile_name": "partial_knowledge",
+      "coverage": 0.65,
+      "depth": 1.8113,
+      "sequencing": 1.0
+    },
+    {
+      "scenario_id": "e3_033",
+      "profile_name": "conceptually_confused",
+      "coverage": 0.65,
+      "depth": 1.8478,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_034",
+      "profile_name": "overconfident",
+      "coverage": 0.65,
+      "depth": 1.8033,
+      "sequencing": 0.8
+    },
+    {
+      "scenario_id": "e3_035",
+      "profile_name": "strong_with_gap",
+      "coverage": 0.7,
+      "depth": 1.7708,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_036",
+      "profile_name": "complete_beginner",
+      "coverage": 0.85,
+      "depth": 1.7797,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_037",
+      "profile_name": "partial_knowledge",
+      "coverage": 0.7,
+      "depth": 1.7931,
+      "sequencing": 0.6
+    },
+    {
+      "scenario_id": "e3_038",
+      "profile_name": "conceptually_confused",
+      "coverage": 0.6,
+      "depth": 1.62,
+      "sequencing": 0.9
+    },
+    {
+      "scenario_id": "e3_039",
+      "profile_name": "overconfident",
+      "coverage": 0.6,
+      "depth": 1.6852,
+      "sequencing": 0.6
+    },
+    {
+      "scenario_id": "e3_040",
+      "profile_name": "strong_with_gap",
+      "coverage": 0.6,
+      "depth": 1.9273,
+      "sequencing": 0.9
+    }
+  ],
+  "heatmap": {
+    "P1": {
+      "T1": 1.5,
+      "T2": 1.675,
+      "T3": 1.425,
+      "T4": 0.975,
+      "T5": 0.875,
+      "T6": 0.725,
+      "T7": 0.6,
+      "T8": 0.55,
+      "T9": 0.6,
+      "T10": 0.675
+    },
+    "P2": {
+      "T1": 1.1,
+      "T2": 1.775,
+      "T3": 1.725,
+      "T4": 1.9,
+      "T5": 1.85,
+      "T6": 1.85,
+      "T7": 1.55,
+      "T8": 1.9,
+      "T9": 1.775,
+      "T10": 1.7
+    },
+    "P3": {
+      "T1": 0.15,
+      "T2": 0.95,
+      "T3": 1.75,
+      "T4": 1.65,
+      "T5": 1.7,
+      "T6": 1.8,
+      "T7": 1.475,
+      "T8": 1.85,
+      "T9": 1.8,
+      "T10": 1.8
+    },
+    "P4": {
+      "T1": 0.1,
+      "T2": 0.125,
+      "T3": 0.175,
+      "T4": 0.1,
+      "T5": 0.3,
+      "T6": 0.2,
+      "T7": 0.125,
+      "T8": 0.3,
+      "T9": 0.275,
+      "T10": 0.125
+    },
+    "P5": {
+      "T1": 0.25,
+      "T2": 0.45,
+      "T3": 0.7,
+      "T4": 0.425,
+      "T5": 0.6,
+      "T6": 0.375,
+      "T7": 0.175,
+      "T8": 0.4,
+      "T9": 0.3,
+      "T10": 0.125
+    },
+    "P6": {
+      "T1": 0.0,
+      "T2": 0.0,
+      "T3": 0.05,
+      "T4": 0.05,
+      "T5": 0.1,
+      "T6": 0.1,
+      "T7": 0.05,
+      "T8": 0.225,
+      "T9": 0.0,
+      "T10": 0.15
+    },
+    "P7": {
+      "T1": 0.075,
+      "T2": 0.125,
+      "T3": 0.05,
+      "T4": 0.075,
+      "T5": 0.05,
+      "T6": 0.05,
+      "T7": 0.05,
+      "T8": 0.075,
+      "T9": 0.025,
+      "T10": 0.05
+    },
+    "P8": {
+      "T1": 0.075,
+      "T2": 0.4,
+      "T3": 0.4,
+      "T4": 0.25,
+      "T5": 0.175,
+      "T6": 0.1,
+      "T7": 0.05,
+      "T8": 0.075,
+      "T9": 0.075,
+      "T10": 0.075
+    },
+    "P9": {
+      "T1": 0.1,
+      "T2": 0.35,
+      "T3": 0.375,
+      "T4": 0.5,
+      "T5": 0.375,
+      "T6": 0.35,
+      "T7": 0.275,
+      "T8": 0.275,
+      "T9": 0.325,
+      "T10": 0.125
+    },
+    "P10": {
+      "T1": 0.0,
+      "T2": 0.25,
+      "T3": 0.1,
+      "T4": 0.3,
+      "T5": 0.3,
+      "T6": 0.5,
+      "T7": 0.225,
+      "T8": 0.525,
+      "T9": 0.5,
+      "T10": 0.225
+    },
+    "P11": {
+      "T1": 0.875,
+      "T2": 0.075,
+      "T3": 0.2,
+      "T4": 0.0,
+      "T5": 0.0,
+      "T6": 0.05,
+      "T7": 0.025,
+      "T8": 0.025,
+      "T9": 0.1,
+      "T10": 0.05
+    },
+    "P12": {
+      "T1": 0.05,
+      "T2": 0.2,
+      "T3": 0.2,
+      "T4": 0.375,
+      "T5": 0.375,
+      "T6": 0.3,
+      "T7": 0.475,
+      "T8": 0.4,
+      "T9": 0.3,
+      "T10": 0.375
+    },
+    "P13": {
+      "T1": 0.825,
+      "T2": 1.575,
+      "T3": 1.85,
+      "T4": 1.65,
+      "T5": 1.575,
+      "T6": 1.575,
+      "T7": 1.575,
+      "T8": 1.525,
+      "T9": 1.55,
+      "T10": 1.65
+    },
+    "P14": {
+      "T1": 0.125,
+      "T2": 0.15,
+      "T3": 0.075,
+      "T4": 0.075,
+      "T5": 0.1,
+      "T6": 0.125,
+      "T7": 0.075,
+      "T8": 0.15,
+      "T9": 0.025,
+      "T10": 0.2
+    },
+    "P15": {
+      "T1": 0.475,
+      "T2": 0.725,
+      "T3": 0.8,
+      "T4": 0.9,
+      "T5": 1.075,
+      "T6": 1.1,
+      "T7": 1.175,
+      "T8": 1.075,
+      "T9": 0.8,
+      "T10": 0.65
+    },
+    "P16": {
+      "T1": 0.125,
+      "T2": 0.5,
+      "T3": 0.875,
+      "T4": 0.825,
+      "T5": 1.05,
+      "T6": 0.95,
+      "T7": 0.6,
+      "T8": 0.925,
+      "T9": 0.65,
+      "T10": 0.425
+    },
+    "P17": {
+      "T1": 0.05,
+      "T2": 0.125,
+      "T3": 0.175,
+      "T4": 0.25,
+      "T5": 0.2,
+      "T6": 0.15,
+      "T7": 0.225,
+      "T8": 0.35,
+      "T9": 0.55,
+      "T10": 0.375
+    },
+    "P18": {
+      "T1": 0.0,
+      "T2": 0.0,
+      "T3": 0.0,
+      "T4": 0.0,
+      "T5": 0.05,
+      "T6": 0.0,
+      "T7": 0.0,
+      "T8": 0.0,
+      "T9": 0.0,
+      "T10": 0.05
+    },
+    "P19": {
+      "T1": 0.3,
+      "T2": 0.25,
+      "T3": 0.3,
+      "T4": 0.225,
+      "T5": 0.25,
+      "T6": 0.175,
+      "T7": 0.125,
+      "T8": 0.3,
+      "T9": 0.175,
+      "T10": 0.2
+    },
+    "P20": {
+      "T1": 0.0,
+      "T2": 0.025,
+      "T3": 0.1,
+      "T4": 0.0,
+      "T5": 0.0,
+      "T6": 0.15,
+      "T7": 0.1,
+      "T8": 0.2,
+      "T9": 0.075,
+      "T10": 0.3
+    }
+  },
+  "per_archetype": {
+    "complete_beginner": {
+      "count": 8,
+      "coverage": 0.75,
+      "depth": 1.753,
+      "sequencing": 0.8875
+    },
+    "partial_knowledge": {
+      "count": 8,
+      "coverage": 0.7063,
+      "depth": 1.7771,
+      "sequencing": 0.85
+    },
+    "conceptually_confused": {
+      "count": 8,
+      "coverage": 0.7,
+      "depth": 1.7197,
+      "sequencing": 0.85
+    },
+    "overconfident": {
+      "count": 8,
+      "coverage": 0.7562,
+      "depth": 1.7711,
+      "sequencing": 0.8375
+    },
+    "strong_with_gap": {
+      "count": 8,
+      "coverage": 0.6438,
+      "depth": 1.7988,
+      "sequencing": 0.875
+    }
+  },
+  "principle_means": {
+    "P18": 0.01,
+    "P7": 0.0625,
+    "P6": 0.0725,
+    "P20": 0.095,
+    "P14": 0.11,
+    "P11": 0.14,
+    "P8": 0.1675,
+    "P4": 0.1825,
+    "P19": 0.23,
+    "P17": 0.245,
+    "P10": 0.2925,
+    "P9": 0.305,
+    "P12": 0.305,
+    "P5": 0.38,
+    "P16": 0.6925,
+    "P15": 0.8775,
+    "P1": 0.96,
+    "P3": 1.4925,
+    "P13": 1.535,
+    "P2": 1.7125
+  },
+  "gap_analysis": {
+    "P18": 0.01,
+    "P7": 0.0625,
+    "P6": 0.0725,
+    "P20": 0.095,
+    "P14": 0.11
+  }
+}

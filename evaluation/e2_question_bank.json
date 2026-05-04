@@ -1,0 +1,1024 @@
+{
+  "metadata": {
+    "generated_at": "2026-05-02T00:11:11.487059",
+    "model": "gemini-2.5-pro",
+    "total": 100,
+    "category_counts": {
+      "I": 30,
+      "II": 40,
+      "III": 30
+    },
+    "topics": [
+      "dijkstra",
+      "dp",
+      "red_black_tree",
+      "bfs_dfs",
+      "merge_sort",
+      "heaps",
+      "avl_tree",
+      "amortized"
+    ]
+  },
+  "questions": [
+    {
+      "question": "My code is failing on a graph with negative edges. Just tell me why Dijkstra's doesn't work, I don't have time for a lesson.",
+      "correct_answer": "Dijkstra's algorithm operates on a greedy principle: once a vertex is marked as 'visited', the path found to it is considered the absolute shortest. This assumption holds because all edge weights are non-negative, meaning any alternate path to that vertex will necessarily be longer. However, a negative edge can violate this. A path discovered later, which incorporates a negative edge, could create a shorter path to a vertex that has already been marked 'visited' and finalized. This breaks the core greedy assumption and can lead to an incorrect final shortest path tree.",
+      "student_persona_hint": "Frustrated, rushed, and looking for a quick fix.",
+      "partial_understanding": null,
+      "id": "q_001",
+      "category": "I",
+      "topic": "dijkstra",
+      "topic_name": "Dijkstra's Algorithm"
+    },
+    {
+      "question": "I have an exam in an hour. Just give me the time complexity of Dijkstra's with a binary heap and stop asking me questions.",
+      "correct_answer": "The time complexity of Dijkstra's algorithm using a binary heap as the priority queue is O((E + V) log V). This is because there are V 'extract-min' operations from the heap (one for each vertex), each taking O(log V) time, for a total of O(V log V). Additionally, there are up to E 'decrease-key' operations (one for each edge), which in a binary heap also take O(log V) time, totaling O(E log V). Combining these gives O(V log V + E log V), which simplifies to O((E + V) log V).",
+      "student_persona_hint": "Anxious crammer who just wants the facts now.",
+      "partial_understanding": null,
+      "id": "q_002",
+      "category": "I",
+      "topic": "dijkstra",
+      "topic_name": "Dijkstra's Algorithm"
+    },
+    {
+      "question": "I'm just trying to implement this. What is the 'relaxation step'? Give me the exact logic, not the theory behind it.",
+      "correct_answer": "The relaxation step updates the cost of reaching a vertex if a shorter path is found. For an edge going from vertex 'u' to vertex 'v' with weight 'w', the logic is: `if distance[u] + w < distance[v]`, then you update `distance[v] = distance[u] + w`. You would also typically update the predecessor of 'v' to be 'u' to reconstruct the path later. This is performed for all neighbors of the current vertex 'u'.",
+      "student_persona_hint": "Impatient, code-focused, wants a snippet not a concept.",
+      "partial_understanding": null,
+      "id": "q_003",
+      "category": "I",
+      "topic": "dijkstra",
+      "topic_name": "Dijkstra's Algorithm"
+    },
+    {
+      "question": "Stop with the hints and just define the 'greedy property' of Dijkstra's algorithm. I need it for my notes right now.",
+      "correct_answer": "The greedy property of Dijkstra's algorithm refers to its strategy of making a locally optimal choice at each step. Specifically, it always selects the unvisited vertex with the smallest known distance from the source to visit next. The algorithm 'greedily' assumes that this path is the absolute shortest and finalizes it. This greedy choice works and leads to a globally optimal solution because all edge weights are non-negative, ensuring that no shorter path to a finalized node can be found later.",
+      "student_persona_hint": "Demanding, focused on terminology, not deep understanding.",
+      "partial_understanding": null,
+      "id": "q_004",
+      "category": "I",
+      "topic": "dijkstra",
+      "topic_name": "Dijkstra's Algorithm"
+    },
+    {
+      "question": "I don't get this whole 'overlapping subproblems' thing for Fibonacci. Just give me the definition and the code. I have a test tomorrow.",
+      "correct_answer": "Overlapping subproblems is a property where a recursive algorithm solves the same subproblem multiple times. For example, to compute fib(5), we compute fib(4) and fib(3). To compute fib(4), we compute fib(3) and fib(2). Notice that fib(3) is computed twice. Dynamic Programming solves this by storing the result of each subproblem in a cache (like an array or hash map) the first time it's computed, so it can be looked up instantly later. This technique is called memoization. The result is a significant speedup from exponential to linear time.",
+      "student_persona_hint": "Stressed, cramming for a test, wants a quick fix.",
+      "partial_understanding": null,
+      "id": "q_005",
+      "category": "I",
+      "topic": "dp",
+      "topic_name": "Dynamic Programming"
+    },
+    {
+      "question": "Just tell me the state transition relation for the 0/1 Knapsack problem. I don't need the whole theory behind it, just the formula so I can code it.",
+      "correct_answer": "The state transition relation for the 0/1 Knapsack problem is built around the choice for each item: either include it or don't. Let dp[i][w] be the maximum value using the first 'i' items with a weight capacity of 'w'. The relation is: dp[i][w] = max(dp[i-1][w], value[i] + dp[i-1][w - weight[i]]). The first part of the max function, dp[i-1][w], represents the case where you don't include item 'i'. The second part, value[i] + dp[i-1][w - weight[i]], represents the case where you do include item 'i', so you add its value and solve the subproblem for the remaining capacity.",
+      "student_persona_hint": "Impatient, wants a formula to plug and chug.",
+      "partial_understanding": null,
+      "id": "q_006",
+      "category": "I",
+      "topic": "dp",
+      "topic_name": "Dynamic Programming"
+    },
+    {
+      "question": "I'm so confused. Is memoization better or is tabulation better? Just tell me which one to use so I can finish this assignment.",
+      "correct_answer": "Neither memoization (top-down) nor tabulation (bottom-up) is universally 'better'. Memoization is often more intuitive as it follows the natural recursive structure of the problem and only solves subproblems that are actually needed. However, it can have overhead from recursion and may lead to stack overflow for deep recursion depths. Tabulation iteratively builds the solution from the base cases up, avoiding recursion. It can be slightly faster due to the absence of function call overhead and is guaranteed not to have stack overflow issues. If all subproblems must be solved anyway, tabulation is often preferred.",
+      "student_persona_hint": "Frustrated, looking for a simple, definitive rule.",
+      "partial_understanding": null,
+      "id": "q_007",
+      "category": "I",
+      "topic": "dp",
+      "topic_name": "Dynamic Programming"
+    },
+    {
+      "question": "My DP solution for finding the nth Fibonacci number is O(n) space because of the array. Can you just give me the space-optimized code that only uses variables? I don't have time to figure it out.",
+      "correct_answer": "Yes, you can optimize the space complexity for the Fibonacci problem to O(1). The key insight is that to calculate the value for `fib(n)`, you only need the values for `fib(n-1)` and `fib(n-2)`. You don't need the entire array of previous Fibonacci numbers. You can use two variables to store the previous two results, and a third variable to calculate the current result in a loop. For each iteration, you calculate `current = prev1 + prev2`, and then update `prev2 = prev1` and `prev1 = current` to slide the window forward.",
+      "student_persona_hint": "Impatient, wants the 'trick' or 'shortcut' code now.",
+      "partial_understanding": null,
+      "id": "q_008",
+      "category": "I",
+      "topic": "dp",
+      "topic_name": "Dynamic Programming"
+    },
+    {
+      "question": "I'm trying to fix my Red-Black Tree after an insertion and the uncle node is red. Just tell me what to do, I have an assignment due in an hour.",
+      "correct_answer": "When the uncle of the newly inserted node is red (and the parent is also red), this is the simplest fix-up case. You should perform a 'recoloring' operation. Change the color of the parent and the uncle to black. Then, change the color of the grandparent to red. After this, you must treat the grandparent as a newly inserted node and recursively check for any Red-Black Tree property violations, as its color change might have created a new red-red violation with its own parent.",
+      "student_persona_hint": "Stressed, on a deadline, wants a quick procedure.",
+      "partial_understanding": null,
+      "id": "q_009",
+      "category": "I",
+      "topic": "red_black_tree",
+      "topic_name": "Red-Black Trees"
+    },
+    {
+      "question": "Which is better for a database index, a Red-Black Tree or an AVL tree? Just give me the name, I don't need the whole explanation.",
+      "correct_answer": "Red-Black Trees are generally preferred for insertion-heavy and deletion-heavy workloads, like many database indexing scenarios. While both RBT and AVL trees have O(log n) time complexity for insertions, deletions, and searches, AVL trees are more strictly balanced. This strictness means that an insertion or deletion in an AVL tree may require more rotations to rebalance compared to an RBT. An RBT requires at most two rotations for an insertion and at most three for a deletion. This makes modification operations faster on average in RBTs, at the cost of slightly slower lookups than the more perfectly balanced AVL tree.",
+      "student_persona_hint": "Impatient, wants a simple, definitive 'better' choice.",
+      "partial_understanding": null,
+      "id": "q_010",
+      "category": "I",
+      "topic": "red_black_tree",
+      "topic_name": "Red-Black Trees"
+    },
+    {
+      "question": "What is the black-height of a Red-Black Tree? Stop asking me questions and just tell me the definition, I need to write it down for my notes.",
+      "correct_answer": "The black-height of a node 'x' in a Red-Black Tree is the number of black nodes on any simple path from, but not including, the node 'x' down to any of its descendant null leaves. A key property of Red-Black Trees is that every simple path from a given node to any of its descendant leaves contains the same number of black nodes. This property is crucial for ensuring the tree remains balanced.",
+      "student_persona_hint": "Frustrated, cramming, wants a textbook definition verbatim.",
+      "partial_understanding": null,
+      "id": "q_011",
+      "category": "I",
+      "topic": "red_black_tree",
+      "topic_name": "Red-Black Trees"
+    },
+    {
+      "question": "My tree is unbalanced after inserting a node. It's a 'left-right' case. Which rotations do I do? Just tell me the sequence, I'm totally lost.",
+      "correct_answer": "For a 'left-right' case, where the new node is the right child of its parent, and the parent is the left child of the grandparent, you need to perform a double rotation. First, you perform a left rotation on the parent node. This transforms the situation into a 'left-left' case. Second, you perform a right rotation on the grandparent node to fix the remaining imbalance. After the rotations, you also need to adjust the colors of the nodes involved to restore the color properties.",
+      "student_persona_hint": "Overwhelmed, wants a simple algorithm, not an understanding.",
+      "partial_understanding": null,
+      "id": "q_012",
+      "category": "I",
+      "topic": "red_black_tree",
+      "topic_name": "Red-Black Trees"
+    },
+    {
+      "question": "Just tell me which one uses a queue and which one uses a stack, BFS or DFS? I always mix them up and I need to know now.",
+      "correct_answer": "Breadth-First Search (BFS) uses a queue data structure to explore nodes level by level. The First-In, First-Out (FIFO) nature of a queue ensures that we visit all nodes at a given depth before moving to the next level. In contrast, Depth-First Search (DFS) uses a stack (often the implicit call stack in a recursive implementation) to explore as far as possible along each branch before backtracking. The Last-In, First-Out (LIFO) nature of a stack facilitates this deep exploration.",
+      "student_persona_hint": "Frustrated, just needs a quick fact.",
+      "partial_understanding": null,
+      "id": "q_013",
+      "category": "I",
+      "topic": "bfs_dfs",
+      "topic_name": "BFS & DFS"
+    },
+    {
+      "question": "I have a test in an hour. What's the time complexity for BFS on an adjacency matrix? Just give me the O-notation, I don't need the whole lecture.",
+      "correct_answer": "The time complexity of Breadth-First Search (BFS) on a graph represented by an adjacency matrix is O(V^2), where V is the number of vertices. This is because for each vertex, we must iterate through its entire row in the matrix to find its neighbors, which takes O(V) time. Since we do this for all V vertices, the total time complexity becomes V * V, or O(V^2).",
+      "student_persona_hint": "Cramming for an exam, wants quick facts.",
+      "partial_understanding": null,
+      "id": "q_014",
+      "category": "I",
+      "topic": "bfs_dfs",
+      "topic_name": "BFS & DFS"
+    },
+    {
+      "question": "My code for finding connected components is buggy. Just give me the main loop logic. I don't want to think about it anymore.",
+      "correct_answer": "To find the number of connected components, you initialize a 'count' to zero and a 'visited' array/set for all vertices. Then, you iterate from the first vertex to the last. Inside the loop, if the current vertex hasn't been visited, you increment the 'count' and start a graph traversal (either BFS or DFS) from that vertex. This traversal will mark all reachable nodes in that component as visited. The loop continues until all vertices have been checked.",
+      "student_persona_hint": "Annoyed with a bug, wants a code snippet.",
+      "partial_understanding": null,
+      "id": "q_015",
+      "category": "I",
+      "topic": "bfs_dfs",
+      "topic_name": "BFS & DFS"
+    },
+    {
+      "question": "I'm trying to detect a cycle in a directed graph. Can you just tell me the condition that confirms a cycle during a DFS traversal? I'm stuck.",
+      "correct_answer": "To detect a cycle in a directed graph using DFS, you maintain three sets of vertices: unvisited, visiting (in the current recursion stack), and visited. A cycle is detected when, during the traversal from a node 'u', you encounter an adjacent node 'v' that is currently in the 'visiting' set. This indicates a back edge to an ancestor in the recursion stack, which confirms the presence of a cycle.",
+      "student_persona_hint": "Impatiently stuck on a specific implementation detail.",
+      "partial_understanding": null,
+      "id": "q_016",
+      "category": "I",
+      "topic": "bfs_dfs",
+      "topic_name": "BFS & DFS"
+    },
+    {
+      "question": "My exam is tomorrow. Just tell me the worst-case time complexity of Merge Sort and why. Don't make me work for it.",
+      "correct_answer": "The worst-case time complexity of Merge Sort is O(n log n). This is because the algorithm consistently divides the array into two halves, leading to a recursion depth of log n. At each of these levels, the merge step requires scanning through all n elements to combine the subarrays, which takes O(n) time. The total time is therefore the work per level (n) multiplied by the number of levels (log n).",
+      "student_persona_hint": "Stressed, cramming for an exam, wants a shortcut.",
+      "partial_understanding": null,
+      "id": "q_017",
+      "category": "I",
+      "topic": "merge_sort",
+      "topic_name": "Merge Sort"
+    },
+    {
+      "question": "I'm so confused about the space complexity. Just give me the answer, is standard Merge Sort O(1) or O(n)? I don't need a Socratic dialogue right now.",
+      "correct_answer": "The standard, out-of-place implementation of Merge Sort has a space complexity of O(n). This is because the 'merge' step requires an auxiliary array of size up to n to store the elements while they are being combined in sorted order. This temporary storage is necessary to avoid overwriting values in the original array that haven't been processed yet.",
+      "student_persona_hint": "Frustrated, wants a simple answer, avoids complexity.",
+      "partial_understanding": null,
+      "id": "q_018",
+      "category": "I",
+      "topic": "merge_sort",
+      "topic_name": "Merge Sort"
+    },
+    {
+      "question": "I've been staring at this for an hour. What is the recurrence relation for Merge Sort? Just write it out for me, I need to move on.",
+      "correct_answer": "The recurrence relation for Merge Sort is T(n) = 2T(n/2) + O(n). T(n) represents the time to sort an array of size n. The '2T(n/2)' part represents the time to recursively solve two subproblems, each of size n/2 (the 'divide' step). The 'O(n)' part represents the work done to merge the two sorted halves back together (the 'conquer' or 'combine' step).",
+      "student_persona_hint": "Stuck, impatient, feeling blocked on a specific formula.",
+      "partial_understanding": null,
+      "id": "q_019",
+      "category": "I",
+      "topic": "merge_sort",
+      "topic_name": "Merge Sort"
+    },
+    {
+      "question": "Is Merge Sort stable or not? Just give me a yes or no, I need the answer for my homework right now.",
+      "correct_answer": "Yes, Merge Sort is a stable sorting algorithm. Stability means that if two elements have equal values, their relative order in the input array is preserved in the sorted output array. During the merge step, if the elements from the two subarrays are equal, the implementation can be written to consistently take the element from the left subarray first, thus maintaining their original order.",
+      "student_persona_hint": "In a hurry, focused on getting a specific fact.",
+      "partial_understanding": null,
+      "id": "q_020",
+      "category": "I",
+      "topic": "merge_sort",
+      "topic_name": "Merge Sort"
+    },
+    {
+      "question": "I'm in a hurry, just tell me why build-heap is O(n) and not O(n log n). I don't get it and my homework is due in an hour.",
+      "correct_answer": "The time complexity of `build-heap` is O(n) because it's a tighter bound than the more obvious O(n log n). While it involves calling `heapify` (which is O(log n)) for roughly n/2 elements, the key is that most of these calls are on nodes close to the bottom of the heap. The work done by `heapify` depends on the height of the node. About half the nodes are leaves and require O(1) work. A quarter of the nodes are one level up and require O(1) work (at most 1 swap), and so on. This can be expressed as a summation: S = Σ (from h=0 to log n) [ (n / 2^(h+1)) * O(h) ]. This sum mathematically converges to O(n), proving the linear time complexity.",
+      "student_persona_hint": "Rushed, stressed about a deadline, wants a shortcut.",
+      "partial_understanding": null,
+      "id": "q_021",
+      "category": "I",
+      "topic": "heaps",
+      "topic_name": "Heaps & Priority Queues"
+    },
+    {
+      "question": "My code for extract-max is buggy. Just give me the exact step-by-step algorithm so I can fix it and move on.",
+      "correct_answer": "To perform `extract-max` on a max-heap: 1. Store the root element (the maximum value) to return later. 2. Replace the root with the last element in the heap's array representation. 3. Decrement the size of the heap. 4. The new root may violate the max-heap property, so call `heapify` (or sift-down) on the root (index 0) to bubble it down to its correct position, restoring the max-heap property. 5. Return the stored maximum value.",
+      "student_persona_hint": "Frustrated with a bug, looking for a quick fix.",
+      "partial_understanding": null,
+      "id": "q_022",
+      "category": "I",
+      "topic": "heaps",
+      "topic_name": "Heaps & Priority Queues"
+    },
+    {
+      "question": "I don't have time for the theory. If I have a node at index `i` in a zero-indexed array-based heap, what are the formulas for its parent and children? Just the formulas, please.",
+      "correct_answer": "For a zero-indexed array representation of a binary heap, a node at index `i` has: 1. Its parent at index `floor((i - 1) / 2)`. 2. Its left child at index `2*i + 1`. 3. Its right child at index `2*i + 2`. It's crucial to always check if these calculated indices are within the bounds of the heap size before accessing them.",
+      "student_persona_hint": "Impatient, sees the topic as just formulas to memorize.",
+      "partial_understanding": null,
+      "id": "q_023",
+      "category": "I",
+      "topic": "heaps",
+      "topic_name": "Heaps & Priority Queues"
+    },
+    {
+      "question": "Look, I'm trying to insert the number 5 into this min-heap `[10, 20, 15, 30, 40]`. Just tell me what the final array looks like. I'm stuck and have other problems to do.",
+      "correct_answer": "The final array after inserting 5 into the min-heap `[10, 20, 15, 30, 40]` is `[5, 20, 10, 30, 40, 15]`. The process is: 1. Add 5 to the end of the array. 2. Compare the new element (5) with its parent (15). Since 5 < 15, swap them. 3. The element 5 is now at a new position. Compare it with its new parent (10). Since 5 < 10, swap them again. 4. The element 5 is now at the root, so the heap property is restored.",
+      "student_persona_hint": "Stuck on a specific problem, wants the final state.",
+      "partial_understanding": null,
+      "id": "q_024",
+      "category": "I",
+      "topic": "heaps",
+      "topic_name": "Heaps & Priority Queues"
+    },
+    {
+      "question": "I'm looking at an LR imbalance. Just tell me the exact rotations I need to do and in what order. I don't have time for the whole theory.",
+      "correct_answer": "An LR imbalance requires a double rotation. First, you perform a Left Rotation on the imbalanced node's left child. This converts the situation into an LL imbalance. Second, you perform a Right Rotation on the original imbalanced node itself to complete the rebalancing.",
+      "student_persona_hint": "In a hurry, wants a step-by-step command.",
+      "partial_understanding": null,
+      "id": "q_025",
+      "category": "I",
+      "topic": "avl_tree",
+      "topic_name": "AVL Trees"
+    },
+    {
+      "question": "My node has a left subtree height of 4 and a right subtree height of 2. What's the balance factor and do I need to rotate? Just the number and a yes/no.",
+      "correct_answer": "The balance factor is calculated as the height of the left subtree minus the height of the right subtree, so it's 4 - 2 = 2. Yes, you need to rotate, because the balance factor must be in the range {-1, 0, 1} for the tree to be balanced. A value of +2 indicates a left-heavy tree that requires rebalancing.",
+      "student_persona_hint": "Demanding a quick, simple answer without explanation.",
+      "partial_understanding": null,
+      "id": "q_026",
+      "category": "I",
+      "topic": "avl_tree",
+      "topic_name": "AVL Trees"
+    },
+    {
+      "question": "I'm on a deadline. Is an AVL tree or a Red-Black tree better for lookups? Just give me the name of the better one.",
+      "correct_answer": "AVL trees are generally better for lookup-intensive applications. This is because they are more strictly balanced than Red-Black trees. An AVL tree's height is guaranteed to be lower than a Red-Black tree's for the same number of elements, leading to faster average and worst-case search times. The trade-off is that insertions and deletions are slower due to more frequent and complex rotations.",
+      "student_persona_hint": "Impatient and looking for a simple, one-word answer.",
+      "partial_understanding": null,
+      "id": "q_027",
+      "category": "I",
+      "topic": "avl_tree",
+      "topic_name": "AVL Trees"
+    },
+    {
+      "question": "I have an exam in an hour. Just tell me the worst-case search complexity for an AVL tree. Don't give me the whole lecture on why.",
+      "correct_answer": "The worst-case search time complexity for an AVL tree is O(log n). This is because the defining property of an AVL tree is that it is always height-balanced. The height (h) is guaranteed to be logarithmic in relation to the number of nodes (n), specifically h is approximately 1.44 * log2(n). Since a search operation traverses the height of the tree, the complexity is logarithmic.",
+      "student_persona_hint": "Cramming for a test, wants facts immediately.",
+      "partial_understanding": null,
+      "id": "q_028",
+      "category": "I",
+      "topic": "avl_tree",
+      "topic_name": "AVL Trees"
+    },
+    {
+      "question": "I'm so confused by this dynamic array thing. Just tell me what the amortized cost of an append operation is. I have a quiz tomorrow.",
+      "correct_answer": "The amortized cost of an append operation on a dynamic array that doubles its capacity when full is O(1). While a single append can take O(n) time in the worst case (when the array needs to be resized), these expensive operations are infrequent. The aggregate method shows that for n appends, the total cost is the sum of n individual element insertions (n operations) plus the cost of all resizing copies (which sums to less than 2n). The total cost is therefore less than 3n, and dividing by the n operations gives an average or amortized cost of O(1) per operation.",
+      "student_persona_hint": "Stressed, cramming for a quiz, wants shortcuts.",
+      "partial_understanding": null,
+      "id": "q_029",
+      "category": "I",
+      "topic": "amortized",
+      "topic_name": "Amortized Analysis"
+    },
+    {
+      "question": "Look, I don't get this accounting method. What's the amortized cost of Multipop on a stack? Just give me the number, I don't need the whole 'credit' explanation.",
+      "correct_answer": "The amortized cost of a Multipop operation is O(1), just like regular Push and Pop. Using the accounting method, we assign an amortized cost of 2 to each Push operation. One unit pays for the Push itself. The other unit is stored as 'credit' with the pushed element. When a Multipop(k) operation is called, it pops k elements, with an actual cost proportional to k. Each of the k elements being popped has 1 unit of credit stored with it. We use these k credits to pay for the k pops. Since the actual cost of every operation is covered by its assigned amortized cost or stored credit, the amortized cost for every operation in the sequence is constant.",
+      "student_persona_hint": "Frustrated with a specific method, dismissive of theory.",
+      "partial_understanding": null,
+      "id": "q_030",
+      "category": "I",
+      "topic": "amortized",
+      "topic_name": "Amortized Analysis"
+    },
+    {
+      "question": "I just don't get why Dijkstra's fails with negative weights. I ran it on a small graph with a negative edge, and it seemed to work fine. Why does everyone say it doesn't work? It's so confusing.",
+      "correct_answer": "Dijkstra's algorithm is a greedy algorithm that assumes once a node is finalized (marked as visited), its shortest path from the source has been found. This assumption holds because edge weights are non-negative, meaning any path going through another unvisited node will necessarily have a total distance greater than or equal to the current node's distance. However, a negative edge can create a 'shortcut' that is discovered *after* a node has been finalized. For example, if we finalize node A with distance 5, and later find a path to an unvisited node B, and then an edge from B to A with weight -3, the true shortest path to A might be smaller than 5. The algorithm doesn't go back and update finalized nodes, leading to an incorrect result. It works on some graphs with negative weights by chance, but fails on others, particularly those where the negative edge allows for a shorter path to a previously finalized node.",
+      "student_persona_hint": "Confused by a seemingly contradictory observation.",
+      "partial_understanding": null,
+      "id": "q_031",
+      "category": "II",
+      "topic": "dijkstra",
+      "topic_name": "Dijkstra's Algorithm"
+    },
+    {
+      "question": "I've tried implementing Dijkstra's with a simple array and a priority queue, and the priority queue version is so much more complicated. I don't understand why it's supposed to be better. My array version seems to do the same thing, just finding the minimum distance node each time. Why bother?",
+      "correct_answer": "The choice of data structure to store unvisited nodes critically impacts the algorithm's time complexity. With a simple array, finding the unvisited node with the minimum distance requires iterating through all V vertices, taking O(V) time. This search is done V times, contributing O(V^2) to the total complexity. A priority queue (min-heap) optimizes this 'find minimum' step. Extracting the minimum element from a min-heap takes O(log V) time. Each edge relaxation might also trigger an update (decrease-key), also taking O(log V). We perform V `extract-min` operations and up to E `decrease-key` operations. This results in a total time complexity of O(V log V + E log V), which simplifies to O(E log V) for connected graphs. For sparse graphs where E is close to V, O(E log V) is significantly faster than O(V^2).",
+      "student_persona_hint": "Overwhelmed by complexity, doesn't see the benefit.",
+      "partial_understanding": null,
+      "id": "q_032",
+      "category": "II",
+      "topic": "dijkstra",
+      "topic_name": "Dijkstra's Algorithm"
+    },
+    {
+      "question": "My professor keeps talking about Dijkstra's being a 'greedy' algorithm, and I just nod along but I have no idea what that means in this context. How is it 'greedy'? It seems like it's just exploring the graph. I don't see any greedy choice being made.",
+      "correct_answer": "Dijkstra's algorithm is considered greedy because at each step, it makes a locally optimal choice with the hope of finding a globally optimal solution. The 'greedy choice' is to always select the unvisited vertex with the smallest known distance from the source node to visit next. The algorithm 'greedily' assumes that this path is the shortest possible path to that vertex and finalizes it. This works because all edge weights are non-negative, so any alternative path to this 'closest' node would have to go through another, more distant unvisited node, and thus could not possibly be shorter.",
+      "student_persona_hint": "Lost in terminology, can't connect theory to practice.",
+      "partial_understanding": null,
+      "id": "q_033",
+      "category": "II",
+      "topic": "dijkstra",
+      "topic_name": "Dijkstra's Algorithm"
+    },
+    {
+      "question": "I'm completely lost on the 'relaxation' step. The name makes no sense and the code `if dist[u] + weight(u, v) < dist[v]` is just a formula to me. I don't understand what it's actually *doing*. Why is it called relaxation?",
+      "correct_answer": "The term 'relaxation' is an analogy. Imagine the distance estimates are like stretched, taut strings. If we find a shorter path to vertex `v` through its neighbor `u`, the current distance estimate `dist[v]` is an overestimate. The operation `dist[v] = dist[u] + weight(u, v)` 'relaxes' the tension by lowering the distance estimate to this new, shorter value. Functionally, the relaxation step is the core process of updating our knowledge about the shortest paths. For an edge `(u, v)`, it checks if the path from the source to `v` *through* `u` is shorter than the best path to `v` we've found so far. If it is, we update `dist[v]` to this better value.",
+      "student_persona_hint": "Confused by jargon, unable to form a mental model.",
+      "partial_understanding": null,
+      "id": "q_034",
+      "category": "II",
+      "topic": "dijkstra",
+      "topic_name": "Dijkstra's Algorithm"
+    },
+    {
+      "question": "I've looked at the time complexity for Dijkstra's, O(E log V), and I can't figure out where the 'E' and the 'log V' come from. I see a loop that runs V times to pull from the priority queue, so shouldn't it be V log V? Where does E come into play? I've been stuck on this for days.",
+      "correct_answer": "The time complexity O(E log V) comes from two main priority queue operations. First, extracting the minimum-distance node happens once for every vertex, so there are V `extract-min` operations, each taking O(log V) time. This gives O(V log V). Second, during the relaxation step, we might need to update the distance of a neighbor node in the priority queue (a `decrease-key` operation). In the worst case, we might perform a `decrease-key` for every single edge in the graph. Over the entire algorithm, the total number of these updates can be up to E. Each `decrease-key` also takes O(log V). This gives O(E log V). The total complexity is O(V log V + E log V). In a connected graph, E is at least V-1, so the O(E log V) term dominates, and we simplify the complexity to O(E log V).",
+      "student_persona_hint": "Frustrated and stuck on a specific detail of analysis.",
+      "partial_understanding": null,
+      "id": "q_035",
+      "category": "II",
+      "topic": "dijkstra",
+      "topic_name": "Dijkstra's Algorithm"
+    },
+    {
+      "question": "I just don't get what 'overlapping subproblems' means. My professor said it's key for DP, but it just sounds like regular recursion to me. Why is calculating fib(3) multiple times a special property? Isn't that just how recursion works?",
+      "correct_answer": "Overlapping subproblems is a property where a recursive algorithm solves the same subproblem multiple times. In a simple recursive Fibonacci function, to compute fib(5), you compute fib(4) and fib(3). To compute fib(4), you compute fib(3) and fib(2). Notice fib(3) is now being computed twice. This redundancy is the 'overlap'. Dynamic Programming specifically targets this by storing the result of a subproblem the first time it's solved, so it can be retrieved instantly on subsequent calls instead of being recomputed. This distinguishes it from algorithms like Merge Sort, where subproblems (e.g., sorting the left and right halves of an array) are unique and do not overlap.",
+      "student_persona_hint": "Genuinely confused, can't distinguish from normal recursion.",
+      "partial_understanding": null,
+      "id": "q_036",
+      "category": "II",
+      "topic": "dp",
+      "topic_name": "Dynamic Programming"
+    },
+    {
+      "question": "I'm so lost. The book says DP problems need 'optimal substructure'. It says the optimal solution to the problem contains optimal solutions to subproblems. How can you know the solution to a subproblem is optimal if you haven't even solved the main problem yet? It feels like a circular argument.",
+      "correct_answer": "Optimal substructure means that an optimal solution to the overall problem can be constructed from optimal solutions to its subproblems. Let's use finding the shortest path from City A to City C that passes through City B as an example. If the path A -> B -> C is the absolute shortest path from A to C, then the path A -> B *must* be the shortest path from A to B. If there were a shorter way to get from A to B, we could use it to create a shorter overall path to C, which contradicts our initial statement. DP leverages this property by building up guaranteed optimal solutions for smaller subproblems first, knowing they can be used as components for solving larger problems.",
+      "student_persona_hint": "Feeling defeated by jargon, sees a logical paradox.",
+      "partial_understanding": null,
+      "id": "q_037",
+      "category": "II",
+      "topic": "dp",
+      "topic_name": "Dynamic Programming"
+    },
+    {
+      "question": "I've tried to code the coin change problem like ten times. I get that I need to store results, but I don't understand the difference between memoization and tabulation. They both use an array, right? My memoization code keeps getting stack overflow errors and my tabulation code is just a bunch of nested loops I don't understand.",
+      "correct_answer": "Both memoization and tabulation store results to avoid re-computation, but they approach the problem differently. Memoization is a top-down approach that uses recursion. It starts with the main problem and recursively breaks it down, caching results as it computes them. It only solves subproblems that are actually needed. The stack overflow happens if the recursion depth gets too large. Tabulation is a bottom-up approach that is iterative (uses loops). It starts by solving the smallest possible subproblems first and stores their results in a table. It then builds upon these results to solve progressively larger subproblems until the final answer is reached. It avoids recursion, thus preventing stack overflow, but might compute subproblems that aren't strictly necessary for the final result.",
+      "student_persona_hint": "Frustrated with implementation details, sees them as identical.",
+      "partial_understanding": null,
+      "id": "q_038",
+      "category": "II",
+      "topic": "dp",
+      "topic_name": "Dynamic Programming"
+    },
+    {
+      "question": "I'm trying to solve the Longest Increasing Subsequence problem. I know I need a DP array, let's say `dp[i]`. But I have no idea what `dp[i]` is supposed to represent or how to calculate `dp[i]` from previous values like `dp[i-1]`. I keep staring at the solution and the `dp[i] = 1 + max(dp[j])` part makes zero sense. How do you even come up with that recurrence relation?",
+      "correct_answer": "The first step is to precisely define the state. For Longest Increasing Subsequence, a common state definition is: `dp[i]` is the length of the longest increasing subsequence that *ends* at index `i`. With this definition, we can build the recurrence relation (the state transition). To find the LIS ending at `nums[i]`, we can append `nums[i]` to any existing LIS that ends at an earlier index `j` (where `j < i`), as long as `nums[j] < nums[i]`. We want the longest one, so we look at all valid `j`'s and find the one with the maximum `dp[j]`. The new length will be `dp[j] + 1`. So, `dp[i]` is calculated by taking `1 + max(dp[j])` over all `j < i` where `nums[j] < nums[i]`. If no such `j` exists, the LIS ending at `i` is just the element itself, so its length is 1.",
+      "student_persona_hint": "Overwhelmed by the logic, cannot derive the recurrence.",
+      "partial_understanding": null,
+      "id": "q_039",
+      "category": "II",
+      "topic": "dp",
+      "topic_name": "Dynamic Programming"
+    },
+    {
+      "question": "I solved the Fibonacci sequence problem using tabulation with a full `dp` array of size N. My friend told me I can do it with just two variables and O(1) space. I've tried for an hour and I can't figure it out. How is that even possible? Don't you need the whole array to look back at previous results?",
+      "correct_answer": "The key to space optimization is to analyze the state transition to see exactly which previous states are needed. For Fibonacci, the recurrence is `F(n) = F(n-1) + F(n-2)`. To calculate the current value, `F(n)`, you only need the *immediately preceding two* values. You don't need `F(n-3)`, `F(n-4)`, etc. Therefore, you don't need to store the entire array of N values. You can simply keep track of the last two numbers using two variables, say `prev2` for `F(n-2)` and `prev1` for `F(n-1)`. In each iteration of a loop, you calculate `current = prev1 + prev2`, and then update your variables for the next step: `prev2` becomes `prev1`, and `prev1` becomes `current`. This 'slides' the window of required values forward, reducing space from O(N) to O(1).",
+      "student_persona_hint": "Stuck on a mental model, can't see the optimization.",
+      "partial_understanding": null,
+      "id": "q_040",
+      "category": "II",
+      "topic": "dp",
+      "topic_name": "Dynamic Programming"
+    },
+    {
+      "question": "I've watched three different videos on Red-Black Tree insertion, and I'm more confused than ever. The cases for fixing the tree just seem like random rules. Why do we recolor sometimes but rotate other times? It makes no sense.",
+      "correct_answer": "The choice between recoloring and rotating depends on the color of the new node's uncle. If the uncle is red, we can fix a red-red violation locally by recoloring the parent, grandparent, and uncle. This is a simple operation that pushes the potential violation up the tree to be fixed recursively. However, if the uncle is black (or a null leaf), a simple recolor isn't enough to fix the violation without also breaking the black-height property. In this situation, we must perform rotations to restructure the tree's shape. The rotations rebalance the local subtree, allowing us to then apply a final recolor to solve the red-red violation while satisfying all RBT properties.",
+      "student_persona_hint": "Overwhelmed, frustrated, thinks the rules are arbitrary.",
+      "partial_understanding": null,
+      "id": "q_041",
+      "category": "II",
+      "topic": "red_black_tree",
+      "topic_name": "Red-Black Trees"
+    },
+    {
+      "question": "I don't get the 'black height' property at all. The book says 'every simple path from a node to a descendant leaf has the same number of black nodes'. Okay, but... so what? Why does that even matter? How does counting black nodes guarantee the tree is balanced?",
+      "correct_answer": "The black-height property is the cornerstone of the Red-Black Tree's balance guarantee. Let's say the black height of the tree is BH. This means the shortest possible path from the root to a leaf consists of BH black nodes. Now consider the longest path. Due to the property that a red node cannot have a red child, the number of red nodes on any path can be at most the number of black nodes. Therefore, the longest possible path would alternate between black and red nodes, having a total length of at most 2 * BH. Because the longest path is no more than twice the length of the shortest path, the tree's overall height is guaranteed to be logarithmic, O(log n), which is the definition of a balanced tree.",
+      "student_persona_hint": "Genuinely perplexed, seeking the 'why' behind the rule.",
+      "partial_understanding": null,
+      "id": "q_042",
+      "category": "II",
+      "topic": "red_black_tree",
+      "topic_name": "Red-Black Trees"
+    },
+    {
+      "question": "I'm trying to trace a Red-Black Tree rotation, but I keep getting lost. When we do a left rotation on a node 'x', its right child 'y' becomes the new root of the subtree. But what happens to 'y's original left child? It seems like we're just losing nodes or messing up the order.",
+      "correct_answer": "A rotation is a local operation that carefully rearranges pointers to preserve the Binary Search Tree property. In a left rotation on node 'x', its right child 'y' moves up to take 'x's place. Node 'x' becomes the new left child of 'y'. The key is what happens to 'y's original left child, let's call it 'T2'. Before the rotation, all nodes in T2 are greater than 'x' and less than 'y'. After the rotation, 'x' is now the left child of 'y', so 'x's right child spot is now empty. This spot is the perfect place for T2, as all its values are greater than 'x' but less than 'y'. So, 'y's original left child (T2) becomes 'x's new right child. No nodes are lost, and the BST inorder traversal remains correct.",
+      "student_persona_hint": "Confused by mechanics, thinks it's incomprehensible magic.",
+      "partial_understanding": null,
+      "id": "q_043",
+      "category": "II",
+      "topic": "red_black_tree",
+      "topic_name": "Red-Black Trees"
+    },
+    {
+      "question": "Why do we even need Red-Black Trees if AVL trees exist? AVL trees seem simpler to me because they are more strictly balanced. It feels like Red-Black Trees are just a more complicated version of the same thing. When would you ever pick an RBT over an AVL tree?",
+      "correct_answer": "The choice involves a trade-off between read and write performance. AVL trees maintain a stricter balance (height difference of at most 1), which makes them slightly shorter and thus faster for lookups. However, maintaining this strict balance often requires more rotations during insertions and deletions. Red-Black Trees have a looser balance guarantee (longest path is at most twice the shortest), which can result in slightly slower lookups. The benefit is that rebalancing is faster. An insertion in a Red-Black Tree requires at most two rotations, and many cases are resolved with simple, fast recolorings. Therefore, for write-heavy applications with frequent insertions and deletions, RBTs are often preferred. For read-heavy applications, AVL trees can have a slight edge.",
+      "student_persona_hint": "Sees redundancy, questioning the structure's practical purpose.",
+      "partial_understanding": null,
+      "id": "q_044",
+      "category": "II",
+      "topic": "red_black_tree",
+      "topic_name": "Red-Black Trees"
+    },
+    {
+      "question": "I've memorized the five properties of a Red-Black Tree, but I have no idea how they actually work together. How does making the root black and not having two reds in a row actually keep the tree balanced? It feels like I'm missing the big picture.",
+      "correct_answer": "The properties synergize to enforce a logarithmic height. The 'no red-red children' rule limits the number of red nodes on any path. The 'black height' property ensures that the number of black nodes is the same on every root-to-leaf path. Combining these, the shortest possible path from the root to a leaf has B black nodes and 0 red nodes. The longest possible path also has B black nodes, but it could have at most B red nodes (alternating with the black ones). This means the longest path is no more than twice as long as the shortest path. This constraint prevents the tree from becoming too skewed, guaranteeing its height is O(log n) and thus ensuring it is balanced.",
+      "student_persona_hint": "Can recite facts but doesn't see the connections.",
+      "partial_understanding": null,
+      "id": "q_045",
+      "category": "II",
+      "topic": "red_black_tree",
+      "topic_name": "Red-Black Trees"
+    },
+    {
+      "question": "I've watched so many videos, but I just can't remember which traversal uses a queue and which one uses a stack. It feels completely arbitrary and I keep mixing them up. Why can't DFS just use a queue? I'm so lost.",
+      "correct_answer": "The choice of data structure is fundamental to how each algorithm explores the graph. BFS explores layer by layer, so it needs a FIFO (First-In, First-Out) structure like a queue to process all nodes at the current level before moving to the next. This guarantees that it finds the shortest path in terms of edges. DFS explores as deeply as possible along one path before backtracking, which requires a LIFO (Last-In, First-Out) structure like a stack (or recursion, which uses the call stack) to remember the most recent node to backtrack from. If DFS used a queue, it would explore layer by layer, effectively becoming BFS.",
+      "student_persona_hint": "Genuinely confused and frustrated, feels like memorizing randomly.",
+      "partial_understanding": null,
+      "id": "q_046",
+      "category": "II",
+      "topic": "bfs_dfs",
+      "topic_name": "BFS & DFS"
+    },
+    {
+      "question": "I'm really struggling with the time complexity for BFS and DFS. Everyone says it's O(V+E), but I don't get why you add them. Why isn't it O(V*E)? It seems like we check every edge for every vertex. I'm just not seeing it.",
+      "correct_answer": "The time complexity is O(V+E) because, in the entire traversal, each vertex and each edge is processed a constant number of times. The O(V) part comes from enqueuing/dequeuing (or pushing/popping) each vertex exactly once. The O(E) part comes from the fact that we iterate through the adjacency list for each vertex. Over the course of the entire algorithm, the sum of the lengths of all adjacency lists is O(E). Therefore, we look at each edge a constant number of times. It's not V*E because we only look at the neighbors of the *current* vertex, not all V vertices.",
+      "student_persona_hint": "Overwhelmed by the formula, can't connect it to the algorithm.",
+      "partial_understanding": null,
+      "id": "q_047",
+      "category": "II",
+      "topic": "bfs_dfs",
+      "topic_name": "BFS & DFS"
+    },
+    {
+      "question": "I tried to write code for cycle detection in a directed graph using DFS, but it keeps failing. I don't understand the difference between a 'visited' set and a 'recursion stack' set. Why do I need both? It's all a blur.",
+      "correct_answer": "To detect a cycle in a directed graph, we need to identify a 'back edge'—an edge going from a node to one of its ancestors in the current DFS path. A single `visited` set isn't enough; it only tells us if we've ever seen a node before, not if it's currently part of our exploration path. We need a second set, often called `recursionStack` or `visiting`, to track nodes in the current recursion call stack. If we are at node `u` and find an edge to a neighbor `v` that is already in the `recursionStack`, we have found a back edge and thus a cycle. Once we finish exploring from a node `u`, we remove it from the `recursionStack` but it remains in the main `visited` set to prevent re-exploring it unnecessarily.",
+      "student_persona_hint": "Lost in the implementation details and state management.",
+      "partial_understanding": null,
+      "id": "q_048",
+      "category": "II",
+      "topic": "bfs_dfs",
+      "topic_name": "BFS & DFS"
+    },
+    {
+      "question": "I just don't get how to find all connected components. I run BFS from a starting node, and it finds some nodes. But what about the rest of the graph? My code only ever finds one component and then stops. I feel like I'm missing a huge piece of the puzzle.",
+      "correct_answer": "A single run of BFS or DFS from a source node `s` will only explore the single connected component that `s` belongs to. If the graph is disconnected, nodes in other components will never be reached. To find all components, you must iterate through all vertices of the graph, typically with an outer loop. You maintain a global `visited` array. The outer loop goes from vertex 0 to V-1. If the current vertex `i` has not yet been visited, it means it belongs to a new, undiscovered component. You then start a new BFS/DFS from vertex `i`, which will find all nodes in that component and mark them as visited. This process repeats until all vertices have been visited.",
+      "student_persona_hint": "Stuck on a conceptual hurdle, can't see the bigger picture.",
+      "partial_understanding": null,
+      "id": "q_049",
+      "category": "II",
+      "topic": "bfs_dfs",
+      "topic_name": "BFS & DFS"
+    },
+    {
+      "question": "Okay, I know BFS finds the shortest path in an unweighted graph, but I don't really understand *why*. It just seems like magic. DFS also finds a path, so why isn't that one the shortest? I keep mixing them up when I try to solve problems.",
+      "correct_answer": "BFS finds the shortest path because of its level-by-level exploration strategy, which is enforced by the queue. It first visits all nodes at distance 1 from the source, then all nodes at distance 2, and so on. Because it expands outwards uniformly, the very first time it reaches the destination node, it is guaranteed to be via a path with the minimum number of edges. DFS, in contrast, explores greedily down one path as deep as possible before backtracking. The first path it finds to a destination is not guaranteed to be the shortest; it's simply the first one it stumbles upon based on the graph's structure and the order of visiting neighbors.",
+      "student_persona_hint": "Understands the 'what' but not the 'why', needs intuition.",
+      "partial_understanding": null,
+      "id": "q_050",
+      "category": "II",
+      "topic": "bfs_dfs",
+      "topic_name": "BFS & DFS"
+    },
+    {
+      "question": "I've been staring at the Merge Sort recurrence relation T(n) = 2T(n/2) + O(n) for an hour and it just looks like gibberish. I don't see how it relates to the actual code at all. What does each part even mean?",
+      "correct_answer": "The recurrence relation T(n) = 2T(n/2) + O(n) mathematically describes the time cost of Merge Sort. 'T(n)' is the time to sort an array of size n. The '2T(n/2)' part represents the two recursive calls the algorithm makes on the two halves of the array; this is the 'divide' step. The '+ O(n)' part represents the work done in the 'merge' step, which takes two sorted halves and combines them into a single sorted array. This merging process requires looking at each element once, so its time complexity is linear, or O(n). The base case is T(1) = O(1), as an array of one element is already sorted. Solving this recurrence relation yields the overall time complexity of O(n log n).",
+      "student_persona_hint": "Completely lost, overwhelmed by the mathematical notation.",
+      "partial_understanding": null,
+      "id": "q_051",
+      "category": "II",
+      "topic": "merge_sort",
+      "topic_name": "Merge Sort"
+    },
+    {
+      "question": "I'm really stuck on space complexity. Why isn't Merge Sort in-place? The algorithm just divides the array, but it feels like it's using the same one. Where is all this O(n) extra space coming from?",
+      "correct_answer": "Merge Sort is not an in-place algorithm because of the memory required by the 'merge' step. To merge two sorted subarrays, a temporary auxiliary array is needed to store the combined, sorted elements. For example, when merging two subarrays that together form the entire original array of size 'n', a temporary array of size 'n' is created. The elements are copied from the two halves into this temporary array in sorted order, and then copied back to the original array. This use of an auxiliary array proportional to the input size 'n' is why the space complexity is O(n).",
+      "student_persona_hint": "Confused by abstract memory usage, needs concrete examples.",
+      "partial_understanding": null,
+      "id": "q_052",
+      "category": "II",
+      "topic": "merge_sort",
+      "topic_name": "Merge Sort"
+    },
+    {
+      "question": "I can follow the dividing part of Merge Sort, that's easy. But I get completely lost in the `merge` function. I've tried tracing it with pointers, but my brain just freezes. It feels like magic how it all comes together perfectly sorted. I just don't get the logic.",
+      "correct_answer": "The `merge` function is the core of the algorithm. It takes two already sorted subarrays and combines them into a single sorted array. The logic works by using two pointers, one for each subarray, starting at the beginning. It repeatedly compares the elements at the current pointers, copies the smaller of the two to a temporary array, and advances the corresponding pointer. This process continues until one subarray is exhausted. Then, all remaining elements from the other subarray are copied over. Because at every step we are picking the smallest available element from the two sorted subarrays, the resulting merged array is guaranteed to be sorted.",
+      "student_persona_hint": "Genuinely struggling with the core merging logic itself.",
+      "partial_understanding": null,
+      "id": "q_053",
+      "category": "II",
+      "topic": "merge_sort",
+      "topic_name": "Merge Sort"
+    },
+    {
+      "question": "Everyone says Merge Sort is O(n log n), but I can't see it. I see a loop in the merge function, which is O(n), and then there's all this recursion. It feels like it should be O(n^2) like other sorting algorithms that have nested operations. How does the 'log n' part even appear?",
+      "correct_answer": "The O(n log n) complexity comes from doing O(n) work for O(log n) levels of recursion. The 'log n' part comes from the 'divide' step. An array of size 'n' can only be split in half 'log n' times before you reach subarrays of size 1. This determines the depth of the recursion. The 'n' part comes from the 'conquer' or 'merge' step. At each of the 'log n' levels of recursion, the total amount of work done across all merge operations for that level is O(n). For example, at the very bottom level, you merge n/2 pairs of 1-element arrays, which is O(n) total work. At the top, you merge two n/2-sized arrays, which is also O(n) work. Since you do O(n) work at each of the O(log n) levels, the total time is O(n) * O(log n) = O(n log n).",
+      "student_persona_hint": "Cannot connect the algorithm's steps to the complexity formula.",
+      "partial_understanding": null,
+      "id": "q_054",
+      "category": "II",
+      "topic": "merge_sort",
+      "topic_name": "Merge Sort"
+    },
+    {
+      "question": "I read that Merge Sort is 'stable', but the definition is so confusing. Something about equal elements maintaining their order. Why does that even matter? And how does Merge Sort guarantee this? I've tried running examples and can't see what 'stability' is supposed to be doing.",
+      "correct_answer": "Stability means that if two elements have equal values, their relative order in the original array is preserved in the sorted output. This is important when sorting complex objects on multiple keys. Merge Sort's stability is guaranteed by the implementation of the merge step. When comparing an element from the left subarray and an element from the right subarray, if their values are equal, the algorithm must be programmed to take the element from the left subarray first. Since all elements in the left subarray appeared before all elements in the right subarray in the pre-merge state, this choice preserves their original relative order.",
+      "student_persona_hint": "Confused by the abstract concept and its practical importance.",
+      "partial_understanding": null,
+      "id": "q_055",
+      "category": "II",
+      "topic": "merge_sort",
+      "topic_name": "Merge Sort"
+    },
+    {
+      "question": "I'm so lost with heaps. I get that it's a tree, but how can it be an array? I keep trying to trace the parent/child relationships using the formulas but I always get confused about where the heap property is being violated. It just looks like a jumbled array to me.",
+      "correct_answer": "The array representation is a space-efficient way to store a complete binary tree. For a node at index `i` (using 0-based indexing), its parent is at `floor((i-1)/2)`, its left child is at `2*i+1`, and its right child is at `2*i+2`. The heap property (e.g., for a min-heap) states that the value of a parent node must be less than or equal to the values of its children. In the array, this means `array[parent_index] <= array[child_index]`. This relationship must be true for every node in the tree (except the root, which has no parent) for it to be a valid heap.",
+      "student_persona_hint": "Overwhelmed, can't connect abstract concept to implementation.",
+      "partial_understanding": null,
+      "id": "q_056",
+      "category": "II",
+      "topic": "heaps",
+      "topic_name": "Heaps & Priority Queues"
+    },
+    {
+      "question": "Every time I try to run `heapify` on a node, I get it wrong. Why do we compare the parent with *both* children? And why do we always swap with the smaller one (for a min-heap)? It feels random. I've tried this five times on the same example and get a different result each time.",
+      "correct_answer": "The `heapify` (or `sift_down`) operation's goal is to fix a single violation of the heap property at a given node, assuming its children's subtrees are already valid heaps. We compare the parent with both children to find the smallest value among the three. If the parent is not the smallest, it violates the min-heap property. We swap it with the smallest child to move the smaller value up, satisfying the property at the current node. This swap might have broken the heap property in the child's subtree, so we must then recursively call `heapify` on the child we swapped with to ensure the property is restored all the way down.",
+      "student_persona_hint": "Genuinely confused by the logic, feels the process is arbitrary.",
+      "partial_understanding": null,
+      "id": "q_057",
+      "category": "II",
+      "topic": "heaps",
+      "topic_name": "Heaps & Priority Queues"
+    },
+    {
+      "question": "I just can't accept that `build-heap` is O(n). We call `heapify` on about n/2 elements, and `heapify` can take O(log n) time. So it has to be O(n log n), right? I've watched videos and read articles, but the math just goes over my head. It feels like a trick.",
+      "correct_answer": "The O(n log n) analysis is a loose upper bound. A tighter analysis shows that the total work is O(n). The `build-heap` algorithm works bottom-up. The key insight is that most nodes in a heap are at the bottom. Roughly n/2 nodes are leaves and take 0 work. Roughly n/4 nodes are one level up, and `heapify` on them takes at most O(1) work. As you go up the tree, the number of nodes decreases exponentially while the height (and thus work per node) increases only linearly. The total work can be expressed as a summation of (number of nodes at height h) * (work for height h), which mathematically converges to O(n).",
+      "student_persona_hint": "Distrustful of the answer, feels a mathematical contradiction.",
+      "partial_understanding": null,
+      "id": "q_058",
+      "category": "II",
+      "topic": "heaps",
+      "topic_name": "Heaps & Priority Queues"
+    },
+    {
+      "question": "I don't get the `extract-min` operation at all. We take the root, which is fine. But then we move the *very last* element to the root? That seems like the worst possible choice, it's probably a large number. Why would we do that? It seems guaranteed to break the whole heap.",
+      "correct_answer": "You are right that moving the last element to the root will almost certainly break the heap property. The reason we do this is to maintain the *structural* property of the heap, which must be a complete binary tree. Swapping the last element into the root's position and then shrinking the heap size by one is the easiest way to remove the root while keeping the tree complete. After this structural fix, we then fix the heap property violation by calling `heapify` (or `sift_down`) on the new root, allowing it to percolate down to its correct position. This two-step process is very efficient, costing only O(log n).",
+      "student_persona_hint": "Thinks the algorithm's logic is counter-intuitive and flawed.",
+      "partial_understanding": null,
+      "id": "q_059",
+      "category": "II",
+      "topic": "heaps",
+      "topic_name": "Heaps & Priority Queues"
+    },
+    {
+      "question": "Okay, I think I understand the mechanics of a heap. But why do we even need them? It just seems like a complicated way to implement a priority queue for sorting. Are there any real-world problems where this is actually the best tool? I'm struggling to see the point.",
+      "correct_answer": "While Heapsort is a famous application, the main power of a heap is its use as a Priority Queue for problems involving dynamic prioritization. Key examples include: Dijkstra's shortest path algorithm (to always explore the nearest unvisited node), Prim's algorithm for minimum spanning trees (to always pick the cheapest edge to an unvisited node), Huffman coding for data compression (to repeatedly merge the two least frequent characters), and in operating systems for CPU task scheduling. In all these cases, we need to efficiently add items and repeatedly extract the min/max, which heaps do in O(log n) time.",
+      "student_persona_hint": "Demotivated, struggling to find practical relevance of the topic.",
+      "partial_understanding": null,
+      "id": "q_060",
+      "category": "II",
+      "topic": "heaps",
+      "topic_name": "Heaps & Priority Queues"
+    },
+    {
+      "question": "I'm completely lost on this AVL tree stuff. My professor keeps talking about a 'balance factor' of -1, 0, or 1. I don't get what that means. Is it the height of the node? Why are only those three numbers allowed? It feels so arbitrary and I can't see how it keeps the tree balanced.",
+      "correct_answer": "The balance factor of a node is calculated by subtracting the height of its right subtree from the height of its left subtree (Height(Left) - Height(Right)). An AVL tree is a self-balancing binary search tree where this difference for every single node is strictly -1, 0, or 1. This strict condition ensures that the tree's height is always logarithmic with respect to the number of nodes (approximately 1.44 * log2(n)). If the balance factor of any node becomes -2 or +2 after an insertion or deletion, the tree is considered unbalanced, and rotations must be performed to restore the property. This guaranteed logarithmic height is what ensures O(log n) time complexity for search, insertion, and deletion.",
+      "student_persona_hint": "Overwhelmed, finds the core rule arbitrary and confusing.",
+      "partial_understanding": null,
+      "id": "q_061",
+      "category": "II",
+      "topic": "avl_tree",
+      "topic_name": "AVL Trees"
+    },
+    {
+      "question": "I've watched videos on AVL rotations for hours and I'm just getting more confused. Sometimes you do a single rotation, sometimes a double one. Like, when a node is left-heavy, why do you sometimes do a Left-Right rotation instead of just a simple Right rotation? It seems like they should both fix it. I can't figure out the rule for when to use which one.",
+      "correct_answer": "The type of rotation depends on the structure of the imbalance, which can be determined by looking at the balance factor of the unbalanced node's child. Let's say node A is unbalanced with a balance factor of +2 (left-heavy), and its left child is B. \n1. LL Case (Single Right Rotation): This occurs if the new node was inserted into the left subtree of B, making B's balance factor +1. The imbalance is a straight line ('Left-Left'). A single right rotation at A fixes this. \n2. LR Case (Double Rotation): This occurs if the new node was inserted into the right subtree of B, making B's balance factor -1. The imbalance forms a 'kink' ('Left-Right'). A single rotation at A won't work. We must first perform a left rotation on B to straighten the path into an LL case, and then perform a right rotation on A.",
+      "student_persona_hint": "Frustrated by the nuances between similar-looking scenarios.",
+      "partial_understanding": null,
+      "id": "q_062",
+      "category": "II",
+      "topic": "avl_tree",
+      "topic_name": "AVL Trees"
+    },
+    {
+      "question": "I just don't get the whole rebalancing process in AVL trees. I can insert a new node fine, following the BST rule. But then what? I'm supposed to check balance factors, but where do I start? Do I check the whole tree? And what if I find an unbalanced node? I do a rotation, but then do I have to check everything again? I'm completely stuck on the sequence of events after an insertion.",
+      "correct_answer": "After a standard BST insertion, you must retrace the path from the parent of the new node back up to the root. For each node along this path, you first update its height, then recalculate its balance factor. The first node you encounter with a balance factor of +2 or -2 is where the rebalancing needs to happen. You perform the appropriate single or double rotation at this node. A key property of AVL trees is that for an insertion, a single rebalancing operation (which could be a single or double rotation) at the first unbalanced ancestor is sufficient to fix the entire tree. You do not need to continue checking for imbalances further up the tree after the first fix.",
+      "student_persona_hint": "Lost in the process, needs a step-by-step walkthrough.",
+      "partial_understanding": null,
+      "id": "q_063",
+      "category": "II",
+      "topic": "avl_tree",
+      "topic_name": "AVL Trees"
+    },
+    {
+      "question": "Why do we even need to learn about both AVL trees and Red-Black trees? They both seem to be self-balancing binary search trees that give O(log n) performance. I can't see any real difference between them. It feels like they do the exact same thing.",
+      "correct_answer": "While both guarantee O(log n) operations, they have different performance trade-offs. AVL trees are more strictly balanced, meaning their height is kept as low as possible. This makes them faster for search-intensive applications because lookups involve traversing a shorter tree on average. However, maintaining this strict balance often requires more rotations during insertions and deletions. Red-Black trees are more lenient with their balancing rules, which means rebalancing after an insertion or deletion is faster on average (requiring fewer rotations). The trade-off is: choose AVL trees for faster lookups (e.g., dictionaries), and choose Red-Black trees for faster insertions/deletions (e.g., frequently changing datasets).",
+      "student_persona_hint": "Sees two concepts as identical, missing the trade-offs.",
+      "partial_understanding": null,
+      "id": "q_064",
+      "category": "II",
+      "topic": "avl_tree",
+      "topic_name": "AVL Trees"
+    },
+    {
+      "question": "I know that searching in an AVL tree is O(log n), but I don't really understand *why*. How does keeping the balance factor between -1 and 1 guarantee that the tree doesn't just grow into a long chain? I can't make the mental leap from that simple rule to the logarithmic height.",
+      "correct_answer": "The strict balance factor rule of {-1, 0, 1} is the direct cause of the logarithmic height. This rule prevents the tree from becoming degenerate (like a linked list where height is O(n)). By enforcing that the heights of any node's two subtrees can differ by at most one, the tree is forced to grow 'out' (becoming bushy) rather than 'down'. Mathematically, it can be proven that the height 'h' of an AVL tree with 'n' nodes is strictly bounded by approximately 1.44 * log2(n). Since the worst-case search time in a BST is proportional to its height, a guaranteed logarithmic height directly translates to a guaranteed O(log n) search time.",
+      "student_persona_hint": "Memorized the fact but can't explain the reasoning.",
+      "partial_understanding": null,
+      "id": "q_065",
+      "category": "II",
+      "topic": "avl_tree",
+      "topic_name": "AVL Trees"
+    },
+    {
+      "question": "I've been staring at dynamic arrays for an hour. I get that a single push can be O(n) when it resizes, but everyone says the amortized cost is O(1). How can an O(n) operation magically become O(1)? It feels like we're just ignoring the expensive part.",
+      "correct_answer": "The aggregate method shows that the total cost of N push operations is not N * O(N). Let's analyze a sequence of N pushes into an array that doubles its capacity upon becoming full. The total cost is the sum of all individual push costs (which are 1) plus the sum of all resizing costs. A resize operation of size k costs k (to copy elements). Resizing happens at sizes 1, 2, 4, 8, ..., up to roughly N. The total cost of copying is the geometric series 1 + 2 + 4 + ... + N, which sums to approximately 2N. The total cost of the N simple insertions is N. So, the total cost for N pushes is roughly N (insertions) + 2N (copying) = 3N. The average, or amortized, cost per operation is Total Cost / N = 3N / N = 3, which is O(1). We aren't ignoring the expensive part; we're spreading its cost out over the many cheap operations that made it necessary.",
+      "student_persona_hint": "Genuinely trying but stuck on the core concept.",
+      "partial_understanding": null,
+      "id": "q_066",
+      "category": "II",
+      "topic": "amortized",
+      "topic_name": "Amortized Analysis"
+    },
+    {
+      "question": "The accounting method for amortized analysis makes no sense to me. We just invent 'credits' and store them on the data structure? It feels like fake money. How does assigning an 'amortized cost' of 3 to a dynamic array push actually prove anything?",
+      "correct_answer": "The 'credits' in the accounting method are a tool for analysis, a way of bookkeeping to prove a cost bound. The idea is to overcharge cheap operations and use the accumulated 'surplus' to pay for expensive operations. For a dynamic array that doubles, we can set the amortized cost of a push to 3 credits. 1 credit pays for the immediate insertion. The other 2 credits are 'stored'. When an array of size N becomes full and needs to resize to 2N, we have accumulated enough credits from the previous cheap pushes to 'pay' for the expensive O(N) copy operation. The key invariant we maintain is that the total credits are always non-negative, proving that the chosen amortized cost is a valid upper bound on the actual average cost per operation.",
+      "student_persona_hint": "Confused by the abstraction, needs a concrete analogy.",
+      "partial_understanding": null,
+      "id": "q_067",
+      "category": "II",
+      "topic": "amortized",
+      "topic_name": "Amortized Analysis"
+    },
+    {
+      "question": "I'm completely lost on the potential method. The textbook defines a potential function Φ and says the amortized cost is `actual_cost + Φ(after) - Φ(before)`. How do you even come up with this function? It seems like you just pick one that makes the math work out. I don't see the intuition behind it at all.",
+      "correct_answer": "The potential function, Φ, is a way to measure the 'stored work' or 'prepaid credit' in the data structure, similar to the accounting method but more formalized. The intuition is that Φ represents the 'disorder' or 'expensiveness potential' of the structure. A cheap operation should ideally increase the potential slightly, storing up 'energy' for a later, expensive operation. An expensive operation should be accompanied by a large drop in potential, releasing that stored energy to 'pay' for its high actual cost. For a dynamic array, a good potential function is Φ(D) = 2 * size(D) - capacity(D). It's not arbitrary; it's carefully chosen to model the cost dynamics of the operations, ensuring that the potential is always non-negative and starts at zero.",
+      "student_persona_hint": "Overwhelmed by mathematical formalism, lacks intuitive understanding.",
+      "partial_understanding": null,
+      "id": "q_068",
+      "category": "II",
+      "topic": "amortized",
+      "topic_name": "Amortized Analysis"
+    },
+    {
+      "question": "Okay, so maybe the *average* cost of a dynamic array push is O(1). But if I'm building a real-time system, and one specific push takes a long time because of a resize, my system could fail. So what's the point? Doesn't the worst-case O(n) performance make the O(1) amortized cost irrelevant in practice?",
+      "correct_answer": "This is a crucial point. Amortized analysis and worst-case analysis answer different questions. Worst-case analysis gives you a guarantee on *any single* operation. If you have hard real-time constraints, then worst-case complexity is what matters. Amortized analysis, however, guarantees the average performance *over a sequence* of operations. It's useful in applications where the total time for a sequence is more important than the time for any individual operation. For example, processing a large file. The amortized bound is a strong guarantee about the total runtime for a sequence, not a probabilistic 'average case'. It tells us that expensive operations are infrequent enough that their cost is 'absorbed' by the cheap ones over time.",
+      "student_persona_hint": "Practical-minded, struggling to see the real-world utility.",
+      "partial_understanding": null,
+      "id": "q_069",
+      "category": "II",
+      "topic": "amortized",
+      "topic_name": "Amortized Analysis"
+    },
+    {
+      "question": "I'm looking at the 'multipop' stack example, where Multipop(k) pops k items. A single Multipop(n) on a stack of size n takes O(n) time. If I do a sequence of n pushes followed by one Multipop(n), the last step is O(n). How can the amortized cost of Multipop possibly be O(1)?",
+      "correct_answer": "The key insight is that an item can only be popped once. To perform a Multipop(k) operation, k items must have been previously pushed onto the stack. Each Push operation costs O(1). Let's use the aggregate method. In any sequence of N operations, the total number of pops (from both Pop and Multipop) cannot exceed the total number of pushes. Each Push costs 1 unit. Each pop also costs 1 unit. Therefore, the total cost of the entire sequence is at most 2 * (number of Pushes). Since the number of Pushes is at most N, the total cost for the N operations is at most 2N. The average, or amortized, cost per operation is Total Cost / N <= 2N / N = 2, which is O(1). The cost of the expensive Multipop was effectively 'pre-paid' by the cheap Push operations.",
+      "student_persona_hint": "Can't see the forest for the trees.",
+      "partial_understanding": null,
+      "id": "q_070",
+      "category": "II",
+      "topic": "amortized",
+      "topic_name": "Amortized Analysis"
+    },
+    {
+      "question": "So the time complexity for Dijkstra's is O(V log V) because we pull each vertex from the min-priority queue once, right? What am I missing?",
+      "correct_answer": "The time complexity of Dijkstra's algorithm using a binary heap is O(E log V). This is derived from two main operations: extracting the minimum vertex from the priority queue, which happens V times at a cost of O(log V) each (totaling O(V log V)), and the relaxation step. During relaxation, we might need to decrease the key of a vertex in the priority queue. In the worst case, this can happen for every edge, leading to E `decrease-key` operations, each costing O(log V). Therefore, the total complexity is O(V log V + E log V), which simplifies to O(E log V) in a connected graph where E is at least V-1.",
+      "student_persona_hint": "Confident but senses a small piece is missing.",
+      "partial_understanding": "The student correctly identifies the cost of extracting all vertices (V * extract-min) but has forgotten about the cost of updating priorities during relaxation (E * decrease-key).",
+      "id": "q_071",
+      "category": "III",
+      "topic": "dijkstra",
+      "topic_name": "Dijkstra's Algorithm"
+    },
+    {
+      "question": "I know Dijkstra fails with negative weights. It's because once a node is finalized, its shortest path is set forever. But I can't quite articulate *why* a negative edge breaks this specific guarantee.",
+      "correct_answer": "Dijkstra's greedy approach relies on the guarantee that once a vertex `u` is finalized (extracted from the priority queue), its shortest path from the source is found. This works because all edge weights are non-negative, meaning any alternative path to `u` through another unvisited node `v` must be longer. However, a negative edge can violate this. Imagine a path to a finalized node `u` could be improved by going through a still-unvisited node `v` that later connects to `u` via a path with a sufficiently negative edge weight. Since Dijkstra's never revisits finalized nodes, it would miss this new, shorter path, leading to an incorrect result.",
+      "student_persona_hint": "Understands the rule but not the underlying reason.",
+      "partial_understanding": "The student knows the core mechanism of Dijkstra (finalizing nodes) and its limitation (negative weights) but cannot connect the two to explain the failure.",
+      "id": "q_072",
+      "category": "III",
+      "topic": "dijkstra",
+      "topic_name": "Dijkstra's Algorithm"
+    },
+    {
+      "question": "Okay, Dijkstra's is a greedy algorithm because it always picks the unvisited vertex with the smallest distance. But how do we know that's a 'safe' move? Couldn't a path through a more distant node end up being shorter in the long run?",
+      "correct_answer": "The greedy choice is 'safe' due to the non-negative edge weight constraint. When the algorithm selects the vertex `u` with the smallest tentative distance among all unvisited vertices, we can prove this is its true shortest path. Any other path to `u` must pass through another unvisited vertex, let's call it `v`. By our greedy choice, the tentative distance to `v` is greater than or equal to the distance to `u`. Since all subsequent edges on the path from `v` to `u` must have non-negative weights, the total length of this alternative path cannot possibly be shorter than the path to `u` we've already found.",
+      "student_persona_hint": "Needs help with the proof of correctness.",
+      "partial_understanding": "The student correctly identifies the greedy choice but doesn't understand the logic that proves this local optimum leads to a global optimum.",
+      "id": "q_073",
+      "category": "III",
+      "topic": "dijkstra",
+      "topic_name": "Dijkstra's Algorithm"
+    },
+    {
+      "question": "For the relaxation step on an edge (u,v), I know we check `if dist[u] + weight(u,v) < dist[v]`. This updates `dist[v]`. So it's just... finding a shorter path, right? Is that all it represents?",
+      "correct_answer": "Yes, but more precisely, it's testing if the path to `v` *through u* is better than the current best-known path to `v`. The term `dist[u]` represents the shortest path found so far from the source to `u`. So, `dist[u] + weight(u,v)` is the length of a newly discovered path to `v`. The relaxation step compares this new path's length against the best one found for `v` up to this point (`dist[v]`). If the path via `u` is shorter, we 'relax' the edge by updating our knowledge about the shortest way to get to `v`.",
+      "student_persona_hint": "Understands the mechanics but not the conceptual meaning.",
+      "partial_understanding": "The student knows the code and what it does mechanically (updates a value) but lacks the conceptual understanding of what the comparison represents in the graph.",
+      "id": "q_074",
+      "category": "III",
+      "topic": "dijkstra",
+      "topic_name": "Dijkstra's Algorithm"
+    },
+    {
+      "question": "For the Fibonacci sequence, my space-optimized version uses two variables, `prev` and `curr`. I'm updating them like this: `prev = curr;` and then `curr = prev + curr;`. This seems right, but it's not working. Is my update order wrong?",
+      "correct_answer": "The update order is incorrect because `prev` is updated to `curr`'s value *before* the old `prev` is used to calculate the new `curr`. This leads to `curr = curr + curr`. The correct approach requires preserving the old `curr` value. One way is using a temporary variable: `temp = prev + curr; prev = curr; curr = temp;`. Another, in languages like Python, is simultaneous assignment: `prev, curr = curr, prev + curr`.",
+      "student_persona_hint": "Confident in the theory, stuck on implementation detail.",
+      "partial_understanding": "Knows the Fibonacci recurrence, the base cases, and that space can be optimized to O(1) using a few variables, but is confused about the specific order of variable updates to avoid overwriting needed values.",
+      "id": "q_075",
+      "category": "III",
+      "topic": "dp",
+      "topic_name": "Dynamic Programming"
+    },
+    {
+      "question": "I know a problem needs optimal substructure for DP to work, meaning an optimal solution can be built from optimal solutions to subproblems. So for a problem like 0/1 Knapsack, that's the only property we need to check, right?",
+      "correct_answer": "While optimal substructure is necessary, it is not sufficient on its own. Dynamic Programming is effective on problems that also exhibit overlapping subproblems, meaning the same subproblems are encountered and solved multiple times. Without overlapping subproblems, a simple recursive or divide-and-conquer approach would be just as efficient, as there's no repeated work to save by storing results. Both properties are required.",
+      "student_persona_hint": "Trying to solidify core concepts, seeking confirmation on a rule.",
+      "partial_understanding": "Correctly defines and identifies the optimal substructure property but mistakenly believes it is the sole prerequisite for applying Dynamic Programming, overlooking the need for overlapping subproblems.",
+      "id": "q_076",
+      "category": "III",
+      "topic": "dp",
+      "topic_name": "Dynamic Programming"
+    },
+    {
+      "question": "So memoization is top-down recursion and tabulation is bottom-up iteration. They both fill the same DP table, just in a different order. Does this mean they always compute the exact same number of subproblems?",
+      "correct_answer": "Not necessarily. While they often have the same overall time complexity, their behavior can differ. A bottom-up tabulation approach typically fills the entire DP table, computing solutions for all possible subproblem states up to the target. A top-down memoization approach only computes solutions for subproblems that are actually reached from the initial recursive call. If some states are unreachable, tabulation will compute them anyway, while memoization will skip them, potentially doing less work.",
+      "student_persona_hint": "Making a generalization, trying to find a universal truth.",
+      "partial_understanding": "Understands the core difference between memoization (top-down) and tabulation (bottom-up) but incorrectly assumes this always leads to computing the identical set of subproblem solutions, missing the nuance of unreachable states.",
+      "id": "q_077",
+      "category": "III",
+      "topic": "dp",
+      "topic_name": "Dynamic Programming"
+    },
+    {
+      "question": "For the Longest Common Subsequence problem, the recurrence `dp[i][j]` depends on the previous row and current row. I know this means I can optimize the space from O(N*M) to O(M) using two 1D arrays. Is it possible to optimize it even further to use just one 1D array?",
+      "correct_answer": "Yes, it is possible to optimize the space to a single 1D array, O(M), but it's more complex. The recurrence for `dp[i][j]` depends on `dp[i-1][j-1]` (the diagonal element), `dp[i-1][j]` (the element above), and `dp[i][j-1]` (the element to the left). When using a single array, `dp[j]` represents the value from the previous row. However, when you update `dp[j]`, you overwrite the value that the next iteration needs as its 'diagonal' element (`dp[i-1][j-1]`). To solve this, you must store the diagonal value in a temporary variable before it gets overwritten in each step of the inner loop.",
+      "student_persona_hint": "Pushing the boundaries, trying to find the best optimization.",
+      "partial_understanding": "Correctly identifies the DP state dependency for LCS and understands the standard space optimization from O(N*M) to two rows (O(M)). The gap is in understanding the trick required to reduce it further to a single row.",
+      "id": "q_078",
+      "category": "III",
+      "topic": "dp",
+      "topic_name": "Dynamic Programming"
+    },
+    {
+      "question": "For Red-Black Tree insertion, if the new node's parent is red and its uncle is also red, I just recolor the parent and uncle to black and the grandparent to red. That's the whole fix, right?",
+      "correct_answer": "That is the correct action for that case, but it's not always the complete fix. After recoloring, the grandparent (which is now red) might have a red parent. This creates a new red-red violation higher up the tree. You must then treat the grandparent as the new 'problem' node and repeat the fix-up process from its level, potentially continuing all the way to the root.",
+      "student_persona_hint": "Confident, but wants to confirm the final detail.",
+      "partial_understanding": "Correctly identifies the 'red uncle' insertion case and the corresponding recoloring actions, but misses that the violation can propagate upwards.",
+      "id": "q_079",
+      "category": "III",
+      "topic": "red_black_tree",
+      "topic_name": "Red-Black Trees"
+    },
+    {
+      "question": "I know the black-height property means every path from a node to a leaf has the same number of black nodes. So this is what keeps the tree balanced... but I don't see the exact connection. How does that rule prevent the tree from becoming a long chain?",
+      "correct_answer": "The black-height property is key to the O(log n) height guarantee. For any node x, the longest possible path to a descendant leaf (alternating red and black nodes) is at most twice as long as the shortest possible path (all black nodes). Because the longest path is never more than twice the length of the shortest, the tree is kept approximately balanced, preventing it from degenerating and ensuring a height proportional to log n.",
+      "student_persona_hint": "Understands the rule, but not its deeper implication.",
+      "partial_understanding": "Knows the definition of the black-height property but doesn't understand how it mathematically guarantees the tree's balance and O(log n) height.",
+      "id": "q_080",
+      "category": "III",
+      "topic": "red_black_tree",
+      "topic_name": "Red-Black Trees"
+    },
+    {
+      "question": "I get that AVL trees are more strictly balanced than Red-Black trees, so RBTs are better for lots of insertions and deletions. I think it's because they do fewer rotations, but is that the only reason?",
+      "correct_answer": "You're right that fewer rotations is the main reason. RBTs perform at most two rotations for an insertion and at most three for a deletion. AVL trees can require O(log n) rotations. RBTs compensate for this looser structure by using cheaper 'recoloring' operations. This trade-off means that while lookups in RBTs can be slightly slower than in AVL trees, the amortized cost of write operations is lower, making them better for write-heavy workloads.",
+      "student_persona_hint": "Making an educated guess and seeking clarification.",
+      "partial_understanding": "Correctly intuits that RBTs are better for write-heavy workloads due to being less strict, but is unsure of the specific mechanism (fewer rotations supplemented by color flips).",
+      "id": "q_081",
+      "category": "III",
+      "topic": "red_black_tree",
+      "topic_name": "Red-Black Trees"
+    },
+    {
+      "question": "I understand that rotations are used during RBT insertion to fix a red-red violation when the uncle is black. I can see how it moves the parent and grandparent around. I'm pretty sure it also maintains the Binary Search Tree property, right? It seems like it should.",
+      "correct_answer": "Yes, you are absolutely correct. A critical feature of rotations is that they always preserve the Binary Search Tree property. The operation is specifically designed so that the in-order traversal of the nodes in the subtree remains identical before and after the rotation. This ensures that while we are restructuring the tree to fix color or height properties, we don't invalidate its fundamental ordering as a BST.",
+      "student_persona_hint": "Looking for a final 'yes/no' confirmation.",
+      "partial_understanding": "Understands the mechanical process of a rotation and its purpose in fixing violations, but is seeking confirmation that it also preserves the core BST property.",
+      "id": "q_082",
+      "category": "III",
+      "topic": "red_black_tree",
+      "topic_name": "Red-Black Trees"
+    },
+    {
+      "question": "For BFS on an adjacency list, the time complexity is O(V) because we visit each vertex once, right?",
+      "correct_answer": "The time complexity of BFS on a graph represented by an adjacency list is O(V + E), where V is the number of vertices and E is the number of edges. This is because every vertex is enqueued and dequeued once (costing O(V)), and every edge is visited once when we explore the neighbors of a vertex (costing O(E) in total across all vertices).",
+      "student_persona_hint": "Confidently incorrect, seeking simple validation.",
+      "partial_understanding": "The student correctly identifies that every vertex is visited once (O(V)), but they have completely forgotten to account for the work done exploring the edges (O(E)).",
+      "id": "q_083",
+      "category": "III",
+      "topic": "bfs_dfs",
+      "topic_name": "BFS & DFS"
+    },
+    {
+      "question": "I know BFS uses a queue to achieve level-order traversal. So, we add all neighbors to the queue, and then... it just works, right? The queue's FIFO property keeps them in order?",
+      "correct_answer": "Yes, the First-In, First-Out (FIFO) property of the queue is key. When you visit a node, you add all its unvisited neighbors to the back of the queue. Because you always process nodes from the front of the queue, you are guaranteed to visit all nodes at the current depth (or 'level') before moving on to any nodes at the next depth. This FIFO processing is what ensures the level-by-level exploration.",
+      "student_persona_hint": "Knows the facts but not the reasoning.",
+      "partial_understanding": "The student knows the key components (BFS, queue, level-order) but is missing the crucial 'why' that connects the data structure's FIFO property to the resulting traversal pattern.",
+      "id": "q_084",
+      "category": "III",
+      "topic": "bfs_dfs",
+      "topic_name": "BFS & DFS"
+    },
+    {
+      "question": "To detect a cycle in a directed graph using DFS, I just need a 'visited' set. If I try to visit a node that's already in the set, I've found a cycle. Is that all there is to it?",
+      "correct_answer": "That's close, but not quite sufficient for a directed graph. Simply re-visiting a node in a global 'visited' set doesn't guarantee a cycle; it might just be a node reached via a different, valid path. To find a cycle, you need to track the nodes currently in the recursion stack for the *current* DFS path. If you encounter a node that is already in the current recursion stack (often tracked with a separate 'visiting' or 'recursion_stack' set), then you have found a back edge, which indicates a cycle.",
+      "student_persona_hint": "Overly simplifying a nuanced problem.",
+      "partial_understanding": "The student correctly identifies that DFS and a visited set are used. They are missing the critical nuance between a node that has been visited *at some point* and a node that is currently part of the active recursion path (a back edge).",
+      "id": "q_085",
+      "category": "III",
+      "topic": "bfs_dfs",
+      "topic_name": "BFS & DFS"
+    },
+    {
+      "question": "So to find the number of connected components, I can just run BFS starting from node 0 to find all the nodes connected to it. But what do I do after that finishes to find the rest?",
+      "correct_answer": "You're exactly right for the first step. To find all connected components, you need an outer loop that iterates through all the vertices of the graph from 0 to V-1. You'll maintain a single 'visited' array for the whole process. Inside the loop, you check if the current vertex has been visited. If it has not, you increment your component counter and start a traversal (like BFS or DFS) from that vertex. This traversal will find all nodes in that component and mark them as visited. You repeat this process until the outer loop has checked all vertices.",
+      "student_persona_hint": "Understands the subproblem, needs the outer loop.",
+      "partial_understanding": "The student correctly understands how to find a single connected component using a traversal. They are missing the iterative wrapper logic required to find all components in a potentially disconnected graph.",
+      "id": "q_086",
+      "category": "III",
+      "topic": "bfs_dfs",
+      "topic_name": "BFS & DFS"
+    },
+    {
+      "question": "The recurrence relation for Merge Sort is T(n) = 2T(n/2) + ... something linear for the merge, right? Is it just O(n)?",
+      "correct_answer": "Yes, the full recurrence relation is T(n) = 2T(n/2) + O(n). The 2T(n/2) part represents the time to recursively sort the two halves of the array. The O(n) term represents the work done in the 'merge' step, which involves iterating through all n elements to combine the two sorted halves into a single sorted array.",
+      "student_persona_hint": "Confident but wants to confirm the details.",
+      "partial_understanding": "The student correctly identifies the 'divide' part of the recurrence (2T(n/2)) and knows the 'conquer' or merge part is linear, but seeks confirmation on the exact term.",
+      "id": "q_087",
+      "category": "III",
+      "topic": "merge_sort",
+      "topic_name": "Merge Sort"
+    },
+    {
+      "question": "Merge Sort's space complexity is O(n) because of the temporary array used for merging. But does that apply to the whole array at once, or is it just for each level of recursion?",
+      "correct_answer": "The O(n) space complexity comes from the auxiliary array needed for the merge operation. Although merging happens at each level of recursion, the largest temporary array required at any single point is of size n (at the final merge). The stack space for recursion itself contributes O(log n), but this is dominated by the O(n) for the array. So, the overall space complexity is O(n).",
+      "student_persona_hint": "Trying to be precise about memory usage.",
+      "partial_understanding": "The student knows the space complexity is O(n) and correctly attributes it to the temporary array, but is slightly confused about how that memory is allocated across the recursive calls.",
+      "id": "q_088",
+      "category": "III",
+      "topic": "merge_sort",
+      "topic_name": "Merge Sort"
+    },
+    {
+      "question": "I know Merge Sort is a stable sort. This must be because of how the merge step handles equal elements. Do you just have to make sure you always take the element from the left array first if they're equal?",
+      "correct_answer": "Exactly. To maintain stability, when the elements being compared from the left and right subarrays are equal, the implementation must prioritize taking the element from the left subarray. This ensures that elements with equal values maintain their original relative order after sorting.",
+      "student_persona_hint": "Connecting a high-level property to implementation detail.",
+      "partial_understanding": "The student correctly defines stability and correctly intuits that the merge step's handling of ties is the key, but is seeking confirmation on the specific rule.",
+      "id": "q_089",
+      "category": "III",
+      "topic": "merge_sort",
+      "topic_name": "Merge Sort"
+    },
+    {
+      "question": "During the merge step, you compare elements from the two sorted subarrays and copy the smaller one. I get that part. But what happens when you reach the end of one subarray before the other one is empty?",
+      "correct_answer": "Once one of the subarrays is fully copied, you don't need to perform any more comparisons. All the remaining elements in the other subarray are guaranteed to be larger than what has already been merged. You can simply copy the rest of that non-empty subarray directly to the end of the main array.",
+      "student_persona_hint": "Thinking through the algorithm but stuck on an edge case.",
+      "partial_understanding": "The student understands the main loop of the merge process (comparing and copying) but hasn't considered the termination condition and the subsequent cleanup step.",
+      "id": "q_090",
+      "category": "III",
+      "topic": "merge_sort",
+      "topic_name": "Merge Sort"
+    },
+    {
+      "question": "I'm trying to understand the time complexity of build-heap. I know it calls heapify on about n/2 nodes, and a single heapify call is O(log n). So the total time must be O(n log n), but my textbook insists it's O(n). Is the book just simplifying, or am I missing something?",
+      "correct_answer": "The time complexity of build-heap is O(n). While the worst-case time for heapify on the root is O(log n), most nodes in the heap are near the bottom and have a very small height. The total work is the sum of the work for each node, which is proportional to its height. About n/2 nodes are leaves (height 0), n/4 are at height 1, and so on. This creates a mathematical series: Σ (from h=0 to log n) of [(n/2^(h+1)) * O(h)], which converges to O(n). It's a tighter analysis than the simple upper bound of O(n log n).",
+      "student_persona_hint": "Confused by a seemingly logical contradiction.",
+      "partial_understanding": "The student knows build-heap calls heapify repeatedly and knows the complexity of a single heapify call. They are incorrectly applying the worst-case complexity to all calls instead of considering the varying heights of the nodes.",
+      "id": "q_091",
+      "category": "III",
+      "topic": "heaps",
+      "topic_name": "Heaps & Priority Queues"
+    },
+    {
+      "question": "For the extract-min operation, I get that you remove the root. Then to fix the heap, you have to bring up the smaller of its children to the root, and then you repeat that process down the tree until the heap property is restored. Is that the whole process?",
+      "correct_answer": "That's the second part, which is called 'heapify' or 'sift-down'. You're missing a crucial first step. After removing the root, a hole is left. To fill it and maintain the complete binary tree structure, you take the very last element in the heap (the rightmost leaf at the bottom level), move it into the root's position, and decrease the heap's size. Then, you perform the sift-down process you described on this new root to restore the heap property.",
+      "student_persona_hint": "Seeking confirmation on an oversimplified process.",
+      "partial_understanding": "The student correctly identifies that the root is removed and that a 'sift-down' or 'heapify' process is needed to restore order. They are missing the critical step of swapping the last element into the root position before sifting down.",
+      "id": "q_092",
+      "category": "III",
+      "topic": "heaps",
+      "topic_name": "Heaps & Priority Queues"
+    },
+    {
+      "question": "I'm solid on the array representation of a heap. For a parent at index `i`, the children are at `2i+1` and `2i+2`. To go from a child `j` back to its parent, the formula is just `floor(j/2)`, right? It seems too simple.",
+      "correct_answer": "You're very close! The formula `floor(j/2)` is correct for a 1-indexed array. However, for the more common 0-indexed array (where children are at 2i+1 and 2i+2), the formula for finding the parent of a node at index `j` is `floor((j - 1) / 2)`. You need to subtract 1 before dividing to correctly map both left (odd index) and right (even index) children back to the same parent index.",
+      "student_persona_hint": "Unsure about a small but crucial detail.",
+      "partial_understanding": "The student knows the parent-to-child formula perfectly for a 0-indexed array but is applying the parent-finding formula from a 1-indexed array, leading to an off-by-one error.",
+      "id": "q_093",
+      "category": "III",
+      "topic": "heaps",
+      "topic_name": "Heaps & Priority Queues"
+    },
+    {
+      "question": "In Dijkstra's algorithm, we use a min-priority queue to store vertices and their distances. I get that it helps us pull out the vertex with the smallest distance. But couldn't we just use a simple list and scan through it to find the minimum each time? Is the priority queue just a performance optimization?",
+      "correct_answer": "Yes, it is a performance optimization, but it's a critical one that fundamentally changes the algorithm's efficiency. Using a list and scanning for the minimum takes O(V) time for each vertex. This leads to an overall complexity of O(V^2). A binary heap-based priority queue performs the 'extract-min' operation in O(log V) time. This simple change improves the overall complexity to O(E log V), which is dramatically faster for most graphs, especially sparse ones.",
+      "student_persona_hint": "Understands the 'what' but not the 'why'.",
+      "partial_understanding": "The student knows a priority queue is used in Dijkstra's to find the minimum distance node. They haven't connected this data structure choice to the overall asymptotic complexity of the algorithm, seeing it as a minor improvement rather than a fundamental one.",
+      "id": "q_094",
+      "category": "III",
+      "topic": "heaps",
+      "topic_name": "Heaps & Priority Queues"
+    },
+    {
+      "question": "Okay, for an LR rotation, you first do a right rotation on the new node's parent, and then a left rotation on the grandparent, right? I think that's how it balances.",
+      "correct_answer": "Not quite. For an LR imbalance, you first perform a *left* rotation on the imbalanced node's *left child*. This transforms the imbalance into an LL case. Then, you perform a *right* rotation on the original imbalanced node (the grandparent) to complete the rebalancing.",
+      "student_persona_hint": "Confidently stating a slightly incorrect process.",
+      "partial_understanding": "Knows that an LR case requires two separate rotations but has the order and pivot nodes of the rotations incorrect.",
+      "id": "q_095",
+      "category": "III",
+      "topic": "avl_tree",
+      "topic_name": "AVL Trees"
+    },
+    {
+      "question": "So after an insertion, I walk back up the tree from the new leaf and update the balance factors. If any node's balance factor becomes exactly 2, that's when I need to do a rotation, correct?",
+      "correct_answer": "You're on the right track with walking up the tree and checking balance factors. The trigger for rebalancing is when a node's balance factor becomes `+2` or `-2`. In other words, when its absolute value becomes greater than 1. A factor of `+2` signifies the left subtree is too tall, while `-2` signifies the right subtree is too tall. The sign is crucial for determining which type of rotation to perform.",
+      "student_persona_hint": "Seeking confirmation on a very specific detail.",
+      "partial_understanding": "Understands the process of traversing up the tree to check balance factors but is only considering the positive case (+2) for the imbalance trigger, missing the negative case (-2).",
+      "id": "q_096",
+      "category": "III",
+      "topic": "avl_tree",
+      "topic_name": "AVL Trees"
+    },
+    {
+      "question": "AVL trees are more strictly balanced than Red-Black trees, so they must require fewer rotations on average. This means insertions are faster in AVLs, right? But lookups are probably about the same.",
+      "correct_answer": "Because AVL trees are more strictly balanced, their height is guaranteed to be slightly less than a Red-Black tree for the same number of nodes. This leads to faster lookups. However, maintaining this strict balance requires rotations more frequently, making insertions and deletions generally slower in AVL trees compared to Red-Black trees, which can tolerate a temporary, less strict balance.",
+      "student_persona_hint": "Making a logical deduction from a faulty premise.",
+      "partial_understanding": "Correctly identifies that AVL trees are more strictly balanced than Red-Black trees but incorrectly deduces the performance implications for insertions vs. lookups.",
+      "id": "q_097",
+      "category": "III",
+      "topic": "avl_tree",
+      "topic_name": "AVL Trees"
+    },
+    {
+      "question": "I know that searching an AVL tree is O(log n) because the height is logarithmic. It's because the balance factor is kept at -1, 0, or 1... but I'm not totally sure how that rule *guarantees* the height stays small.",
+      "correct_answer": "The height property (balance factor of any node is in {-1, 0, 1}) guarantees a logarithmic height because it prevents the tree from becoming degenerate like a linked list. The worst-case AVL tree, one with the maximum height for N nodes, has a structure related to Fibonacci numbers. The number of nodes in an AVL tree of height h, N(h), grows exponentially with h. Therefore, the height h can only grow logarithmically with respect to the number of nodes N, which is why we get O(log n) performance for searches.",
+      "student_persona_hint": "Understands the consequence but not the underlying proof.",
+      "partial_understanding": "Correctly links the O(log n) search time to the tree's logarithmic height and the balance factor rule, but is missing the reasoning for *why* that rule enforces a logarithmic height.",
+      "id": "q_098",
+      "category": "III",
+      "topic": "avl_tree",
+      "topic_name": "AVL Trees"
+    },
+    {
+      "question": "For a dynamic array that doubles in size, I get that the aggregate method sums all costs and divides by n. The total cost is O(n) for the simple insertions, plus the costs for copying when it resizes. The copying costs are 1 + 2 + 4 + 8... up to n. Isn't that sum going to be huge, making the total cost more than O(n)? I don't see how it averages out to O(1).",
+      "correct_answer": "The key is that the sum of the copying costs (1 + 2 + 4 + ... + 2^k, where 2^k is the last resize smaller than n) is a geometric series. A geometric series of this form sums to 2^(k+1) - 1. Since n is always greater than 2^k, this sum is less than 2n. Therefore, the total cost for n insertions is at most n (for the insertions) + 2n (for all the copying), which is 3n. The total cost is O(n). The amortized cost is the total cost divided by the number of operations, O(n) / n, which is O(1).",
+      "student_persona_hint": "Thoughtful but stuck on the summation math.",
+      "partial_understanding": "The student correctly identifies the aggregate method's formula (Total Cost / n) and correctly identifies the two sources of cost: simple insertions and expensive copying. They even correctly list the sequence of resizing costs.",
+      "id": "q_099",
+      "category": "III",
+      "topic": "amortized",
+      "topic_name": "Amortized Analysis"
+    },
+    {
+      "question": "For a stack with a MULTIPOP operation, I'm using the accounting method. I know the idea is to overcharge the cheap PUSH operation and save that 'credit' to pay for the expensive MULTIPOP later. So I assign some credit when an item is pushed. Do I just set the amortized cost of PUSH to O(1) and that's enough?",
+      "correct_answer": "You're exactly on the right track. To make it work, we need to be specific. We set the amortized cost of a PUSH to a constant value of 2. The actual cost is 1, so the extra 1 is stored as 'credit' with the element on the stack. When MULTIPOP(k) is called, its actual cost is k. However, each of the k elements being popped has 1 unit of credit. We use these k credits to pay for the entire operation, making the amortized cost of MULTIPOP 0. This ensures the total credit never becomes negative.",
+      "student_persona_hint": "Almost there, just needs a specific value.",
+      "partial_understanding": "The student understands the entire concept of the accounting method: overcharging cheap operations (PUSH) to create a 'credit balance' that pays for future, expensive operations (MULTIPOP). They are only missing the specific constant value needed for the amortized cost.",
+      "id": "q_100",
+      "category": "III",
+      "topic": "amortized",
+      "topic_name": "Amortized Analysis"
+    }
+  ]
+}
